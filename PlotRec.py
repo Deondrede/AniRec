@@ -5,6 +5,10 @@ import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 from sklearn.metrics.pairwise import linear_kernel
 
+# need to download nltk packages for this to run correctly
+import nltk
+words = set(nltk.corpus.words.words())
+
 # Storing data in a variable
 # using low_memory=false to make sure it doesn't infer what type of data it's trying to parse through
 # Reference: https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html
@@ -46,6 +50,12 @@ def genre_clean(x):
 tfidf = TfidfVectorizer(stop_words='english')
 countVec = CountVectorizer(stop_words='english')
 
+
+# getting rid of the non-english words (I hope)
+for x in range(metadata['Description'].shape[0]):
+    metadata['Description'].iloc[x] = " ".join(w for w in nltk.wordpunct_tokenize(metadata['Description'].iloc[x]) if w.lower() in words or not w.isalpha())
+
+# print(metadata['Description'][0:10])
 # replace not a number values with an empty string
 metadata['Description'] = metadata['Description'].fillna('')
 metadata['Genres'] = metadata.apply(genre_clean, axis=1)
@@ -94,4 +104,4 @@ def get_recs(title):
     return metadata['Title'].iloc[anime_indices]
 
 
-print(get_recs("Gintama"))
+print(get_recs("Mirai Nikki: Redial"))
