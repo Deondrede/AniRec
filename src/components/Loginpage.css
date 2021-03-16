@@ -3,4 +3,9 @@
     width: 650px;
     text-align: center;
     background-color: rgb(117, 165, 255);
+    color: white;
   }
+
+.logbg {
+  background-color: rgb(204, 204, 204);
+}
