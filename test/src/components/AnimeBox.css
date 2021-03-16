@@ -1,0 +1,11 @@
+.anime {
+    height: 200px;
+    width: 250px;
+    border: 2px solid black;
+    display: inside;
+    flex-direction: column;
+  }
+
+  .anime-search {
+    text-align: center;
+  }

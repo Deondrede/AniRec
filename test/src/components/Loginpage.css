@@ -1,0 +1,12 @@
+.login {
+    min-height: 100%;
+    width: 30%;
+    text-align: center;
+    background-color: rgb(117, 165, 255);
+    color: white;
+  }
+
+.logbg {
+  height: 100vh;
+  background-color: rgb(204, 204, 204);
+}
