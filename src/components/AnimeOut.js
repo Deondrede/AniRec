@@ -4,8 +4,16 @@ import ShowAnime from './ShowAnime.js';
 function AnimeOut(){
     return(
         <div>
+            <div className="anime-search">
+                <form className="search-form">
+                    <input className="search-bar" type="text" />
+                    <button className="search-button" type="submit">
+                        Search
+                    </button>
+                </form>
+            </div>
             <div>
-                <h1>Recommended</h1>
+                <h2>Recommended | Now Airing | Try This | Trending</h2>
             </div>
             <ShowAnime 
             name="Test Anime" 

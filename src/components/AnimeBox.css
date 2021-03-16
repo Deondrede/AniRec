@@ -5,3 +5,7 @@
     display: inside;
     flex-direction: column;
   }
+
+  .anime-search {
+    text-align: center;
+  }
