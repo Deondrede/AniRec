@@ -1,17 +1,39 @@
 .login {
     text-align: center;
-    width: 30%;
-    background-color: rgb(117, 165, 255);
+    width: 35%;
+    height: 100vh;
+    background-color: #5B84D7;
     color: black;
   }
 
-.test{
-  width: 70%;
-  background-color: ffffff;
+#tabs{
+  text-align: center;
+  width: 35%;
+  height: 100%;
+
+  background-color: #5B84D7;
+  color: black;
+}
+
+#tabs .col {
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 .container {
   height: 100vh;
   width: 100vh;
   background-color: rgb(204, 204, 204);
+}
+
+#sign_in{
+  background-color: #5B84D7;
+  width: 50%;
+  border-radius: 0px 0px 5px 0px;
+}
+
+#register{
+  background-color: #AA80FF;
+  width: 50%;
+  border-radius: 0px 0px 0px 5px;
 }

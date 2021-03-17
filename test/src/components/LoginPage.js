@@ -1,6 +1,6 @@
 import React from "react";
 import "./Loginpage.css";
-import { Container, Row, Col } from "react-bootstrap"
+import { Container, Row, Col, Button } from "react-bootstrap";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import Login from "./login.component";
@@ -10,14 +10,14 @@ function LoginPage(){
 
     return(
             <Container fluid>
-                <Row className="login">
+                <Row id="tabs">
                     <Col>
-                        <button>
+                        <Button id="sign_in" variant="flat">
                             <Link to={"/log-in"}>Log in</Link>
-                        </button>
-                        <button>
+                        </Button>
+                        <Button  id="register" variant="flat">
                             <Link to={"/register"}>Register</Link>
-                        </button>                    
+                        </Button>                    
                     </Col>
                 </Row>
                 <Row className="login">
@@ -39,9 +39,8 @@ function LoginPage(){
                         </Router>
                     </Col>                    
                 </Row>
-                <Row className="test">
-                    <p>Testing block</p>
-                </Row>
+
+
             </Container>
     );
 }
