@@ -1,10 +1,11 @@
 import React from "react";
 import "./Loginpage.css";
-import { Container, Row, Col, Button } from "react-bootstrap";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import Login from "./login.component";
 import SignUp from "./signup.component";
+import { Container, Row, Col, Button } from "react-bootstrap";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
 //function for login page = home page
 function LoginPage(){
 

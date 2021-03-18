@@ -6,6 +6,28 @@
     flex-direction: column;
   }
 
-  .anime-search {
+.anime-search {
     text-align: center;
   }
+
+h2{
+  /*text-decoration: underline; */
+  border-bottom: solid 5px;
+}
+
+span{
+  font-size: 30px;
+  border-bottom: solid 5px;
+}
+
+#feed_body .col{
+  padding: 0px 0px 0px 0px;
+}
+
+#feed_col{
+  max-width: 22%;
+}
+
+#spacing{
+  max-width: 4%;
+}

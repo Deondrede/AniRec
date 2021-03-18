@@ -1,8 +1,12 @@
 import React from "react";
 import ShowAnime from './ShowAnime.js';
+
+import { Container, Row, Col, Button } from "react-bootstrap";
+
 //will be used as next page to list
 function AnimeOut(){
     return(
+        <Container>
         <div>
             <div className="anime-search">
                 <form className="search-form">
@@ -12,20 +16,65 @@ function AnimeOut(){
                     </button>
                 </form>
             </div>
-            <div>
-                <h2>Recommended | Now Airing | Try This | Trending</h2>
-            </div>
-            <ShowAnime 
-            name="Test Anime" 
-            image="[image]" 
-            genre= "action, adventure, tragedy, drama" 
-            studio="New Studio"/>
-            <ShowAnime 
-            name="Test Anime 2" 
-            image="[image]" 
-            genre= "romance, slice of life, comedy, shoujo" 
-            studio="Veteran Studio"/>
+            <Row id="feed_body">
+                <Col id="feed_col">
+                    <span><strong>Recommended</strong></span>
+                    <ShowAnime 
+                        name="Test Anime" 
+                        image="[image]" 
+                        genre= "action, adventure, tragedy, drama" 
+                        studio="New Studio"/>
+                    <ShowAnime 
+                        name="Test Anime 2" 
+                        image="[image]" 
+                        genre= "romance, slice of life, comedy, shoujo" 
+                        studio="Veteran Studio"/>
+                </Col>
+                <Col id="spacing"></Col>
+                <Col id="feed_col">
+                    <span><strong>Now Airing</strong></span>
+                    <ShowAnime 
+                        name="Test Anime" 
+                        image="[image]" 
+                        genre= "action, adventure, tragedy, drama" 
+                        studio="New Studio"/>
+                    <ShowAnime 
+                        name="Test Anime 2" 
+                        image="[image]" 
+                        genre= "romance, slice of life, comedy, shoujo" 
+                        studio="Veteran Studio"/>
+                </Col>
+                <Col id="spacing"></Col>
+                <Col id="feed_col">
+                    <span><strong>Try This</strong></span>
+                    <ShowAnime 
+                        name="Test Anime" 
+                        image="[image]" 
+                        genre= "action, adventure, tragedy, drama" 
+                        studio="New Studio"/>
+                    <ShowAnime 
+                        name="Test Anime 2" 
+                        image="[image]" 
+                        genre= "romance, slice of life, comedy, shoujo" 
+                        studio="Veteran Studio"/>
+                </Col>
+                <Col id="spacing"></Col>
+                <Col id="feed_col">
+                    <span><strong>Trending</strong></span>
+                    <ShowAnime 
+                        name="Test Anime" 
+                        image="[image]" 
+                        genre= "action, adventure, tragedy, drama" 
+                        studio="New Studio"/>
+                    <ShowAnime 
+                        name="Test Anime 2" 
+                        image="[image]" 
+                        genre= "romance, slice of life, comedy, shoujo" 
+                        studio="Veteran Studio"/>
+                </Col>
+            </Row>
         </div>
+        </Container>
     );
 }
 
