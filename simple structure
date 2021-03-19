@@ -1,0 +1,161 @@
+// global components
+// component, only after they successfully log in
+Header: <header />
+	In development: to simplify switching pages
+		logo
+		home 
+		anime
+	After deve:
+		logo:
+			onclick -> directs to homepage
+		search button -> to search for a anime
+			nice to have: if it is just a search icon that expands to a box when clicked on
+		hamburger menu:
+			onclick -> expands
+				settings:
+					// to be discussed later
+					onclick -> go to account settings
+				logout:
+					onclick -> logs user out and redirects to landing page
+					
+	
+	
+// component, only if they successfully log in
+// can discuss after, a really low priorty right now
+Footer: <footer />
+	About:
+		onclick -> about page
+			about the team, anirec, etc
+	Copyright stuff
+	Etc.
+
+
+landing page: <landing_page />
+	login_register tabs: <login_resiter_tabs />
+		// each should be its own class 
+		login button:
+			onclick -> check if state is currently on login 
+				if yes, nothing
+				if no, change to login state
+		register button: 
+			onclick -> chec kif state is currently on register
+				if yes, nothing
+				if no change to register state 
+		// if is first time user, will direct to preference quiz 
+				
+	login_regiester space: <login_register_space />
+		static logo (will have in both)
+		states: (try to see if possible to just turn one state's visiblity on/off)
+			login: blue
+				username/email box
+				password box
+				login button:
+					onclick -> django stuff 
+						if successfull, go to homepage
+						if not, error message
+			register: purple
+				username box (make sure it states as optional)
+				email box (mandatory)
+				password (mandatory)
+				confirm password (mandatory)
+				captcha (nice to have)
+				register button:
+					onclick -> django stuff
+						try to create account
+							email confirmation (nice to have)
+						spit error if something is wrong 
+
+home page: <homepage />
+	header
+	
+	display show space
+		// each in their own cols
+		// displays 4-5 shows initially
+		// nice to have:
+			// "show more button" that will lead to another page with more shows listed in a grid
+		
+		recommended
+		airing this season
+			show more onclick -> to list of animes being aired this season 
+		try this
+		trending
+			based off of most clicked/top rated/talked about (receently)
+		
+			// in each show "card" being displayed
+			show picture to the left
+			name of show
+			short beginning couple words/lines or discription (maybe)
+			genres of show 	
+			studio
+			starring VAs and director(s)
+	
+	footer
+	
+User account page:
+	header 
+	
+	functions:
+		username change 
+		password change
+		email change
+		take the preference quiz again
+		edit preferences
+		history viewing
+		watched, incomplete, planning to watch, in-progress lists (nice to have)
+		
+		delete account 
+		signout 
+		
+	footer
+	
+Show page:
+	header
+	
+	displays:
+		show picture
+		show name
+		synopsis
+		overall rating (clearly visiable, from average of rathing breakdown round up) 
+		rating breakdown round up 
+			ie - 
+				Plot:
+				Character:
+				Pacing: 
+				Animation:
+				Voice Acting: 
+				Etc:
+		Director and staff
+		Voice Actors
+		Studio
+		Airing Dates
+		
+	footer
+	
+// individual staff, director, voice actor dedicated page
+Personalities page:
+	header
+	
+	image of personality 
+	name
+	short description
+	works
+	social media links
+	
+	footer
+
+// decidacted page to each studio	
+Studio page:
+	header 
+	
+	logo of studio
+	description
+	website
+	works
+	
+	footer
+	
+Airing now page:
+	option for choosing which season to view 
+		year and season (winter, spring, summer, fall)
+		
+

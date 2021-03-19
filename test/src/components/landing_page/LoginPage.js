@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Component, Fragment } from "react";
 import "./Loginpage.css";
 
 import Login from "./login.component";
@@ -9,17 +9,16 @@ import Header from "./Header"
 
 //function for login page = home page
 function LoginPage(){
-
     return(
         <Fragment>
             <Header />
             <Container fluid>
             <Row id="tabs">
                 <Col>
-                    <Button id="sign_in" variant="flat">
+                    <Button id="sign_in" variant="flat" onClick={}>
                         <Link id="tab_name" to={"/log-in"}>Log in</Link>
                     </Button>
-                    <Button  id="register" variant="flat">
+                    <Button  id="register" variant="flat" onClick={}>
                         <Link id="tab_name" to={"/register"}>Register</Link>
                     </Button>                    
                 </Col>
