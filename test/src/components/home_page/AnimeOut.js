@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import ShowAnime from './ShowAnime.js';
 
 import { Container, Row, Col, Button } from "react-bootstrap";
-import Header from "./Header"
+import Header from "../global_elements/Header"
 
 //will be used as next page to list
 function AnimeOut(){

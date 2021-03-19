@@ -15,10 +15,10 @@ function LoginPage(){
             <Container fluid>
             <Row id="tabs">
                 <Col>
-                    <Button id="sign_in" variant="flat" onClick={}>
+                    <Button id="sign_in" variant="flat">
                         <Link id="tab_name" to={"/log-in"}>Log in</Link>
                     </Button>
-                    <Button  id="register" variant="flat" onClick={}>
+                    <Button  id="register" variant="flat">
                         <Link id="tab_name" to={"/register"}>Register</Link>
                     </Button>                    
                 </Col>
