@@ -4,25 +4,30 @@ import "./login_register_space.component.css";
 import Login from "./login.component";
 import SignUp from "./signup.component";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Row, Col, Button } from "react-bootstrap";
 
 export default class LR_Space extends Component {
     render(){
         return(
             <Fragment>
-                <h1>AniRec</h1>
-                <Router>
-                    <div className="App">                
-                        <div className="outer">
-                            <div className="inner">
-                                <Switch>
-                                    <Route exact path='/' component={Login} />
-                                    <Route path="/log-in" component={Login} />
-                                    <Route path="/register" component={SignUp} />
-                                </Switch>
+                <Row id="logo">
+                    <h1>AniRec</h1>
+                </Row>
+                <Row  id="main_content">
+                    <Router>
+                        <div className="App">                
+                            <div className="outer">
+                                <div className="inner">
+                                    <Switch id="form_content">
+                                        <Route exact path='/' component={Login} />
+                                        <Route path="/log-in" component={Login} />
+                                        <Route path="/register" component={SignUp} />
+                                    </Switch>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </Router>
+                    </Router>
+                </Row>
             </Fragment>
         );
     }

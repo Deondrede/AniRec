@@ -3,6 +3,7 @@ import ShowAnime from './ShowAnime.js';
 
 import { Container, Row, Col, Button } from "react-bootstrap";
 import Header from "../global_elements/Header"
+import TopSpace from "../global_elements/TopSpacer"
 
 //will be used as next page to list
 function AnimeOut(){
@@ -10,18 +11,10 @@ function AnimeOut(){
         <Fragment>
             <Header />
             <Container>
-            <div>
-                <div className="anime-search">
-                    <form className="search-form">
-                        <input className="search-bar" type="text" />
-                        <button className="search-button" type="submit">
-                            Search
-                        </button>
-                    </form>
-                </div>
+                <TopSpace />
                 <Row id="feed_body">
                     <Col id="feed_col">
-                        <span><strong>Recommended</strong></span>
+                        <span id="pink"><strong>Recommended</strong></span>
                         <ShowAnime 
                             name="Test Anime" 
                             image="[image]" 
@@ -35,7 +28,7 @@ function AnimeOut(){
                     </Col>
                     <Col id="spacing"></Col>
                     <Col id="feed_col">
-                        <span><strong>Now Airing</strong></span>
+                        <span id="purple"><strong>Now Airing</strong></span>
                         <ShowAnime 
                             name="Test Anime" 
                             image="[image]" 
@@ -49,7 +42,7 @@ function AnimeOut(){
                     </Col>
                     <Col id="spacing"></Col>
                     <Col id="feed_col">
-                        <span><strong>Try This</strong></span>
+                        <span id="pink"><strong>Try This</strong></span>
                         <ShowAnime 
                             name="Test Anime" 
                             image="[image]" 
@@ -63,7 +56,7 @@ function AnimeOut(){
                     </Col>
                     <Col id="spacing"></Col>
                     <Col id="feed_col">
-                        <span><strong>Trending</strong></span>
+                        <span id="purple"><strong>Trending</strong></span>
                         <ShowAnime 
                             name="Test Anime" 
                             image="[image]" 
@@ -76,7 +69,6 @@ function AnimeOut(){
                             studio="Veteran Studio"/>
                     </Col>
                 </Row>
-            </div>
             </Container>
         </Fragment>
 

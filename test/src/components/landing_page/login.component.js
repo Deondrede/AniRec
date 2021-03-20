@@ -4,9 +4,6 @@ export default class Login extends Component {
     render() {
         return (
             <form>
-
-                <h3>Log in</h3>
-
                 <div className="form-group">
                     <input type="username" className="form-control" placeholder="Username" />
                 </div>

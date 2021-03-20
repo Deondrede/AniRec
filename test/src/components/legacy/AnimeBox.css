@@ -17,7 +17,7 @@ h2{
 
 span{
   font-size: 25px;
-  border-bottom: solid 5px;
+  border-bottom: solid 3px;
 }
 
 #feed_body .col{
@@ -30,4 +30,16 @@ span{
 
 #spacing{
   max-width: 4%;
+}
+
+.container{
+  background-color: white;
+}
+
+#pink{
+  color: #FF66CC;
+}
+
+#purple{
+  color: #AA80FF;
 }
