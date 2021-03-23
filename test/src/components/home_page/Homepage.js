@@ -14,59 +14,87 @@ function Homepage(){
                 <TopSpace />
                 <Row id="feed_body">
                     <Col id="feed_col">
-                        <span id="pink"><strong>Recommended</strong></span>
-                        <ShowCard 
-                            name="Test Anime" 
-                            image="[image]" 
-                            genre= "action, adventure, tragedy, drama" 
-                            studio="New Studio"/>
-                        <ShowCard 
-                            name="Test Anime 2" 
-                            image="[image]" 
-                            genre= "romance, slice of life, comedy, shoujo" 
-                            studio="Veteran Studio"/>
+                        <Row id="subtitle">
+                            <Col id="pink">
+                                <span><strong>Recommended</strong></span>
+                            </Col>
+                            <Col id="grey"><span></span></Col>
+                        </Row>
+                        <Row>
+                            <ShowCard 
+                                name="Test Anime" 
+                                image="[image]" 
+                                genre= "action, adventure, tragedy, drama" 
+                                studio="New Studio"/>
+                            <ShowCard 
+                                name="Test Anime 2" 
+                                image="[image]" 
+                                genre= "romance, slice of life, comedy, shoujo" 
+                                studio="Veteran Studio"/>
+                        </Row>
                     </Col>
                     <Col id="spacing"></Col>
                     <Col id="feed_col">
-                        <span id="purple"><strong>Now Airing</strong></span>
-                        <ShowCard 
-                            name="Test Anime" 
-                            image="[image]" 
-                            genre= "action, adventure, tragedy, drama" 
-                            studio="New Studio"/>
-                        <ShowCard 
-                            name="Test Anime 2" 
-                            image="[image]" 
-                            genre= "romance, slice of life, comedy, shoujo" 
-                            studio="Veteran Studio"/>
+                        <Row id="subtitle">
+                            <Col id="purple">
+                                <span><strong>Airing Now</strong></span>
+                            </Col>
+                            <Col id="grey"><span></span></Col>
+                        </Row>
+                        <Row>
+                            <ShowCard 
+                                name="Test Anime" 
+                                image="[image]" 
+                                genre= "action, adventure, tragedy, drama" 
+                                studio="New Studio"/>
+                            <ShowCard 
+                                name="Test Anime 2" 
+                                image="[image]" 
+                                genre= "romance, slice of life, comedy, shoujo" 
+                                studio="Veteran Studio"/>
+                        </Row>
                     </Col>
                     <Col id="spacing"></Col>
                     <Col id="feed_col">
-                        <span id="pink"><strong>Try This</strong></span>
-                        <ShowCard 
-                            name="Test Anime" 
-                            image="[image]" 
-                            genre= "action, adventure, tragedy, drama" 
-                            studio="New Studio"/>
-                        <ShowCard 
-                            name="Test Anime 2" 
-                            image="[image]" 
-                            genre= "romance, slice of life, comedy, shoujo" 
-                            studio="Veteran Studio"/>
+                        <Row id="subtitle">
+                            <Col id="pink">    
+                                <span><strong>Try This</strong></span>
+                            </Col>
+                            <Col id="grey"><span></span></Col>
+                        </Row>
+                        <Row>
+                            <ShowCard 
+                                name="Test Anime" 
+                                image="[image]" 
+                                genre= "action, adventure, tragedy, drama" 
+                                studio="New Studio"/>
+                            <ShowCard 
+                                name="Test Anime 2" 
+                                image="[image]" 
+                                genre= "romance, slice of life, comedy, shoujo" 
+                                studio="Veteran Studio"/>
+                        </Row>
                     </Col>
                     <Col id="spacing"></Col>
                     <Col id="feed_col">
-                        <span id="purple"><strong>Trending</strong></span>
-                        <ShowCard 
-                            name="Test Anime" 
-                            image="[image]" 
-                            genre= "action, adventure, tragedy, drama" 
-                            studio="New Studio"/>
-                        <ShowCard 
-                            name="Test Anime 2" 
-                            image="[image]" 
-                            genre= "romance, slice of life, comedy, shoujo" 
-                            studio="Veteran Studio"/>
+                        <Row id="subtitle">
+                            <Col id="purple">    
+                                <span><strong>Trending</strong></span>
+                            </Col>
+                            <Col id="grey"><span></span></Col>
+                        </Row>
+                        <Row>
+                            <ShowCard 
+                                name="Test Anime" 
+                                image="[image]" 
+                                genre= "action, adventure, tragedy, drama" 
+                                studio="New Studio"/>
+                            <ShowCard 
+                                name="Test Anime 2" 
+                                image="[image]" 
+                                genre= "romance, slice of life, comedy, shoujo" 
+                                studio="Veteran Studio"/>
+                        </Row>
                     </Col>
                 </Row>
             </Container>

@@ -15,6 +15,17 @@ h2{
   border-bottom: solid 5px;
 }
 
+#subtitle{
+    width:100%;
+    margin: auto;
+}
+
+#grey{
+    margin-bottom: 1px;
+    border-bottom: solid 3px;
+    color: #D8D8D8;
+}
+
 span{
   font-size: 25px;
   border-bottom: solid 3px;
@@ -26,6 +37,7 @@ span{
 
 #feed_col{
   max-width: 22%;
+  border: solid 1px;
 }
 
 #spacing{
