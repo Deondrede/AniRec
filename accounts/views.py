@@ -6,10 +6,12 @@ from django.core import serializers
 from django.http import HttpResponse
 
 
-class SignUpView(generic.CreateView):
-    form_class = UserCreationForm
-    success_url = reverse_lazy('login')
-    template_name = 'registration/signup.html'
+def createUser(request):
+    if request.method == "POST":
+        print(request.POST)
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        User.objects.create(username=username,password=password)
 
 def index(request):
     all_objects = list(User.objects.all())
