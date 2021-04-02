@@ -87,7 +87,7 @@ const json = {
            ],
            "choicesOrder": "asc",
            "colCount": 2,
-           "maxSelectedChoices": 17,
+           "maxSelectedChoices": 18,
            "selectAllText": "Select All Genres"
           },
           {
