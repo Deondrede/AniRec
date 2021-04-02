@@ -1,26 +1,28 @@
 import React, { Fragment } from "react";
-import "./Homepage.css";
+import "./ShowCard.css";
 //frame for the anime to show
 import { Container, Row, Col } from "react-bootstrap";
 
 function ShowCard(props){
     return(
         <Fragment>
-            <Container>
-                <Row>
+            <Container id="card">
+                <Row id="card_body">
                     <Col id="image">
-                        <h3>{props.image}</h3>
+                        <p id="text">{props.image}</p>
                     </Col>
                     <Col id="description">
                         <Row id="title">
-                            <h3>Title: {props.name}</h3>
+                            <p id="text">{props.name}</p>
                         </Row>
-                        <Row id="synopsis">
-                            <h3>Placeholder</h3>
+                        <Row id="genres">
+                            <p id="text">{props.genre}</p>
                         </Row>
-                        <Row id="extra">
-                            <h4>Genres: {props.genre}</h4>
-                            <h4>Studio: {props.studio}</h4>
+                        <Row id="studio">
+                            <p id="text">{props.studio}</p>
+                        </Row>
+                        <Row id="key_staff">
+                            <p id="text">{props.key_staff}</p>
                         </Row>
                     </Col>
                 </Row>

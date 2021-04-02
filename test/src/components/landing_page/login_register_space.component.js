@@ -13,7 +13,7 @@ export default class LR_Space extends Component {
                 <Row id="logo">
                     <h1>AniRec</h1>
                 </Row>
-                <Row  id="main_content">
+                <Row id="login_space">
                     <Router>
                         <div className="App">                
                             <div className="outer">

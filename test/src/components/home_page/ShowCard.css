@@ -1,0 +1,48 @@
+#image{
+    font-size: 15px;
+    max-width: 45%;
+    border-right: solid 1px;
+    border-bottom: solid 1px;
+
+}
+
+#description{
+    width: 55%;
+}
+
+#title{
+    font-size: 20px;
+    margin-left: 0px;
+    margin-right: 0px;
+    border-bottom: solid 1px;
+}
+
+#text{
+    padding: 1px;
+    margin-bottom: 0px;
+    line-height: 1;
+}
+
+#genres{
+    font-size: 15px;
+    margin-left: 0px;
+    margin-right: 0px;
+    border-bottom: solid 1px;
+}
+
+#studio{
+    font-size: 15px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+#key_staff{
+    font-size: 15px;
+    margin-left: 0px;
+    margin-right: 0px;
+    border-bottom: solid 1px;
+}
+
+#card{
+    height: fit-content;
+}

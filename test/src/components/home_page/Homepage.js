@@ -1,9 +1,10 @@
 import React, { Fragment } from "react";
 import ShowCard from './ShowCard.js';
-
-import { Container, Row, Col, Button } from "react-bootstrap";
 import Header from "../global_elements/Header"
 import TopSpace from "../global_elements/TopSpacer"
+import './Homepage.css';
+
+import { Container, Row, Col, Button } from "react-bootstrap";
 
 //will be used as next page to list
 function Homepage(){
@@ -16,16 +17,27 @@ function Homepage(){
                     <Col id="feed_col">
                         <Row id="subtitle">
                             <Col id="pink">
-                                <span><strong>Recommended</strong></span>
+                                <strong id="recommended">Recommended</strong>
                             </Col>
                             <Col id="grey"><span></span></Col>
                         </Row>
-                        <Row>
+                        <Row id="main_content">
                             <ShowCard 
-                                name="Test Anime" 
+                                name="Horimiya" 
                                 image="[image]" 
-                                genre= "action, adventure, tragedy, drama" 
-                                studio="New Studio"/>
+                                genre= "Slice of Life, Comedy, Romance, School" 
+                                studio="CoverWorks"
+                                key_staff="Tomatsu Haruka, Uchiyama Kouki"/>
+                            <ShowCard 
+                                name="Test Anime 2" 
+                                image="[image]" 
+                                genre= "romance, slice of life, comedy, shoujo" 
+                                studio="Veteran Studio"/>
+                            <ShowCard 
+                                name="Test Anime 2" 
+                                image="[image]" 
+                                genre= "romance, slice of life, comedy, shoujo" 
+                                studio="Veteran Studio"/>
                             <ShowCard 
                                 name="Test Anime 2" 
                                 image="[image]" 
@@ -37,11 +49,11 @@ function Homepage(){
                     <Col id="feed_col">
                         <Row id="subtitle">
                             <Col id="purple">
-                                <span><strong>Airing Now</strong></span>
+                                <strong id="recommended">Airing</strong>
                             </Col>
                             <Col id="grey"><span></span></Col>
                         </Row>
-                        <Row>
+                        <Row id="main_content">
                             <ShowCard 
                                 name="Test Anime" 
                                 image="[image]" 
@@ -62,7 +74,7 @@ function Homepage(){
                             </Col>
                             <Col id="grey"><span></span></Col>
                         </Row>
-                        <Row>
+                        <Row id="main_content">
                             <ShowCard 
                                 name="Test Anime" 
                                 image="[image]" 
@@ -83,7 +95,7 @@ function Homepage(){
                             </Col>
                             <Col id="grey"><span></span></Col>
                         </Row>
-                        <Row>
+                        <Row id="main_content">
                             <ShowCard 
                                 name="Test Anime" 
                                 image="[image]" 

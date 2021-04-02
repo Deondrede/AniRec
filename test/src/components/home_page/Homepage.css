@@ -21,14 +21,16 @@ h2{
 }
 
 #grey{
-    margin-bottom: 1px;
     border-bottom: solid 3px;
     color: #D8D8D8;
 }
 
 span{
   font-size: 25px;
-  border-bottom: solid 3px;
+}
+
+#recommended{
+  font-size: 25px;
 }
 
 #feed_body .col{
@@ -37,7 +39,6 @@ span{
 
 #feed_col{
   max-width: 22%;
-  border: solid 1px;
 }
 
 #spacing{
@@ -50,8 +51,18 @@ span{
 
 #pink{
   color: #FF66CC;
+  border-bottom: solid 3px; 
 }
 
 #purple{
   color: #AA80FF;
+  border-bottom: solid 3px;
+}
+
+#main_content{
+  border: solid 1px;
+  height: auto;
+  color: black;
+  padding: 0px 0px 0px 0px;
+  margin: auto;
 }

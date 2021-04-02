@@ -27,6 +27,11 @@ function Navigate() {
               Anime
             </Link>
           </li>
+          <li>
+            <Link to="/ShowPage">
+              ShowPage
+            </Link>
+          </li>
         </ul>
       </div>
     </div>
