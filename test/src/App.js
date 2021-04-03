@@ -4,6 +4,7 @@ import Navigate from "./components/Navigate.js";
 import LandingPage from "./components/landing_page/LandingPage.js";
 import Homepage from "./components/home_page/Homepage.js";
 import ShowPage from "./components/content_pages/show_page.js";
+import LoginPage from "./LoginPage.js";
 import "./App.css";
 function App() {
       return (
@@ -12,6 +13,7 @@ function App() {
             <Route path="/" exact component={() => <LandingPage />} />
             <Route path="/Anime" exact component={() => <Homepage />} />
             <Route path="/ShowPage" exact component={() => <ShowPage />} />
+            <Route path="/LoginPage" exact component={() => <LoginPage />} />
           </Switch>
         </Router>
       );

@@ -1,13 +1,48 @@
 #sign_in{
     background-color: #5B84D7;
-    width: 50%;
     border-radius: 0px 0px 5px 0px;
+    width: 100%;
     color: white;
 }
 
 #register{
     background-color: #AA80FF;
-    width: 50%;
+    width: 100%;
     border-radius: 0px 0px 0px 5px;
     color: white;
+}
+
+#tab_name{
+    width: 50%;
+    color:white;
+}
+
+#landing_tabs{
+    width:100%;
+
+    margin: 0 0 0 0;
+}
+
+#inner{
+    height: 100vh;
+}
+
+#outer{
+    margin: 0 0 0 0;
+    width: 100%;
+}
+
+#logo{
+    height: 25%;
+    min-height: 100px;
+    color: white;
+    padding: 25% 25% 25% 25%; 
+    margin: auto;
+    align-content: center;
+}
+
+#lr_comp{
+    margin:auto;
+    align-content: center;
+    
 }

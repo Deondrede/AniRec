@@ -10,9 +10,7 @@ export default class LR_Space extends Component {
     render(){
         return(
             <Fragment>
-                <Row id="logo">
-                    <h1>AniRec</h1>
-                </Row>
+
                 <Row id="login_space">
                     <Router>
                         <div className="App">                

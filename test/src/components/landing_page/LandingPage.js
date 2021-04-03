@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Header from "../global_elements/Header"
 
 import LR_Tabs from "./login_register_tabs.component";
-import LR_Space from "./login_register_space.component";
+{/*import LR_Space from "./login_register_space.component";*/}
 
 //function for landing page
 function LandingPage(){
@@ -16,17 +16,19 @@ function LandingPage(){
         <Fragment>
             <Header />
             <Container fluid>
-            <Row id="tabs">
-                <Col>
+            <Row id="landing_page_body">
+                <Col id="login_space">
                     <LR_Tabs />
                 </Col>
+                <Col id="wallpaper">
+                </Col>
             </Row>
-            <Row id="login">
+            {/*<Row id="login">
                 <Col>
                     <LR_Space />
-                </Col>                    
-            </Row>
-        </Container>
+                </Col>  
+            </Row>*/}                  
+            </Container>
         </Fragment>
   
     );
