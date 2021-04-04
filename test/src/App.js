@@ -9,8 +9,6 @@ import "./App.css";
 
 import {ApolloClient, InMemoryCache, ApolloProvider, HttpLink, from, } from '@apollo/client'
 import {onError} from '@apollo/client/link/error'
-import logo from './logo.svg';
-import GetAnime from './Components/GetAnime'
 
 const errorLink = onError(({ graphqlErrors, networkError }) => {
   if (graphqlErrors){
@@ -31,20 +29,19 @@ const client = new ApolloClient({
 
 function App() {
       return (
-        <Fragment>
-          <Router>
-            <Switch>
-              <Route path="/" exact component={() => <LandingPage />} />
-              <Route path="/Anime" exact component={() => <Homepage />} />
-              <Route path="/ShowPage" exact component={() => <ShowPage />} />
-              <Route path="/LoginPage" exact component={() => <LoginPage />} />
-            </Switch>
-          </Router>
-          <ApolloProvider client={client}>
-              {" "}
-              <GetAnime />
-          </ApolloProvider>
-        </Fragment>
+        <ApolloProvider client={client}>
+        {" "}
+          <Fragment>
+            <Router>
+              <Switch>
+                <Route path="/" exact component={() => <LandingPage />} />
+                <Route path="/Anime" exact component={() => <Homepage />} />
+                <Route path="/ShowPage" exact component={() => <ShowPage />} />
+                <Route path="/LoginPage" exact component={() => <LoginPage />} />
+              </Switch>
+            </Router>
+          </Fragment>
+        </ApolloProvider>
       );
 }
 

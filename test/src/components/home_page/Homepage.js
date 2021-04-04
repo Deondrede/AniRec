@@ -1,25 +1,13 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment } from "react";
 import ShowCard from './ShowCard.js';
 import Header from "../global_elements/Header"
 import TopSpace from "../global_elements/TopSpacer"
 import './Homepage.css';
 
-import {useQuery, gql} from '@apollo/client'
-import {LOAD_ANIME} from '../GraphQL/Queries'
-
 import { Container, Row, Col, Button } from "react-bootstrap";
 
 //will be used as next page to list
 function Homepage(){
-    const {error, loading, data} = useQuery(LOAD_ANIME);
-    useEffect(()=>{
-      console.log(data)
-    }, [data]
-  );
-  if (loading) return <p>Loading...</p>
-  if (error) return <p>Error :(</p>
-  var imgLink = data.Media.coverImage.large
-
     return(
         <Fragment>
             <Header />
@@ -35,7 +23,7 @@ function Homepage(){
                         </Row>
                         <Row id="main_content">
                             <ShowCard 
-                                name={`${data.Media.title.english}`}
+                                name="Horimiya"
                                 image="[image]" 
                                 genre= "Slice of Life, Comedy, Romance, School" 
                                 studio="CoverWorks"
