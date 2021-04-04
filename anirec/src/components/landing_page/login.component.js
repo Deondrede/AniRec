@@ -30,8 +30,8 @@ function onLogin(){
     });
 }
 // Compare what's in the username and password text fields with what's in the database via a GET request
-// If they match then we can set the cookie to the username of the logged in user and redirect them to the main page
-// We can then use the cookie to determine what user info we need to load e.g preferred genres
+// If they match then we can set the key in local storage to the username of the logged in user and redirect them to the main page
+// We can then use what's in local storage to determine what user info we need to load e.g preferred genres
 
 
 //Probably don't need to set these CSRF tokens, but too lazy to remove to see what ungodly errors might appear
@@ -50,7 +50,7 @@ function register(){
     let password = document.getElementById("password").value;
     bodyFormData.append("username", username);
     bodyFormData.append("password", password);
-    // Sends the POST request to the backend, all POST requests are sent to the localhost:5000/users
+    // Sends the POST request to the backend, requests dealing with setting username and password are sent to localhost:5000/users
     // Sending POST requests to the normal localhost:5000 will not fulfil any requests
     axios({
         method: "post",
