@@ -1,0 +1,50 @@
+{
+  "data": {
+    "Media": {
+      "id": 430,
+      "type": "ANIME",
+      "title": {
+        "english": "Fullmetal Alchemist: The Movie - Conqueror of Shamballa"
+      },
+      "genres": [
+        "Comedy",
+        "Drama",
+        "Fantasy"
+      ],
+      "coverImage": {
+        "extraLarge": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/nx430-Fx7lVxpcwArH.jpg",
+        "large": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/nx430-Fx7lVxpcwArH.jpg",
+        "medium": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/small/nx430-Fx7lVxpcwArH.jpg"
+      },
+      "seasonYear": 2005,
+      "studios": {
+        "nodes": [
+          {
+            "id": 4,
+            "name": "BONES"
+          },
+          {
+            "id": 17,
+            "name": "Aniplex"
+          },
+          {
+            "id": 58,
+            "name": "Square Enix"
+          },
+          {
+            "id": 102,
+            "name": "FUNimation Entertainment"
+          },
+          {
+            "id": 109,
+            "name": "Shouchiku"
+          },
+          {
+            "id": 143,
+            "name": "Mainichi Broadcasting System"
+          }
+        ]
+      }
+    }
+  }
+}

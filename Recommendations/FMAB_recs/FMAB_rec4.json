@@ -1,0 +1,39 @@
+{
+  "data": {
+    "Media": {
+      "id": 10259,
+      "type": "ANIME",
+      "title": {
+        "english": "Big Fish & Begonia"
+      },
+      "genres": [
+        "Adventure",
+        "Drama",
+        "Romance",
+        "Supernatural"
+      ],
+      "coverImage": {
+        "extraLarge": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx10259-gNuFiCwYhvK9.jpg",
+        "large": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx10259-gNuFiCwYhvK9.jpg",
+        "medium": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/small/bx10259-gNuFiCwYhvK9.jpg"
+      },
+      "seasonYear": null,
+      "studios": {
+        "nodes": [
+          {
+            "id": 6177,
+            "name": "B&T"
+          },
+          {
+            "id": 6178,
+            "name": "Enlight Pictures"
+          },
+          {
+            "id": 6335,
+            "name": "Coloroom Pictures"
+          }
+        ]
+      }
+    }
+  }
+}

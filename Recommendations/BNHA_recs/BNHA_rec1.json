@@ -1,0 +1,50 @@
+{
+  "data": {
+    "Media": {
+      "id": 21856,
+      "type": "ANIME",
+      "title": {
+        "english": "My Hero Academia Season 2"
+      },
+      "genres": [
+        "Action",
+        "Adventure",
+        "Comedy"
+      ],
+      "coverImage": {
+        "extraLarge": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21856-vX1n54domqjJ.png",
+        "large": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx21856-vX1n54domqjJ.png",
+        "medium": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/small/bx21856-vX1n54domqjJ.png"
+      },
+      "seasonYear": 2017,
+      "studios": {
+        "nodes": [
+          {
+            "id": 4,
+            "name": "BONES"
+          },
+          {
+            "id": 76,
+            "name": "Yomiuri TV"
+          },
+          {
+            "id": 53,
+            "name": "Dentsu"
+          },
+          {
+            "id": 166,
+            "name": "Movic"
+          },
+          {
+            "id": 757,
+            "name": "Sony Music Entertainment"
+          },
+          {
+            "id": 245,
+            "name": "Toho Company"
+          }
+        ]
+      }
+    }
+  }
+}

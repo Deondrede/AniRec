@@ -1,0 +1,44 @@
+{
+  "data": {
+    "Media": {
+      "id": 121,
+      "type": "ANIME",
+      "title": {
+        "english": "Fullmetal Alchemist"
+      },
+      "genres": [
+        "Action",
+        "Adventure",
+        "Comedy",
+        "Drama",
+        "Fantasy"
+      ],
+      "coverImage": {
+        "extraLarge": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx121-JUlbsyhTUNkk.png",
+        "large": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx121-JUlbsyhTUNkk.png",
+        "medium": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/small/bx121-JUlbsyhTUNkk.png"
+      },
+      "seasonYear": 2003,
+      "studios": {
+        "nodes": [
+          {
+            "id": 4,
+            "name": "BONES"
+          },
+          {
+            "id": 17,
+            "name": "Aniplex"
+          },
+          {
+            "id": 58,
+            "name": "Square Enix"
+          },
+          {
+            "id": 143,
+            "name": "Mainichi Broadcasting System"
+          }
+        ]
+      }
+    }
+  }
+}

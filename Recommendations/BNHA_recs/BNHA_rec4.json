@@ -1,0 +1,47 @@
+{
+  "data": {
+    "Media": {
+      "id": 21087,
+      "type": "ANIME",
+      "title": {
+        "english": "One-Punch Man"
+      },
+      "genres": [
+        "Action",
+        "Comedy",
+        "Sci-Fi",
+        "Supernatural"
+      ],
+      "coverImage": {
+        "extraLarge": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21087-8WpMBeqsSVx8.png",
+        "large": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx21087-8WpMBeqsSVx8.png",
+        "medium": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/small/bx21087-8WpMBeqsSVx8.png"
+      },
+      "seasonYear": 2015,
+      "studios": {
+        "nodes": [
+          {
+            "id": 11,
+            "name": "MADHOUSE"
+          },
+          {
+            "id": 16,
+            "name": "TV Tokyo"
+          },
+          {
+            "id": 23,
+            "name": "Bandai Visual"
+          },
+          {
+            "id": 119,
+            "name": "Viz Media"
+          },
+          {
+            "id": 104,
+            "name": "Lantis"
+          }
+        ]
+      }
+    }
+  }
+}
