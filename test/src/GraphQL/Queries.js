@@ -12,6 +12,14 @@ query{
       large
     }
     id
+    genres
+    studios{
+      nodes{
+        name
+      }
+    }
   }
 }
 `
+
+
