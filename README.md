@@ -5,7 +5,47 @@ For specifics on how you can send requests to the backend, check the [login.comp
 2. Once Docker is installed open your terminal and change directories to where you cloned the repository
 3. Once there, run the command `docker-compose up`, this will run the local web server along with the database and it should now appear in the desktop program. Now you should be able to access the local host by inputting [localhost:5000](http://localhost:5000) into your browser
 4. You may see an error that states that your missing a module named 'corsheaders'. In a separate terminal, run the command `docker exec -it <TheNameOfTheContainer>_web_1 bash`.
-5. Once that's done run `pip install django-cors-headers`
-6. Go back to the original terminal you had open and use Ctrl-C to stop it and then run the `docker-compose up` command again and that error should be gone.
+5. Once that's done run `pip install django-cors-headers`, to double check that the module is installed
+6. While you're in there run the command `python manage.py makemigrations` just in case, it should say "no changes detected"
+7. Next, run the command `python manage.py migrate` 
+8. Go back to the original terminal you had open and use Ctrl-C to stop it and then run the `docker-compose up` command again and that error should be gone.
 ## Why are we using Docker?
 Because setting up a backend system can be pretty annoying involving configuring settings, creating and setting environment variables and having each one of us do that individually will eventually lead to someone messing something up. So essentially once you install it you shouldn't need to install all the other stuff needed for Django to run.So it's just to save time and future frustration.
+## List of endpoints and how requests should be sent
+All POST requests must also be sent with a username. On login, the user's username is stored in local storage you can find this out by using `window.localStorage.getItem("username")`
+### /users
+```javascript
+    let bodyFormData = new FormData();
+    bodyFormData.append("username", username); //usernames must be sent as "username"
+    bodyFormData.append("password", password); //passwords must be sent as "password"
+    axios({
+        method: "post",
+        url: "http://localhost:5000/users",
+        data: bodyFormData,
+        headers: { "Content-Type": "multipart/form-data" },
+      })
+```
+### /anime
+```javascript
+    let bodyFormData = new FormData();
+    bodyFormData.append("username", username);
+    bodyFormData.append("anime", user_anime); //must be sent as "anime"
+    axios({
+        method: "post",
+        url: "http://localhost:5000/anime",
+        data: bodyFormData,
+        headers: { "Content-Type": "multipart/form-data" },
+      })
+```
+### /genre
+```javascript
+    let bodyFormData = new FormData();
+    bodyFormData.append("username", username);
+    bodyFormData.append("genre", user_genre); //must be sent as "genre"
+    axios({
+        method: "post",
+        url: "http://localhost:5000/genre",
+        data: bodyFormData,
+        headers: { "Content-Type": "multipart/form-data" },
+      })
+```
