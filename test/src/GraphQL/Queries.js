@@ -2,44 +2,39 @@ import {gql} from '@apollo/client'
 
 export const RECOMMENDED = gql`
 {
-  Page(page: 1, perPage: 50){
-    pageInfo{
-      lastPage
+  series1: media(type: ANIME, id: 21856){
+    title{
+      english
+      romaji
     }
-    media(type: ANIME, id: 21856){
-      title{
-        english
-        romaji
-      }
-      genres
-      description
-      coverImage{
-        medium 
-        large
-        extraLarge
-      }
-      studios{
-        nodes{
-          name
-        }
+    genres
+    description
+    coverImage{
+      medium 
+      large
+      extraLarge
+    }
+    studios{
+      nodes{
+        name
       }
     }
-    media(type: ANIME, id: 9941){
-      title{
-        english
-        romaji
-      }
-      genres
-      description
-      coverImage{
-        medium 
-        large
-        extraLarge
-      }
-      studios{
-        nodes{
-          name
-        }
+  }
+  series2: media(type: ANIME, id: 9941){
+    title{
+      english
+      romaji
+    }
+    genres
+    description
+    coverImage{
+      medium 
+      large
+      extraLarge
+    }
+    studios{
+      nodes{
+        name
       }
     }
   }

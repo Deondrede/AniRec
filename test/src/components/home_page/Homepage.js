@@ -13,15 +13,26 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 function HomePage(){
 
     const {error, loading, data} = useQuery(AIRING_NOW);
-    //const col1 = useQuery(RECOMMENDED);
+    const {error: errorC2, loading: loadingC2, data: dataC2} = useQuery(RECOMMENDED);
     useEffect(()=>{
       console.log(data)
+
       //console.log(col1.data.Page.media.length)
 
-    }, [data/*, col1.data*/]
+    }, [data]
   );
       if (loading) return <p>Loading...</p>
       if (error) return <p>Error :(</p>
+
+        useEffect(()=>{
+            console.log(dataC2)
+      
+            //console.log(col1.data.Page.media.length)
+      
+          }, [dataC2]
+        );
+            if (dataC2) return <p>Loading...</p>
+            if (dataC2) return <p>Error :(</p>
       //  if (col1.loading) return <p>Loading...</p>
        // if (col1.error) return <p>Error :(</p>
 
@@ -36,7 +47,7 @@ function HomePage(){
     }
 
     let col2_1 = {
-        name: name_array1[0],
+        //name: name_array1[0],
         image: data.Page.media[0].coverImage.large,
         genre: data.Page.media[0].genres.join(', '),
         studio: data.Page.media[0].studios.nodes[0].name
@@ -63,53 +74,39 @@ function HomePage(){
         genre: data.Page.media[3].genres.join(', '),
         studio: data.Page.media[3].studios.nodes[0].name
     }
-    //col2_1.name = data.Media[0].title.english
+    
+    let col1_1 = {
+        name: (dataC2.series1.title.english==null)
+            ? dataC2.series1.title.romaji :
+            dataC2.series1.title.english,
+        image: dataC2.series1.coverImage.large,
+        genre: dataC2.series1.genres.join(', '),
+        studio: dataC2.series1.studios.nodes[0].name
+    }
 
-    /*error, loading, data = useQuery(RECOMMENDED);
-    useEffect(()=>{
-      console.log(data)
-    }, [data]
-  );
-      if (loading) return <p>Loading...</p>
-      if (error) return <p>Error :(</p>*/
+    
+    let col1_2 = {
+        name: (dataC2.series2.title.english==null)
+            ? dataC2.series2.title.romaji :
+            dataC2.series2.title.english,
+        image: dataC2.series2.coverImage.large,
+        genre: dataC2.series2.genres.join(', '),
+        studio: dataC2.series2.studios.nodes[0].name
+    }
+    
+    /*let col1_3 = {
+        name:  name_array2[2],
+        image: col1.data.Page.media[2].coverImage.large,
+        genre: col1.data.Page.media[2].genres.join(', '),
+        studio: col1.data.Page.media[2].studios.nodes[0].name
+    }
 
-    /*    let name_array2 = [col1.data.Page[1].media.length];
-        for (let i = 0; i < col1.data.Page[1].media.length; i++) {
-            let temp_name = col1.data.Page[1].media[i].title.english;
-            if (temp_name == null){
-                temp_name = col1.data.Page[1].media[i].title.romaji;
-            }
-            name_array2[i] = temp_name;       
-        }
-    
-        let col1_1 = {
-            name: name_array2[1],
-            image: col1.data.Page[1].media[0].coverImage.large,
-            genre: col1.data.Page[1].media[0].genres.join(', '),
-            studio: col1.data.Page[1].media[0].studios.nodes[0].name
-        }
-    
-        
-        let col1_2 = {
-            name: name_array2[1],
-            image: col1.data.Page[1].media[1].coverImage.large,
-            genre: col1.data.Page[1].media[1].genres.join(', '),
-            studio: col1.data.Page[1].media[1].studios.nodes[0].name
-        }
-        
-        /*let col1_3 = {
-            name:  name_array2[2],
-            image: col1.data.Page.media[2].coverImage.large,
-            genre: col1.data.Page.media[2].genres.join(', '),
-            studio: col1.data.Page.media[2].studios.nodes[0].name
-        }
-    
-        let col1_4 = {
-            name:  name_array2[3],
-            image: col1.data.Page.media[3].coverImage.large,
-            genre: col1.data.Page.media[3].genres.join(', '),
-            studio: col1.data.Page.media[3].studios.nodes[0].name
-        }*/
+    let col1_4 = {
+        name:  name_array2[3],
+        image: col1.data.Page.media[3].coverImage.large,
+        genre: col1.data.Page.media[3].genres.join(', '),
+        studio: col1.data.Page.media[3].studios.nodes[0].name
+    }*/
   
     return(
         <Fragment>
