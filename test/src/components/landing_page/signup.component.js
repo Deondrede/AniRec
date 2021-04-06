@@ -61,6 +61,9 @@ export default class SignUp extends Component {
         return formIsValid;
     }*/
 
+    //<button type="submit" className="btn btn-dark btn-lg btn-block">Register</button>
+
+
     render() {
         return (
             <form>
@@ -76,7 +79,9 @@ export default class SignUp extends Component {
                     <input type="password" className="form-control" placeholder="Password *" />
                 </div>
 
-                <button type="submit" className="btn btn-dark btn-lg btn-block">Register</button>
+                <button className="btn btn-dark btn-lg btn-block">
+                        <a href="/Survey"> Register </a>
+                    </button>
             </form>
         );
     }
