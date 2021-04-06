@@ -18,6 +18,7 @@ h2{
 #subtitle{
     width:100%;
     margin: auto;
+
 }
 
 #grey{
@@ -60,9 +61,9 @@ span{
 }
 
 #main_content{
-  border: solid 1px;
   height: auto;
   color: black;
-  padding: 0px 0px 0px 0px;
+  padding: 20px 0px 0px 0px;
   margin: auto;
+  border-bottom: solid 1px;
 }

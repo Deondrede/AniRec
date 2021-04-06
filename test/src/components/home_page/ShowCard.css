@@ -2,12 +2,15 @@
     font-size: 15px;
     max-width: 100%;
     border-right: solid 1px;
-    border-bottom: solid 1px;
+    border-left: solid 1px;
+    border-top: solid 1px;
+
     height:100%;
 }
 
 #description{
     width: 55%;
+    border-right: solid 1px;
 }
 
 #title{
@@ -15,6 +18,7 @@
     margin-left: 0px;
     margin-right: 0px;
     border-bottom: solid 1px;
+    border-top: solid 1px;
 }
 
 #text{
@@ -34,6 +38,7 @@
     font-size: 15px;
     margin-left: 0px;
     margin-right: 0px;
+    margin-bottom: auto;
 }
 
 #key_staff{

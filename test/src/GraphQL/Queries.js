@@ -1,21 +1,130 @@
 import {gql} from '@apollo/client'
 
-export const LOAD_ANIME = gql`
-query{
-  Media(type: ANIME, search: "March Comes in like a Lion Season 2"){
-    title{
-      english
-      romaji
+export const RECOMMENDED = gql`
+{
+  Page(page: 1, perPage: 50){
+    pageInfo{
+      lastPage
     }
-    description
-    coverImage{
-      large
+    media(type: ANIME, id: 21856){
+      title{
+        english
+        romaji
+      }
+      genres
+      description
+      coverImage{
+        medium 
+        large
+        extraLarge
+      }
+      studios{
+        nodes{
+          name
+        }
+      }
     }
-    id
-    genres
-    studios{
-      nodes{
-        name
+    media(type: ANIME, id: 9941){
+      title{
+        english
+        romaji
+      }
+      genres
+      description
+      coverImage{
+        medium 
+        large
+        extraLarge
+      }
+      studios{
+        nodes{
+          name
+        }
+      }
+    }
+  }
+}
+`
+
+export const AIRING_NOW = gql`
+{
+  Page(page: 1, perPage: 50){
+    pageInfo{
+      lastPage
+    }
+    media(type: ANIME, isAdult: false, season: SPRING, seasonYear: 2021){
+      title{
+        english
+        romaji
+      }
+      genres
+      description
+      coverImage{
+        medium 
+        large
+        extraLarge
+      }
+      studios{
+        nodes{
+          name
+        }
+      }
+    }
+  }
+}
+`
+
+export const TRY_THIS = gql`
+{
+  Page(page: 1, perPage: 50){
+    pageInfo{
+      lastPage
+    }
+    media(type: ANIME, isAdult: false, season: SPRING, seasonYear: 2021){
+      title{
+        english
+        romaji
+      }
+      genres
+      description
+      coverImage{
+        medium 
+        large
+        extraLarge
+      }
+      studios{
+        nodes{
+          name
+        }
+      }
+    }
+  }
+}
+`
+
+
+export const TRENDING = gql`
+{
+  Page(page: 1, perPage: 50){
+    pageInfo{
+      lastPage
+    }
+    media(type: ANIME, isAdult: false, season: SPRING, seasonYear: 2021){
+      title{
+        english
+        romaji
+      }
+      genres
+      description
+      coverImage{
+        medium 
+        large
+        extraLarge
+      }
+      studios{
+        nodes{
+          name
+        }
       }
     }
   }
