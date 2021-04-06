@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import { BrowserRouter as Router, withRouter, Link } from 'react-router-dom';
+
 // I used axios for this but if you want to try using something else like ajax you're free to do so
 // Also axios is a separate module so don't forget to do 'npm install axios'
 // const axios = require('axios').default;
@@ -75,19 +75,15 @@ class SignUp extends Component {
                         <label>Password: </label>
                         <input type="password" className="form-control" placeholder="Enter password" />
                     </div>
-                </form>
-                <Router>
-                    <div>
-                        <button className="btn btn-dark btn-lg btn-block">
-                            <Link to="/Survey"> Register </Link>
-                        </button>
-                    </div>
                     
-                </Router>
+                    <button className="btn btn-dark btn-lg btn-block">
+                        <a href="/Survey"> Register </a>
+                    </button>
+                </form>
             </Fragment>
             
         );
     }
 }
 
-export default withRouter(SignUp);
+export default SignUp;
