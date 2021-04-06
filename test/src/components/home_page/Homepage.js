@@ -12,56 +12,56 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 //will be used as next Page to list
 function HomePage(){
 
-    const {error: col2_error, loading: col2_loading, data: col2_data} = useQuery(AIRING_NOW);
+    const {error, loading, data} = useQuery(AIRING_NOW);
     //const col1 = useQuery(RECOMMENDED);
     useEffect(()=>{
-      console.log(col2_data.Page.media.length)
+      console.log(data)
       //console.log(col1.data.Page.media.length)
 
-    }, [col2_data/*, col1.data*/]
+    }, [data/*, col1.data*/]
   );
-      if (col2_loading) return <p>Loading...</p>
-      if (col2_error) return <p>Error :(</p>
+      if (loading) return <p>Loading...</p>
+      if (error) return <p>Error :(</p>
       //  if (col1.loading) return <p>Loading...</p>
        // if (col1.error) return <p>Error :(</p>
 
     // this is to check and make sure names are displayed since some of them dont have english names
-    let name_array1 = [col2_data.Page[0].media.length];
-    for (let i = 0; i < col2_data.Page[0].media.length; i++) {
-        let temp_name = col2_data.Page[0].media[i].title.english;
+    let name_array1 = [data.Page.media.length];
+    for (let i = 0; i < data.Page.media.length; i++) {
+        let temp_name = data.Page.media[i].title.english;
         if (temp_name == null){
-            temp_name = col2_data.Page[0].media[i].title.romaji;
+            temp_name = data.Page.media[i].title.romaji;
         }
         name_array1[i] = temp_name;       
     }
 
     let col2_1 = {
         name: name_array1[0],
-        image: col2_data.Page[0].media[0].coverImage.large,
-        genre: col2_data.Page[0].media[0].genres.join(', '),
-        studio: col2_data.Page[0].media[0].studios.nodes[0].name
+        image: data.Page.media[0].coverImage.large,
+        genre: data.Page.media[0].genres.join(', '),
+        studio: data.Page.media[0].studios.nodes[0].name
     }
 
     
     let col2_2 = {
         name: name_array1[1],
-        image: col2_data.Page[0].media[1].coverImage.large,
-        genre: col2_data.Page[0].media[1].genres.join(', '),
-        studio: col2_data.Page[0].media[1].studios.nodes[0].name
+        image: data.Page.media[1].coverImage.large,
+        genre: data.Page.media[1].genres.join(', '),
+        studio: data.Page.media[1].studios.nodes[0].name
     }
     
     let col2_3 = {
         name:  name_array1[2],
-        image: col2_data.Page[0].media[2].coverImage.large,
-        genre: col2_data.Page[0].media[2].genres.join(', '),
-        studio: col2_data.Page[0].media[2].studios.nodes[0].name
+        image: data.Page.media[2].coverImage.large,
+        genre: data.Page.media[2].genres.join(', '),
+        studio: data.Page.media[2].studios.nodes[0].name
     }
 
     let col2_4 = {
         name:  name_array1[3],
-        image: col2_data.Page[0].media[3].coverImage.large,
-        genre: col2_data.Page[0].media[3].genres.join(', '),
-        studio: col2_data.Page[0].media[3].studios.nodes[0].name
+        image: data.Page.media[3].coverImage.large,
+        genre: data.Page.media[3].genres.join(', '),
+        studio: data.Page.media[3].studios.nodes[0].name
     }
     //col2_1.name = data.Media[0].title.english
 
@@ -99,16 +99,16 @@ function HomePage(){
         
         /*let col1_3 = {
             name:  name_array2[2],
-            image: col1.data.Page[0].media[2].coverImage.large,
-            genre: col1.data.Page[0].media[2].genres.join(', '),
-            studio: col1.data.Page[0].media[2].studios.nodes[0].name
+            image: col1.data.Page.media[2].coverImage.large,
+            genre: col1.data.Page.media[2].genres.join(', '),
+            studio: col1.data.Page.media[2].studios.nodes[0].name
         }
     
         let col1_4 = {
             name:  name_array2[3],
-            image: col1.data.Page[0].media[3].coverImage.large,
-            genre: col1.data.Page[0].media[3].genres.join(', '),
-            studio: col1.data.Page[0].media[3].studios.nodes[0].name
+            image: col1.data.Page.media[3].coverImage.large,
+            genre: col1.data.Page.media[3].genres.join(', '),
+            studio: col1.data.Page.media[3].studios.nodes[0].name
         }*/
   
     return(
