@@ -117,12 +117,12 @@ function HomePage(){
             studio: col1.data.Page.media[3].studios.nodes[0].name
         }*/
       let col1_1 ={
-        name: (data1.Page.series1[0].title.english==null)
-                ? data1.Page.series1[0].title.romaji :
-                    data1.Page.series1[0].title.english,
-        image: data1.Page.series1[0].coverImage.medium,
-        genre: data1.Page.series1[0].genres.join(", "),
-        studio: data1.Page.series1[0].studios.nodes[0].name
+        name: (data1.series1.title.english==null)
+                ? data1.series1.title.romaji :
+                    data1.series1.title.english,
+        image: data1.series1.coverImage.medium,
+        genre: data1.series1.genres.join(", "),
+        studio: data1.series1.studios.nodes[0].name
       }
 
     return(
