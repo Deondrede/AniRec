@@ -6,7 +6,7 @@ export const RECOMMENDED = gql`
     pageInfo{
       lastPage
     }
-    media(type: ANIME, id: 21856){
+    series1: media(type: ANIME, id: 21856){
       title{
         english
         romaji
@@ -14,7 +14,7 @@ export const RECOMMENDED = gql`
       genres
       description
       coverImage{
-        medium 
+        medium
         large
         extraLarge
       }
@@ -24,7 +24,7 @@ export const RECOMMENDED = gql`
         }
       }
     }
-    media(type: ANIME, id: 9941){
+    series2: media(type: ANIME, id: 9941){
       title{
         english
         romaji
@@ -32,7 +32,7 @@ export const RECOMMENDED = gql`
       genres
       description
       coverImage{
-        medium 
+        medium
         large
         extraLarge
       }
@@ -60,7 +60,7 @@ export const AIRING_NOW = gql`
       genres
       description
       coverImage{
-        medium 
+        medium
         large
         extraLarge
       }
@@ -88,7 +88,7 @@ export const TRY_THIS = gql`
       genres
       description
       coverImage{
-        medium 
+        medium
         large
         extraLarge
       }
@@ -117,7 +117,7 @@ export const TRENDING = gql`
       genres
       description
       coverImage{
-        medium 
+        medium
         large
         extraLarge
       }
@@ -130,5 +130,3 @@ export const TRENDING = gql`
   }
 }
 `
-
-
