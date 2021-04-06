@@ -2,38 +2,74 @@ import {gql} from '@apollo/client'
 
 export const RECOMMENDED = gql`
 {
-  series1: media(type: ANIME, id: 21856){
-    title{
+  series1: Media(type: ANIME, id: 21856) {
+    title {
       english
       romaji
     }
     genres
     description
-    coverImage{
-      medium 
+    coverImage {
+      medium
       large
       extraLarge
     }
-    studios{
-      nodes{
+    studios {
+      nodes {
         name
       }
     }
   }
-  series2: media(type: ANIME, id: 9941){
-    title{
+  series2: Media(type: ANIME, id: 9941) {
+    title {
       english
       romaji
     }
     genres
     description
-    coverImage{
-      medium 
+    coverImage {
+      medium
       large
       extraLarge
     }
-    studios{
-      nodes{
+    studios {
+      nodes {
+        name
+      }
+    }
+  }
+  series3: Media(type: ANIME, id: 121) {
+    title {
+      english
+      romaji
+    }
+    genres
+    description
+    coverImage {
+      medium
+      large
+      extraLarge
+    }
+    studios {
+      nodes {
+        name
+      }
+    }
+  }
+  series4: Media(type: ANIME, id: 21087) {
+    title {
+      english
+      romaji
+    }
+    genres
+    description
+    coverImage {
+      medium
+      large
+      extraLarge
+    }
+    studios {
+      nodes {
         name
       }
     }
@@ -55,7 +91,7 @@ export const AIRING_NOW = gql`
       genres
       description
       coverImage{
-        medium 
+        medium
         large
         extraLarge
       }
@@ -70,60 +106,156 @@ export const AIRING_NOW = gql`
 `
 
 export const TRY_THIS = gql`
-{
-  Page(page: 1, perPage: 50){
-    pageInfo{
-      lastPage
-    }
-    media(type: ANIME, isAdult: false, season: SPRING, seasonYear: 2021){
-      title{
+  {
+    series1: Media(type: ANIME, id: 98578) {
+      title {
         english
         romaji
       }
       genres
       description
-      coverImage{
-        medium 
+      coverImage {
+        medium
         large
         extraLarge
       }
-      studios{
-        nodes{
+      studios {
+        nodes {
+          name
+        }
+      }
+    }
+    series2: Media(type: ANIME, id: 120) {
+      title {
+        english
+        romaji
+      }
+      genres
+      description
+      coverImage {
+        medium
+        large
+        extraLarge
+      }
+      studios {
+        nodes {
+          name
+        }
+      }
+    }
+    series3: Media(type: ANIME, id: 145) {
+      title {
+        english
+        romaji
+      }
+      genres
+      description
+      coverImage {
+        medium
+        large
+        extraLarge
+      }
+      studios {
+        nodes {
+          name
+        }
+      }
+    }
+    series4: Media(type: ANIME, search: "Horimiya") {
+      title {
+        english
+        romaji
+      }
+      genres
+      description
+      coverImage {
+        medium
+        large
+        extraLarge
+      }
+      studios {
+        nodes {
           name
         }
       }
     }
   }
-}
 `
 
 
 export const TRENDING = gql`
 {
-  Page(page: 1, perPage: 50){
-    pageInfo{
-      lastPage
+  series1: Media(type: ANIME, id: 99147) {
+    title {
+      english
+      romaji
     }
-    media(type: ANIME, isAdult: false, season: SPRING, seasonYear: 2021){
-      title{
-        english
-        romaji
+    genres
+    description
+    coverImage {
+      medium
+      large
+      extraLarge
+    }
+    studios {
+      nodes {
+        name
       }
-      genres
-      description
-      coverImage{
-        medium 
-        large
-        extraLarge
+    }
+  }
+  series2: Media(type: ANIME, id: 124845) {
+    title {
+      english
+      romaji
+    }
+    genres
+    description
+    coverImage {
+      medium
+      large
+      extraLarge
+    }
+    studios {
+      nodes {
+        name
       }
-      studios{
-        nodes{
-          name
-        }
+    }
+  }
+  series3: Media(type: ANIME, id: 136) {
+    title {
+      english
+      romaji
+    }
+    genres
+    description
+    coverImage {
+      medium
+      large
+      extraLarge
+    }
+    studios {
+      nodes {
+        name
+      }
+    }
+  }
+  series4: Media(type: ANIME, id: 108465) {
+    title {
+      english
+      romaji
+    }
+    genres
+    description
+    coverImage {
+      medium
+      large
+      extraLarge
+    }
+    studios {
+      nodes {
+        name
       }
     }
   }
 }
 `
-
-

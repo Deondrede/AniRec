@@ -80,7 +80,7 @@ export default class SignUp extends Component {
                 </div>
 
                 <button className="btn btn-dark btn-lg btn-block">
-                        <a href="/Survey"> Register </a>
+                        <a id="reg_btn" href="/Survey"> Register </a>
                     </button>
             </form>
         );

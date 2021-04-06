@@ -11,7 +11,7 @@ const MySurvey = (props) => {
         <Fragment>
             <Survey.Survey 
             json={Json} //gets the questions
-            showCompletedPage={false} //shows the default complete page
+            showCompletedPage={true} //shows the default complete page
             onComplete={data=>console.log(data.valuesHash)} //shows the survey answer in console
             />
             <button><a href="/Anime">Head to AniRec</a></button>
