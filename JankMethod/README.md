@@ -1,4 +1,4 @@
-Using <a href> instead of <Link> should have fixed the redirecting. The only things changed are:
+Using a href instead of Link should have fixed the redirecting. The only things changed are:
  - signup.component.js
  - surveyType.js
 
