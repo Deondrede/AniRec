@@ -2,6 +2,7 @@
 
 # Importing pandas due to data manip and analysis
 import pandas as pd
+import re
 from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 from sklearn.metrics.pairwise import linear_kernel
 
@@ -13,14 +14,14 @@ words = set(nltk.corpus.words.words())
 # using low_memory=false to make sure it doesn't infer what type of data it's trying to parse through
 # Reference: https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html
 # data is from: https://www.kaggle.com/canggih/anime-data-score-staff-synopsis-and-genre
-metadata = pd.read_csv('dataanime.csv', low_memory=False)
+metadata = pd.read_csv('AniList_Info.csv', low_memory=False)
 
 
 # Prints first three rows of anime
 # print(metadata.head(3))
 
 # Prints plot descriptions of first 10 anime
-# print(metadata['Description'].head(10))
+# print(metadata['Plot'].head(10))
 
 # We need to compute word vectors for each description
 # Vectors are representations of words in the description
@@ -38,6 +39,8 @@ metadata = pd.read_csv('dataanime.csv', low_memory=False)
 # import TFIDF module
 # Check top
 
+#print(type(metadata['Plot'][0]))
+
 def genre_clean(x):
     if isinstance(x['Genres'], str):
         gen = str.lower(x['Genres'].replace(" ", ""))
@@ -46,22 +49,28 @@ def genre_clean(x):
     return gen
 
 
+def remove_tags(string):
+    result = re.sub('<.*?>', '', str(string))
+    return result
+
+
 # remove stop words (the, an, and, etc.)
 tfidf = TfidfVectorizer(stop_words='english')
 countVec = CountVectorizer(stop_words='english')
 
+metadata['Plot'] = metadata['Plot'].apply(lambda x: remove_tags(x))
 
 # getting rid of the non-english words (I hope)
-for x in range(metadata['Description'].shape[0]):
-    metadata['Description'].iloc[x] = " ".join(w for w in nltk.wordpunct_tokenize(metadata['Description'].iloc[x]) if w.lower() in words or not w.isalpha())
+for x in range(metadata['Plot'].shape[0]):
+    metadata['Plot'].iloc[x] = " ".join(w for w in nltk.wordpunct_tokenize(metadata['Plot'].iloc[x]) if w.lower() in words or not w.isalpha())
 
 # print(metadata['Description'][0:10])
 # replace not a number values with an empty string
-metadata['Description'] = metadata['Description'].fillna('')
+metadata['Plot'] = metadata['Plot'].fillna('')
 metadata['Genres'] = metadata.apply(genre_clean, axis=1)
 
 # construct tfidf matrix
-tfidf_matrix = tfidf.fit_transform(metadata['Description'])
+tfidf_matrix = tfidf.fit_transform(metadata['Plot'])
 countVec_matrix = countVec.fit_transform(metadata['Genres'])
 
 # print(tfidf_matrix.shape)
@@ -81,7 +90,7 @@ cosine_sim_gen = linear_kernel(countVec_matrix, countVec_matrix)
 # print(cosine_sim.shape)
 # print(cosine_sim[1])
 
-indices = pd.Series(metadata.index, index=metadata['Title']).drop_duplicates()
+indices = pd.Series(metadata.index, index=metadata['Title: Romanji']).drop_duplicates()
 # print(indices[:10])
 
 
@@ -101,7 +110,7 @@ def get_recs(title):
 
     anime_indices = [i[0] for i in avg_sim_score[1:26]]
 
-    return metadata['Title'].iloc[anime_indices]
+    return metadata['Title: Romanji'].iloc[anime_indices]
 
 
-print(get_recs("Mirai Nikki: Redial"))
+print(get_recs("One Piece"))
