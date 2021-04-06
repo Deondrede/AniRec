@@ -10,6 +10,7 @@ create another folder "survey_page" which contains:
 - questions.js 
 - surveyOne.js
 - surveyType.js 
+
 from Caitlin's Survey branch.
 
 Set up should be done, so the method is:
