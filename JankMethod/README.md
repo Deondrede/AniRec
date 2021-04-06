@@ -1,3 +1,11 @@
+Using <a href> instead of <Link> should have fixed the redirecting. The only things changed are:
+ - signup.component.js
+ - surveyType.js
+
+the layout is still the same as below
+
+##########
+
 How to do this janky method to go from:
 Register -> Survey -> Anime pages
 
