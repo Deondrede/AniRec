@@ -4,7 +4,7 @@ For specifics on how you can send requests to the backend, check the [login.comp
 1. Clone the repository and download [Docker](https://www.docker.com/get-started) (You will also need to enable virtualization on your CPU, how to do this is specific to what kind of motherboard your PC uses and if it's even possible depends on what CPU you have)
 2. Once Docker is installed open your terminal and change directories to where you cloned the repository
 3. Once there, run the command `docker-compose up`, this will run the local web server along with the database and it should now appear in the desktop program. Now you should be able to access the local host by inputting [localhost:5000](http://localhost:5000) into your browser
-4. You may see an error that states that your missing a module named 'corsheaders'. In a separate terminal, run the command `docker exec -it <TheNameOfTheContainer>_web_1 bash`.
+4. You may see an error that states that your missing a module named 'corsheaders'. In a separate terminal, run the command `docker exec -it <TheNameOfTheContainer>_web_1 bash` (The name of your container should be visible in the Docker desktop application).
 5. Once that's done run `pip install django-cors-headers`, to double check that the module is installed
 6. While you're in there run the command `python manage.py makemigrations` just in case, it should say "no changes detected"
 7. Next, run the command `python manage.py migrate` 
