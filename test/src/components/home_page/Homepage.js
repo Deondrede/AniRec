@@ -210,7 +210,6 @@ function HomePage(){
   
     return(
         <Fragment>
-            <Header />
             <Container>
                 <TopSpace />
                 <Row id="feed_body">

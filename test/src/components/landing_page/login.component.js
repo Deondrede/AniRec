@@ -18,7 +18,9 @@ export default class Login extends Component {
                     </div>
                 </div>
 
-                <button type="submit" className="btn btn-dark btn-lg btn-block">Sign in</button>
+                <button type="submit" className="btn btn-dark btn-lg btn-block">
+                    <a id="reg_btn" href="/Anime"> Sign in </a>
+                    </button>
             </form>
         );
     }
