@@ -11,7 +11,7 @@ def createUser(request):
         if (username == "" or password == ""):
             print("No username or password was supplied")
             return
-        User.objects.create(username=username,password=password)  
+        User.objects.create(username=username,password=password,preferred_genres="",watched_anime="")  
     all_objects = list(User.objects.all())
     ao_json = serializers.serialize('json', all_objects)
     return HttpResponse(ao_json, content_type='application/json')
