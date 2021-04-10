@@ -85,7 +85,7 @@ export default class Login extends Component {
                         <label className="custom-control-label" htmlFor="customCheck1">Remember me</label>
                     </div>
                 </div>
-                <button type="submit" className="btn btn-dark btn-lg btn-block" onClick={onLogin}>Sign in</button>
+                <button type="submit" className="btn btn-dark btn-lg btn-block" onClick={register}>Sign in</button>
             </form>
         );
     }
