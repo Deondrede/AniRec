@@ -5,6 +5,7 @@ import Homepage from "./components/home_page/Homepage.js";
 import ShowPage from "./components/content_pages/show_page.js";
 import LoginPage from "./LoginPage.js";
 import MySurvey from "./components/landing_page/survey_page/surveyType.js";
+import ShowMorePage from "./components/listing_pages/show_more_page.js"
 import "./App.css";
 
 import {ApolloClient, InMemoryCache, ApolloProvider, HttpLink, from, } from '@apollo/client'
@@ -39,6 +40,7 @@ function App() {
                 <Route path="/ShowPage" exact component={() => <ShowPage />} />
                 <Route path="/LoginPage" exact component={() => <LoginPage />} />
                 <Route path="/Survey" exact component={() => <MySurvey />} />
+                <Route path="/ShowMore" exact component={() => <ShowMorePage />} />
               </Switch>
             </Router>
           </Fragment>

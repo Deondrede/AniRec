@@ -19,14 +19,6 @@ function HomePage(){
 
     useEffect(()=>{
       console.log(data)
-
-      //console.log(col1.data.Page.media.length)
-
-    }, [data]
-  );
-
-    useEffect(()=>{
-      console.log(data)
      }, [data]
     );
       
@@ -211,6 +203,7 @@ function HomePage(){
     return(
         <Fragment>
             <Container>
+                <Header />
                 <TopSpace />
                 <Row id="feed_body">
                     <Col id="feed_col">

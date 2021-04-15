@@ -14,6 +14,7 @@ import LR_Tabs from "./login_register_tabs.component";
 function LandingPage(){
     return(
         <Fragment>
+            <Header />
             <Container fluid>
             <Row id="landing_page_body">
                 <Col id="login_space">
