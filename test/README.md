@@ -1,70 +1,51 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## How to 'talk' to the backend
+For specifics on how you can send requests to the backend, check the [login.component.js file](https://github.com/Deondrede/AniRec/blob/Backend/anirec/src/components/landing_page/login.component.js). But the main idea is that I've set up an endpoint for retrieving and sending user data. Once a POST request is received it runs a function that creates the entry in the database and the database is displayed in JSON format on the endpoint. Likewise, if you make a GET request then it will also be in JSON format. So let's say you want to signup, then you would send a POST request from React to Django and it will handle the creation of that user entry, you would do the same thing if let's say you wanted to save a user's preferred genres and anime they've already watched. If you want to update user's username and password make a POST request to [localhost:5000/users](http://localhost:5000/users), both username and password should be sent simultaneously. If you want to update a user's preferred genres make a POST request to [localhost:5000/genres](http://localhost:5000/genres), you must send the user's username along with what genre you want to add. If you want to update a user's watched anime make a POST request to [localhost:5000/anime](http://localhost:5000/anime), once again you must send their username and what anime you want to add.
+## Setup
+1. Clone the repository and download [Docker](https://www.docker.com/get-started) (You will also need to enable virtualization on your CPU, how to do this is specific to what kind of motherboard your PC uses and if it's even possible depends on what CPU you have)
+2. Once Docker is installed open your terminal and change directories to where you cloned the repository
+3. Once there, run the command `docker-compose up`, this will run the local web server along with the database and it should now appear in the desktop program. Now you should be able to access the local host by inputting [localhost:5000](http://localhost:5000) into your browser
+4. You may see an error that states that your missing a module named 'corsheaders'. In a separate terminal, run the command `docker exec -it <TheNameOfTheContainer>_web_1 bash` (The name of your container should be visible in the Docker desktop application).
+5. Once that's done run `pip install django-cors-headers`, to double check that the module is installed
+6. While you're in there run the command `python manage.py makemigrations` just in case, it should say "no changes detected"
+7. Next, run the command `python manage.py migrate` 
+8. Go back to the original terminal you had open and use Ctrl-C to stop it and then run the `docker-compose up` command again and that error should be gone.
+## Why are we using Docker?
+Because setting up a backend system can be pretty annoying involving configuring settings, creating and setting environment variables and having each one of us do that individually will eventually lead to someone messing something up. So essentially once you install it you shouldn't need to install all the other stuff needed for Django to run.So it's just to save time and future frustration.
+## List of endpoints and how requests should be sent
+All requests must also be sent with a username. On login, the user's username is stored in local storage you can find this out by using `window.localStorage.getItem("username")`. This applies to both POST requests and GET requests. Sending a GET request without a specified username will return the entire list of registered users. GET requests can be sent to any endpoint.
+### /users
+```javascript
+    let bodyFormData = new FormData();
+    bodyFormData.append("username", username); //usernames must be sent as "username"
+    bodyFormData.append("password", password); //passwords must be sent as "password"
+    axios({
+        method: "post",
+        url: "http://localhost:5000/users",
+        data: bodyFormData,
+        headers: { "Content-Type": "multipart/form-data" },
+      })
+```
+### /anime
+```javascript
+    let bodyFormData = new FormData();
+    bodyFormData.append("username", username);
+    bodyFormData.append("anime", user_anime); //must be sent as "anime"
+    axios({
+        method: "post",
+        url: "http://localhost:5000/anime",
+        data: bodyFormData,
+        headers: { "Content-Type": "multipart/form-data" },
+      })
+```
+### /genre
+```javascript
+    let bodyFormData = new FormData();
+    bodyFormData.append("username", username);
+    bodyFormData.append("genre", user_genre); //must be sent as "genre"
+    axios({
+        method: "post",
+        url: "http://localhost:5000/genre",
+        data: bodyFormData,
+        headers: { "Content-Type": "multipart/form-data" },
+      })
+```
