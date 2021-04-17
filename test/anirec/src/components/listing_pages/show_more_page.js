@@ -1,19 +1,12 @@
 import React, { Component, Fragment, useEffect } from "react";
+import axios from 'axios';
 import "./show_more_page.css";
-
-import {AIRING_NOW} from '../../GraphQL/Queries'
-import {useQuery} from '@apollo/client'
-import TopSpace from "../global_elements/TopSpacer"
-
-import { Container, Row, Col, Button } from "react-bootstrap";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Header from "../global_elements/Header"
-import ShowCard from "../home_page/ShowCard.js"
+import GridComponent from './show_more_grid.component';
+import {AIRING_NOW} from '../../GraphQL/Queries';
+import {useQuery} from '@apollo/client';
 
 //function for landing page
 function ShowMorePage(){
-
-
     const {error, loading, data} = useQuery(AIRING_NOW);
 
     useEffect(()=>{
@@ -21,28 +14,50 @@ function ShowMorePage(){
      }, [data]
     );
 
-    if (loading) return <p>Loading1...</p>
-    if (error) return <p>Error1 :(</p>
+    if (loading) return <p>Loading1...</p>;
+    if (error) return <p>Error1 :(</p>;
 
-    return(
-        <Fragment>
-            <Header />
-            <TopSpace />
-            <Container className = "App">
-                {data.Page.map((media) => (
-                    <ShowCard 
-                        name={(media.title.english==null)
-                            ? media.title.romaji :
-                            media.title.english}
-                        image={media.coverImage.large}
-                        genre= {media.genres.join(', ')}
-                        studio={media.studios.nodes[0].name}
-                    />
-                ))}
-            </Container>
+    state = {
+        error: null, 
+        isLoaded: false,
+        items: []
+    };
 
-        </Fragment>
-    );
+    getAnime = async (query, variables) => {
+        try{ 
+          const response = await axios.post('https://graphql.anilist.co', {query, variables});
+    
+          //log the data
+          console.log(response.data);
+    
+          //set the data to the state
+          this.setState(() => ({
+            isLoaded: true,
+            items: response.data.data.Page.media
+          }));
+        } catch (error) {
+          //if there's an error, set the error to the state
+          this.setState(() => ({error}));
+        }
+    }
+
+    const variables_find ={};
+
+    this.getAnime(AIRING_NOW, variables_find);
+
+    render() {
+        const { error, isLoaded, items} = this.state;
+
+        if(error) {
+            return<div>{error.message}</div>;
+        }else if (!isLoaded) {
+            return<div>Loading...</div>;
+        }else{
+            return (
+                GridComponent(item)
+            );
+        }
+    }
 }
 
 export default ShowMorePage;

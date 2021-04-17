@@ -11,6 +11,8 @@ import "./App.css";
 import {ApolloClient, InMemoryCache, ApolloProvider, HttpLink, from, } from '@apollo/client'
 import {onError} from '@apollo/client/link/error'
 
+import Header from "./components/global_elements/Header.js";
+
 const errorLink = onError(({ graphqlErrors, networkError }) => {
   if (graphqlErrors){
     graphqlErrors.map(({ message, location, path }) => {
@@ -33,6 +35,7 @@ function App() {
         <ApolloProvider client={client}>
         {" "}
           <Fragment>
+            <Header />
             <Router>
               <Switch>
                 <Route path="/" exact component={() => <LandingPage />} />

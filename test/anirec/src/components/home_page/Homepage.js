@@ -1,6 +1,5 @@
 import React, { Fragment, useEffect, useState  } from "react";
 import ShowCard from './ShowCard.js';
-import Header from "../global_elements/Header"
 import TopSpace from "../global_elements/TopSpacer"
 import {RECOMMENDED,AIRING_NOW, TRY_THIS, TRENDING} from '../../GraphQL/Queries'
 
@@ -203,7 +202,6 @@ function HomePage(){
     return(
         <Fragment>
             <Container>
-                <Header />
                 <TopSpace />
                 <Row id="feed_body">
                     <Col id="feed_col">
