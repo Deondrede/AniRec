@@ -1,7 +1,6 @@
 import React, { Component, Fragment, useEffect } from "react";
 import axios from 'axios';
 import "./show_more_page.css";
-import GridComponent from './show_more_grid.component';
 import {AIRING_NOW} from '../../GraphQL/Queries';
 import {useQuery} from '@apollo/client';
 
@@ -54,7 +53,22 @@ function ShowMorePage(){
             return<div>Loading...</div>;
         }else{
             return (
-                GridComponent(item)
+                <Fragment>
+                    <Header />
+                    <TopSpace />
+                    <Container className = "App">
+                        {items.map(item => (
+                            <ShowCard 
+                                name={(item.title.english==null)
+                                    ? item.title.romaji :
+                                    item.title.english}
+                                image={item.coverImage.large}
+                                genre= {item.genres.join(', ')}
+                                studio={item.studios.nodes[0].name}
+                        />
+                    ))}
+                    </Container>
+                </Fragment>
             );
         }
     }
