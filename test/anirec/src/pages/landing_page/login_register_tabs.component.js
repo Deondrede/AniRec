@@ -3,7 +3,7 @@ import React, { Component, Fragment } from "react";
 import Login from "./login.component";
 import SignUp from "./signup.component";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { Row, Col, Button } from "react-bootstrap";
+import { Row, Button } from "react-bootstrap";
 
 import "./login_register_tabs.component.css"
 

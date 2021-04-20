@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
-import Header from "../global_elements/Header"
-import TopSpace from "../global_elements/TopSpacer"
+import Header from "../../components/global_elements/Header"
+import TopSpace from "../../components/global_elements/TopSpacer"
 import './show_page.css';
 
 import { Container, Row, Col, Button } from "react-bootstrap";

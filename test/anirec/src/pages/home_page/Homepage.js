@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState  } from "react";
-import ShowCard from './ShowCard.js';
-import TopSpace from "../global_elements/TopSpacer"
+import ShowCard from '../../components/ShowCard';
+import TopSpace from "../../components/global_elements/TopSpacer"
 import {RECOMMENDED,AIRING_NOW, TRY_THIS, TRENDING} from '../../GraphQL/Queries'
 
 import {useQuery} from '@apollo/client'

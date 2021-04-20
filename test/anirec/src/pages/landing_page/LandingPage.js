@@ -1,11 +1,7 @@
-import React, { Component, Fragment } from "react";
+import React, { Fragment } from "react";
 import "./LandingPage.css";
 
-import Login from "./login.component";
-import SignUp from "./signup.component";
-import { Container, Row, Col, Button } from "react-bootstrap";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Header from "../global_elements/Header"
+import { Container, Row, Col} from "react-bootstrap";
 
 import LR_Tabs from "./login_register_tabs.component";
 {/*import LR_Space from "./login_register_space.component";*/}

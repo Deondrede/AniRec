@@ -10,7 +10,8 @@ function ShowCard(props){
                 <Container id="card">
                     <Row id="card_body">
                         <Col>
-                            <img id="image" src={props.image} class="center"/>                        </Col>
+                            <img id="image" src={props.image} class="center"/>
+                        </Col>
                         <Col id="description">
                             <Row id="title">
                                 <p id="text">{props.name}</p>

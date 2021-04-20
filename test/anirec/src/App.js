@@ -1,11 +1,9 @@
 import { React, Fragment } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import LandingPage from "./components/landing_page/LandingPage.js";
-import Homepage from "./components/home_page/Homepage.js";
-import ShowPage from "./components/content_pages/show_page.js";
-import LoginPage from "./LoginPage.js";
-import MySurvey from "./components/landing_page/survey_page/surveyType.js";
-import ShowMorePage from "./components/listing_pages/show_more_page.js"
+import LandingPage from "./pages/landing_page/LandingPage.js";
+import Homepage from "./pages/home_page/Homepage.js";
+import MySurvey from "./pages/landing_page/survey_page/surveyType.js";
+import ShowMorePage from "./pages/listing_pages/show_more_page.js"
 import "./App.css";
 
 import {ApolloClient, InMemoryCache, ApolloProvider, HttpLink, from, } from '@apollo/client'
@@ -40,8 +38,6 @@ function App() {
               <Switch>
                 <Route path="/" exact component={() => <LandingPage />} />
                 <Route path="/Anime" exact component={() => <Homepage />} />
-                <Route path="/ShowPage" exact component={() => <ShowPage />} />
-                <Route path="/LoginPage" exact component={() => <LoginPage />} />
                 <Route path="/Survey" exact component={() => <MySurvey />} />
                 <Route path="/ShowMore" exact component={() => <ShowMorePage />} />
               </Switch>
