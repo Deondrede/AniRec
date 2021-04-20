@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState  } from "react";
-import ShowCard from '../../components/ShowCard';
+import HomePageShowCard from '../../components/HomePageShowCard';
 import TopSpace from "../../components/global_elements/TopSpacer"
 import {RECOMMENDED,AIRING_NOW, TRY_THIS, TRENDING} from '../../GraphQL/Queries'
 
@@ -212,22 +212,22 @@ function HomePage(){
                             <Col id="grey"><span></span></Col>
                         </Row>
                         <Row id="main_content">
-                            <ShowCard
+                            <HomePageShowCard
                                 name={col1_1.name}
                                 image={col1_1.image}
                                 genre= {col1_1.genre}
                                 studio={col1_1.studio}/>
-                            <ShowCard
+                            <HomePageShowCard
                                 name={col1_2.name}
                                 image={col1_2.image}
                                 genre= {col1_2.genre}
                                 studio={col1_2.studio}/>
-                            <ShowCard
+                            <HomePageShowCard
                                 name={col1_3.name}
                                 image={col1_3.image}
                                 genre= {col1_3.genre}
                                 studio={col1_3.studio}/>
-                            <ShowCard
+                            <HomePageShowCard
                                 name={col1_4.name}
                                 image={col1_4.image}
                                 genre= {col1_4.genre}
@@ -244,22 +244,22 @@ function HomePage(){
                             <Col id="grey"><span></span></Col>
                         </Row>
                         <Row id="main_content">
-                            <ShowCard
+                            <HomePageShowCard
                                     name={col2_1.name}
                                     image={col2_1.image}
                                     genre={col2_1.genre}
                                     studio={col2_1.studio}/>
-                                <ShowCard
+                                <HomePageShowCard
                                     name={col2_2.name}
                                     image={col2_2.image}
                                     genre={col2_2.genre}
                                     studio={col2_2.studio}/>
-                                <ShowCard
+                                <HomePageShowCard
                                     name={col2_3.name}
                                     image={col2_3.image}
                                     genre={col2_3.genre}
                                     studio={col2_3.studio}/>
-                                <ShowCard
+                                <HomePageShowCard
                                     name={col2_4.name}
                                     image={col2_4.image}
                                     genre={col2_4.genre}
@@ -276,22 +276,22 @@ function HomePage(){
                             <Col id="grey"><span></span></Col>
                         </Row>
                         <Row id="main_content">
-                            <ShowCard
+                            <HomePageShowCard
                                     name={col3_1.name}
                                     image={col3_1.image}
                                     genre={col3_1.genre}
                                     studio={col3_1.studio}/>
-                                <ShowCard
+                                <HomePageShowCard
                                     name={col3_2.name}
                                     image={col3_2.image}
                                     genre={col3_2.genre}
                                     studio={col3_2.studio}/>
-                                <ShowCard
+                                <HomePageShowCard
                                     name={col3_3.name}
                                     image={col3_3.image}
                                     genre={col3_3.genre}
                                     studio={col3_3.studio}/>
-                                <ShowCard
+                                <HomePageShowCard
                                     name={col3_4.name}
                                     image={col3_4.image}
                                     genre={col3_4.genre}
@@ -307,22 +307,22 @@ function HomePage(){
                             <Col id="grey"><span></span></Col>
                         </Row>
                         <Row id="main_content">
-                            <ShowCard
+                            <HomePageShowCard
                                     name={col4_1.name}
                                     image={col4_1.image}
                                     genre= {col4_1.genre}
                                     studio={col4_1.studio}/>
-                                <ShowCard
+                                <HomePageShowCard
                                     name={col4_2.name}
                                     image={col4_2.image}
                                     genre= {col4_2.genre}
                                     studio={col4_2.studio}/>
-                                <ShowCard
+                                <HomePageShowCard
                                     name={col4_3.name}
                                     image={col4_3.image}
                                     genre= {col4_3.genre}
                                     studio={col4_3.studio}/>
-                                <ShowCard
+                                <HomePageShowCard
                                     name={col4_4.name}
                                     image={col4_4.image}
                                     genre= {col4_4.genre}

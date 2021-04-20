@@ -2,10 +2,10 @@ import React, { Fragment, useEffect } from "react";
 import "./show_more_page.css";
 import TopSpace from "../../components/global_elements/TopSpacer";
 import {AIRING_NOW} from '../../GraphQL/Queries';
-import ShowCard from '../../components/ShowCard';
+import ListingPageShowCard from '../../components/ListingPageShowCard';
 import { Container, Row, Col, Button } from "react-bootstrap";
 import {useQuery} from '@apollo/client'
-
+import ShowMoreTable from './show_more_table'
 
 function ShowMorePage(){
     const {error, loading, data} = useQuery(AIRING_NOW);
@@ -21,16 +21,9 @@ function ShowMorePage(){
         return (
             <Fragment>
                 <TopSpace />
-                <Container className="float-sm-left">
-                    {data.Page.media.map(item => (
-                    <ShowCard key={item.id} 
-                        image={item.coverImage.large} 
-                        name={(item.title.english==null)
-                            ? item.title.romaji :
-                            item.title.english}
-                        genre={item.genres.join(', ')}
-                        studio={item.studios.nodes.map(studio_name => 
-                            studio_name.name).join(', ')}/>
+                <Container className="float-md">
+                {data.Page.media.map(item => (
+                    <ShowMoreTable props={item} />
                     ))}
                 </Container>
             </Fragment>

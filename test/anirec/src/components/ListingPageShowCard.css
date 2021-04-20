@@ -1,0 +1,50 @@
+#ListingPage_cards_image{
+    font-size: 15px;
+    border-right: solid 1px;
+    border-left: solid 1px;
+    border-top: solid 1px;
+}
+
+/*#ListingPage_cards_description{
+    width: 55%;
+    border-right: solid 1px;
+}
+
+#ListingPage_cards_title{
+    font-size: 20px;
+    margin-left: 0px;
+    margin-right: 0px;
+    border-bottom: solid 1px;
+    border-top: solid 1px;
+}
+
+#ListingPage_cards_text{
+    padding: 1px;
+    margin-bottom: 0px;
+    line-height: 1;
+}
+
+#ListingPage_cards_genres{
+    font-size: 15px;
+    margin-left: 0px;
+    margin-right: 0px;
+    border-bottom: solid 1px;
+}
+
+#ListingPage_cards_studio{
+    font-size: 15px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: auto;
+}
+
+#key_staff{
+    font-size: 15px;
+    margin-left: 0px;
+    margin-right: 0px;
+    border-bottom: solid 1px;
+}
+*/
+#ListingPage_cards{
+    height: fit-content;
+}
