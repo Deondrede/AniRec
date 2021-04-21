@@ -6,7 +6,6 @@ import ListingPageShowCard from '../../components/ListingPageShowCard';
 import { Container } from "react-bootstrap";
 import { Col, Row, Grid } from 'react-flexbox-grid'
 import {useQuery} from '@apollo/client'
-import ShowMoreTableCell from './show_more_cell'
 import { chunk } from 'lodash'
 
 function ShowMorePage(){
@@ -50,16 +49,5 @@ function ShowMorePage(){
         );
     }
 }
-
-/*
-                <table>
-                    <tr>
-                        {data.Page.media.map(item => (
-                            <ShowMoreTableCell props={item} />
-                            
-                        ))}
-                    </tr>
-                </table>
-                */
 
 export default ShowMorePage;
