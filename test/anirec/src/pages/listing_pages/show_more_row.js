@@ -1,10 +1,10 @@
 import React from "react";
 import ShowMoreTableCell from "./show_more_cell";
 
-function ShowMoreTableRow(props){
+function ShowMoreTableRow({props}){
     return(
         <tr>
-            {props.map(cell => <ShowMoreTableCell props={cell} /> )}
+            <ShowMoreTableCell props={props} />
         </tr>
     )
 }

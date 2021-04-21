@@ -1,7 +1,7 @@
 import React from "react";
 import ListingPageShowCard from '../../components/ListingPageShowCard';
 
-function ShowMoreTableCell(props){
+function ShowMoreTableCell({props}){
     return(
         <td>
             <ListingPageShowCard key={props.id} 
