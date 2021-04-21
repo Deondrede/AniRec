@@ -4,7 +4,7 @@ import React, { Component } from "react";
 const axios = require('axios').default;
 
 // An example of a GET request
-axios.get('http://localhost:5000').then((response) =>{
+axios.get('http://localhost:5000/review',{params:{anime_id:123547}}).then((response) =>{
         console.log(response.data);
 });
 

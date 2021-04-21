@@ -1,4 +1,4 @@
-from accounts.models import User
+from accounts.models import Review, User
 from django.contrib.auth.forms import UserCreationForm
 from django.core import serializers
 from django.http import HttpResponse
@@ -12,6 +12,7 @@ def createUser(request):
             print("No username or password was supplied")
             return
         User.objects.create(username=username,password=password,preferred_genres="",watched_anime="")  
+        
     all_objects = list(User.objects.all())
     ao_json = serializers.serialize('json', all_objects)
     return HttpResponse(ao_json, content_type='application/json')
@@ -28,6 +29,7 @@ def updateGenre(request):
         user = User.objects.get(username=username)
         user.preferred_genres += "~" + genre + ";"
         user.save()
+
     all_objects = list(User.objects.all())
     ao_json = serializers.serialize('json', all_objects)
     return HttpResponse(ao_json, content_type='application/json')
@@ -39,6 +41,24 @@ def updateAnime(request):
         user = User.objects.get(username=username)
         user.watched_anime += "~" + anime + ";"
         user.save()
+
     all_objects = list(User.objects.all())
+    ao_json = serializers.serialize('json', all_objects)
+    return HttpResponse(ao_json, content_type='application/json')
+
+def updateReview(request):
+    if request.method == "POST":
+        anime_id = request.POST.get('anime_id')
+        review = request.POST.get('review')
+        username = request.POST.get('username')
+        Review.objects.create(anime_id=anime_id,review=review,username=username)
+        
+    if request.method == "GET" and request.GET.get('anime_id') != None:
+        anime_id = request.GET.get('anime_id')
+        reviews = list(Review.objects.all().filter(anime_id=anime_id))
+        reviews_json = serializers.serialize('json',reviews)
+        return HttpResponse(reviews_json,content_type='application/json')
+
+    all_objects = list(Review.objects.all())
     ao_json = serializers.serialize('json', all_objects)
     return HttpResponse(ao_json, content_type='application/json')
