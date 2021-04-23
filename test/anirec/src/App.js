@@ -39,7 +39,7 @@ function App() {
                 <Route path="/" exact component={() => <LandingPage />} />
                 <Route path="/Anime" exact component={() => <Homepage />} />
                 <Route path="/Survey" exact component={() => <MySurvey />} />
-                <Route path="/ShowMore" exact component={() => <ShowMorePage />} />
+                <Route path="/ShowMore" exact component={() => <ShowMorePage/>} />
               </Switch>
             </Router>
           </Fragment>

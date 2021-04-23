@@ -6,9 +6,21 @@ import { Container, Row, Col } from "react-bootstrap";
 
 function ListingPageShowCard(props){
     return(
-            <Col>
-                <img id="ListingPage_cardsimage" src={props.image} class="center"/>
-            </Col>
+        <Fragment className="float-center" id="ListingPage_card">
+                <Row>
+                    <img id="ListingPage_cards_image" src={props.image} class="center"/>    
+                </Row>
+                <Row id="ListingPage_cards_title">
+                    <a id="ListingPage_card_text">{props.name}</a>
+                </Row>
+                <Row id="ListingPage_cards_genre">
+                    <a id="ListingPage_card_text">{props.genre}</a>
+                </Row>
+                <Row id="ListingPage_cards_studios">
+                    <a id="ListingPage_card_text">{props.studio}</a>
+                </Row>
+        </Fragment>
+
     );
 }
 

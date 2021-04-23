@@ -2,19 +2,26 @@ import React, { Fragment, useEffect, useState  } from "react";
 import HomePageShowCard from '../../components/HomePageShowCard';
 import TopSpace from "../../components/global_elements/TopSpacer"
 import {RECOMMENDED,AIRING_NOW, TRY_THIS, TRENDING} from '../../GraphQL/Queries'
+//import { Link } from "react-router-dom";
 
 import {useQuery} from '@apollo/client'
 import './Homepage.css';
 
 import { Container, Row, Col, Button } from "react-bootstrap";
+import ShowMorePage from "../listing_pages/show_more_page";
+import ShowMore from "../listing_pages/ShowMore.js";
 
 //will be used as next Page to list
 function HomePage(){
-
-    const {error, loading, data} = useQuery(AIRING_NOW);
-    const {error: errorC2, loading: loadingC2, data: dataC2} = useQuery(RECOMMENDED);
-    const {error: errorC3, loading: loadingC3, data: dataC3} = useQuery(TRY_THIS);
-    const {error: errorC4, loading: loadingC4, data: dataC4} = useQuery(TRENDING);
+    var query1 = AIRING_NOW;
+    var query2 = RECOMMENDED;
+    var query3 = TRY_THIS;
+    var query4 = TRENDING;
+    
+    const {error, loading, data} = useQuery(query1);
+    const {error: errorC2, loading: loadingC2, data: dataC2} = useQuery(query2);
+    const {error: errorC3, loading: loadingC3, data: dataC3} = useQuery(query3);
+    const {error: errorC4, loading: loadingC4, data: dataC4} = useQuery(query4);
 
     useEffect(()=>{
       console.log(data)
@@ -207,7 +214,7 @@ function HomePage(){
                     <Col id="feed_col">
                         <Row id="subtitle">
                             <Col id="pink">
-                                <strong id="recommended">Recommended</strong>
+                                <strong id="recommended" onClick={() => <ShowMore></ShowMore>}>Recommended</strong>
                             </Col>
                             <Col id="grey"><span></span></Col>
                         </Row>
@@ -239,7 +246,7 @@ function HomePage(){
                     <Col id="feed_col">
                         <Row id="subtitle">
                             <Col id="purple">
-                                <strong id="recommended">Airing</strong>
+                                <Button id="airing_now" href="/ShowMore"><strong>Airing</strong></Button>
                             </Col>
                             <Col id="grey"><span></span></Col>
                         </Row>
