@@ -8,8 +8,8 @@ import {useQuery} from '@apollo/client'
 import './Homepage.css';
 
 import { Container, Row, Col, Button } from "react-bootstrap";
-import ShowMorePage from "../listing_pages/show_more_page";
-import ShowMore from "../listing_pages/ShowMore.js";
+import ShowMoreAiring from "../listing_pages/show_more_page";
+//import ShowMore from "../listing_pages/ShowMore.js";
 
 //will be used as next Page to list
 function HomePage(){
@@ -214,7 +214,7 @@ function HomePage(){
                     <Col id="feed_col">
                         <Row id="subtitle">
                             <Col id="pink">
-                                <strong id="recommended" onClick={() => <ShowMore></ShowMore>}>Recommended</strong>
+                                <strong id="recommended">Recommended</strong>
                             </Col>
                             <Col id="grey"><span></span></Col>
                         </Row>
@@ -246,7 +246,7 @@ function HomePage(){
                     <Col id="feed_col">
                         <Row id="subtitle">
                             <Col id="purple">
-                                <Button id="airing_now" href="/ShowMore"><strong>Airing</strong></Button>
+                                <strong id="airing_now" href={"/ShowMoreAiring"}>Airing</strong>
                             </Col>
                             <Col id="grey"><span></span></Col>
                         </Row>

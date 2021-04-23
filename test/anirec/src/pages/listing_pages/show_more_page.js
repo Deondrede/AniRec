@@ -8,7 +8,7 @@ import { Col, Row, Grid } from 'react-flexbox-grid'
 import {useQuery} from '@apollo/client'
 import { chunk } from 'lodash'
 
-function ShowMorePage(){
+function ShowMoreAiring(){
     const {error, loading, data} = useQuery(AIRING_NOW);
 
     useEffect(()=>{
@@ -50,4 +50,4 @@ function ShowMorePage(){
     }
 }
 
-export default ShowMorePage;
+export default ShowMoreAiring;

@@ -3,8 +3,9 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import LandingPage from "./pages/landing_page/LandingPage.js";
 import Homepage from "./pages/home_page/Homepage.js";
 import MySurvey from "./pages/landing_page/survey_page/surveyType.js";
-import ShowMorePage from "./pages/listing_pages/show_more_page.js"
+import ShowMoreAiring from "./pages/listing_pages/show_more_page.js"
 import "./App.css";
+import ShowMore from "./pages/listing_pages/ShowMore";
 
 import {ApolloClient, InMemoryCache, ApolloProvider, HttpLink, from, } from '@apollo/client'
 import {onError} from '@apollo/client/link/error'
@@ -39,12 +40,16 @@ function App() {
                 <Route path="/" exact component={() => <LandingPage />} />
                 <Route path="/Anime" exact component={() => <Homepage />} />
                 <Route path="/Survey" exact component={() => <MySurvey />} />
-                <Route path="/ShowMore" exact component={() => <ShowMorePage/>} />
+                <Route path="/ShowMoreAiring" exact component={() => <ShowMoreAiring/>} />
+                <Route path="/ShowMore" exact component={() => <ShowMore />}/>
               </Switch>
             </Router>
           </Fragment>
         </ApolloProvider>
       );
 }
+
+//<Route path="/ShowMore/:tag" component={UserPage}/>
+
 
 export default App;
