@@ -7,10 +7,10 @@ import { Container } from "react-bootstrap";
 import { Col, Row, Grid } from 'react-flexbox-grid'
 import {useQuery} from '@apollo/client'
 import { chunk } from 'lodash'
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
-function AiringNowMore(){
-    const {error, loading, data} = useQuery(AIRING_NOW);
+export default function AiringNowMore(props){
+/*    const {error, loading, data} = useQuery(AIRING_NOW);
 
     useEffect(()=>{
         console.log(data)
@@ -19,8 +19,10 @@ function AiringNowMore(){
 
       if (loading) return <p>Loading1...</p>
       else if (error) return <p>Error1 :(</p>
-    else{
-        const rows = chunk(data.Page.media, 4)
+    else{*/
+        //let data = useLocation();
+        const location = useLocation();
+        const rows = chunk(location.state, 4)
         return (
             <Fragment>
                 <TopSpace />
@@ -52,6 +54,3 @@ function AiringNowMore(){
             </Fragment>
         );
     }
-}
-
-export default AiringNowMore;
