@@ -34,6 +34,14 @@ span{
   font-size: 25px;
 }
 
+.airing_link{
+  color: #AA80FF;
+}
+
+.airing_link:hover{
+  color: #8145f7;
+}
+
 #feed_body .col{
   padding: 0px 0px 0px 0px;
 }

@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect } from "react";
-import "./show_more_page.css";
+import "./AiringNowMore.css";
 import TopSpace from "../../components/global_elements/TopSpacer";
 import {AIRING_NOW} from '../../GraphQL/Queries';
 import ListingPageShowCard from '../../components/ListingPageShowCard';
@@ -7,8 +7,9 @@ import { Container } from "react-bootstrap";
 import { Col, Row, Grid } from 'react-flexbox-grid'
 import {useQuery} from '@apollo/client'
 import { chunk } from 'lodash'
+import { Link } from 'react-router-dom';
 
-function ShowMoreAiring(){
+function AiringNowMore(){
     const {error, loading, data} = useQuery(AIRING_NOW);
 
     useEffect(()=>{
@@ -24,6 +25,9 @@ function ShowMoreAiring(){
             <Fragment>
                 <TopSpace />
                 <Container className="float-md-3">
+                    <Row id="back_btn_space">
+                        <Link class="back_btn" to={"/Anime"}><strong>Back</strong></Link>
+                    </Row>
                     <Grid>
                         {rows.map((cols) => (
                             <Row>
@@ -50,4 +54,4 @@ function ShowMoreAiring(){
     }
 }
 
-export default ShowMoreAiring;
+export default AiringNowMore;

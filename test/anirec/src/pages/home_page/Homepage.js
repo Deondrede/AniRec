@@ -2,13 +2,12 @@ import React, { Fragment, useEffect, useState  } from "react";
 import HomePageShowCard from '../../components/HomePageShowCard';
 import TopSpace from "../../components/global_elements/TopSpacer"
 import {RECOMMENDED,AIRING_NOW, TRY_THIS, TRENDING} from '../../GraphQL/Queries'
-//import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import {useQuery} from '@apollo/client'
 import './Homepage.css';
 
 import { Container, Row, Col, Button } from "react-bootstrap";
-import ShowMoreAiring from "../listing_pages/show_more_page";
 //import ShowMore from "../listing_pages/ShowMore.js";
 
 //will be used as next Page to list
@@ -45,7 +44,15 @@ function HomePage(){
 
     if (loading) return <p>Loading1...</p>
     if (error) return <p>Error1 :(</p>
-        if (loadingC2) return <p>Loading2...</p>
+
+    // airing_now array
+    const airing_arr = data.Page.media;
+    const home_airing_arr = [];
+    for (let i = 0; i < 4; i++){
+        home_airing_arr.push(data.Page.media[i]);    
+    }
+
+    if (loadingC2) return <p>Loading2...</p>
 
     if (errorC2) return <p>Error2 :(</p>
         if (loadingC3) return <p>Loading3...</p>
@@ -246,32 +253,20 @@ function HomePage(){
                     <Col id="feed_col">
                         <Row id="subtitle">
                             <Col id="purple">
-                                <strong id="airing_now" href={"/ShowMoreAiring"}>Airing</strong>
+                                <Link class="airing_link" id="airing_now" to="/AiringNowMore"><span><strong>Airing</strong></span></Link>
                             </Col>
                             <Col id="grey"><span></span></Col>
                         </Row>
                         <Row id="main_content">
-                            <HomePageShowCard
-                                    name={col2_1.name}
-                                    image={col2_1.image}
-                                    genre={col2_1.genre}
-                                    studio={col2_1.studio}/>
-                                <HomePageShowCard
-                                    name={col2_2.name}
-                                    image={col2_2.image}
-                                    genre={col2_2.genre}
-                                    studio={col2_2.studio}/>
-                                <HomePageShowCard
-                                    name={col2_3.name}
-                                    image={col2_3.image}
-                                    genre={col2_3.genre}
-                                    studio={col2_3.studio}/>
-                                <HomePageShowCard
-                                    name={col2_4.name}
-                                    image={col2_4.image}
-                                    genre={col2_4.genre}
-                                    studio={col2_4.studio}/>
-
+                            {home_airing_arr.map((row)=>
+                                    <HomePageShowCard
+                                        name={(row.title.english==null)
+                                            ? row.title.romaji :
+                                            row.title.english}
+                                        image={row.coverImage.large}
+                                        genre={row.genres.join(', ')}
+                                        studio={row.studios.nodes[0].name}/>
+                            )}
                         </Row>
                     </Col>
                     <Col id="spacing"></Col>
@@ -343,4 +338,5 @@ function HomePage(){
     );
 }
 
+//"/ShowMorePage/" + airing_arr
 export default HomePage;

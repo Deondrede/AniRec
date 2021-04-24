@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 // I used axios for this but if you want to try using something else like ajax you're free to do so
 // Also axios is a separate module so don't forget to do 'npm install axios'
-const axios = require('axios').default;
+/*const axios = require('axios').default;
 
 // An example of a GET request
 axios.get('http://localhost:5000').then((response) =>{
@@ -66,7 +66,7 @@ function register(){
           //handle error
           console.log(response);
         });
-}
+}*/
 export default class Login extends Component {
     render() {
         return (
@@ -85,10 +85,11 @@ export default class Login extends Component {
                     </div>
                 </div>
 
-                <button type="submit" className="btn btn-dark btn-lg btn-block" onClick={register}>
+                <button type="submit" className="btn btn-dark btn-lg btn-block" >
                     <a id="reg_btn" href="/Anime"> Sign in </a>
                     </button>
             </form>
         );
     }
 }
+//onClick={register}

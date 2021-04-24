@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import LandingPage from "./pages/landing_page/LandingPage.js";
 import Homepage from "./pages/home_page/Homepage.js";
 import MySurvey from "./pages/landing_page/survey_page/surveyType.js";
-import ShowMoreAiring from "./pages/listing_pages/show_more_page.js"
+import AiringNowMore from "./pages/listing_pages/AiringNowMore.js"
 import "./App.css";
 import ShowMore from "./pages/listing_pages/ShowMore";
 
@@ -40,8 +40,9 @@ function App() {
                 <Route path="/" exact component={() => <LandingPage />} />
                 <Route path="/Anime" exact component={() => <Homepage />} />
                 <Route path="/Survey" exact component={() => <MySurvey />} />
-                <Route path="/ShowMoreAiring" exact component={() => <ShowMoreAiring/>} />
                 <Route path="/ShowMore" exact component={() => <ShowMore />}/>
+                <Route path="/AiringNowMore" component={()=> <AiringNowMore />} />
+
               </Switch>
             </Router>
           </Fragment>
