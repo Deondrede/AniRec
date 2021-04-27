@@ -1,16 +1,14 @@
 #HomePage_card_image{
     font-size: 15px;
     max-width: 100%;
-    border-right: solid 1px;
-    border-left: solid 1px;
-    border-top: solid 1px;
-
+    border: solid 1px;
     height:100%;
 }
 
 #HomePage_card_description{
     width: 55%;
     border-right: solid 1px;
+    border-bottom: solid 1px;
 }
 
 #HomePage_card_title{
@@ -19,6 +17,7 @@
     margin-right: 0px;
     border-bottom: solid 1px;
     border-top: solid 1px;
+    max-height: 50%;
 }
 
 #HomePage_card_text{
@@ -49,5 +48,13 @@
 }
 
 #HomePage_cards{
-    height: fit-content;
+    height: 25%;
+}
+
+#tag_links{
+    color: black;
+}
+
+#tag_links:hover{
+    color: #5B84D7;
 }

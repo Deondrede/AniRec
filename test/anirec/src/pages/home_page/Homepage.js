@@ -46,8 +46,6 @@ function HomePage(){
         home_airing_arr.push(airing_arr[i]);    
     }
 
-
-
     //trending array
     if (loadingC4) return <p>Loading4...</p>
     if (errorC4) return <p>Error4 :(</p>
@@ -78,30 +76,30 @@ function HomePage(){
 
     let col2_1 = {
         name: name_array1[0],
-        image: data.Page.media[0].coverImage.large,
-        genre: data.Page.media[0].genres.join(', '),
+        image: data.Page.media[0].coverImage.extraLarge,
+        genre: data.Page.media[0].genres,
         studio: data.Page.media[0].studios.nodes[0].name
     }
 
 
     let col2_2 = {
         name: name_array1[1],
-        image: data.Page.media[1].coverImage.large,
-        genre: data.Page.media[1].genres.join(', '),
+        image: data.Page.media[1].coverImage.extraLarge,
+        genre: data.Page.media[1].genres,
         studio: data.Page.media[1].studios.nodes[0].name
     }
 
     let col2_3 = {
         name:  name_array1[2],
-        image: data.Page.media[2].coverImage.large,
-        genre: data.Page.media[2].genres.join(', '),
+        image: data.Page.media[2].coverImage.extraLarge,
+        genre: data.Page.media[2].genres,
         studio: data.Page.media[2].studios.nodes[0].name
     }
 
     let col2_4 = {
         name:  name_array1[3],
-        image: data.Page.media[3].coverImage.large,
-        genre: data.Page.media[3].genres.join(', '),
+        image: data.Page.media[3].coverImage.extraLarge,
+        genre: data.Page.media[3].genres,
         studio: data.Page.media[3].studios.nodes[0].name
     }
     
@@ -109,8 +107,8 @@ function HomePage(){
         name: (dataC2.series1.title.english==null)
             ? dataC2.series1.title.romaji :
             dataC2.series1.title.english,
-        image: dataC2.series1.coverImage.large,
-        genre: dataC2.series1.genres.join(', '),
+        image: dataC2.series1.coverImage.extraLarge,
+        genre: dataC2.series1.genres,
         studio: dataC2.series1.studios.nodes[0].name
     }
 
@@ -119,8 +117,8 @@ function HomePage(){
         name: (dataC2.series2.title.english==null)
             ? dataC2.series2.title.romaji :
             dataC2.series2.title.english,
-        image: dataC2.series2.coverImage.large,
-        genre: dataC2.series2.genres.join(', '),
+        image: dataC2.series2.coverImage.extraLarge,
+        genre: dataC2.series2.genres,
         studio: dataC2.series2.studios.nodes[0].name
     }
     
@@ -128,8 +126,8 @@ function HomePage(){
         name: (dataC2.series3.title.english==null)
             ? dataC2.series3.title.romaji :
             dataC2.series3.title.english,
-        image: dataC2.series3.coverImage.large,
-        genre: dataC2.series3.genres.join(', '),
+        image: dataC2.series3.coverImage.extraLarge,
+        genre: dataC2.series3.genres,
         studio: dataC2.series3.studios.nodes[0].name
     }
 
@@ -137,8 +135,8 @@ function HomePage(){
         name: (dataC2.series4.title.english==null)
         ? dataC2.series4.title.romaji :
         dataC2.series4.title.english,
-        image: dataC2.series4.coverImage.large,
-        genre: dataC2.series4.genres.join(', '),
+        image: dataC2.series4.coverImage.extraLarge,
+        genre: dataC2.series4.genres,
         studio: dataC2.series4.studios.nodes[0].name
     }
 
@@ -146,8 +144,8 @@ function HomePage(){
         name: (dataC3.series1.title.english==null)
             ? dataC3.series1.title.romaji :
             dataC3.series1.title.english,
-        image: dataC3.series1.coverImage.large,
-        genre: dataC3.series1.genres.join(', '),
+        image: dataC3.series1.coverImage.extraLarge,
+        genre: dataC3.series1.genres,
         studio: dataC3.series1.studios.nodes[0].name
     }
 
@@ -155,8 +153,8 @@ function HomePage(){
         name: (dataC3.series2.title.english==null)
             ? dataC3.series2.title.romaji :
             dataC3.series2.title.english,
-        image: dataC3.series2.coverImage.large,
-        genre: dataC3.series2.genres.join(', '),
+        image: dataC3.series2.coverImage.extraLarge,
+        genre: dataC3.series2.genres,
         studio: dataC3.series2.studios.nodes[0].name
     }
     
@@ -164,8 +162,8 @@ function HomePage(){
         name: (dataC3.series3.title.english==null)
             ? dataC3.series3.title.romaji :
             dataC3.series3.title.english,
-        image: dataC3.series3.coverImage.large,
-        genre: dataC3.series3.genres.join(', '),
+        image: dataC3.series3.coverImage.extraLarge,
+        genre: dataC3.series3.genres,
         studio: dataC3.series3.studios.nodes[0].name
     }
 
@@ -173,8 +171,8 @@ function HomePage(){
         name: (dataC3.series4.title.english==null)
         ? dataC3.series4.title.romaji :
         dataC3.series4.title.english,
-        image: dataC3.series4.coverImage.large,
-        genre: dataC3.series4.genres.join(', '),
+        image: dataC3.series4.coverImage.extraLarge,
+        genre: dataC3.series4.genres,
         studio: dataC3.series4.studios.nodes[0].name
     }
   
@@ -218,8 +216,8 @@ function HomePage(){
                     <Col id="feed_col">
                         <Row id="subtitle">
                             <Col id="purple">
-                                <Link class="airing_link" id="airing_now" to={{
-                                    pathname:"/AiringNowMore",
+                                <Link class="trending_airing_link" id="airing_now" to={{
+                                    pathname:"/ShowMore",
                                     state: airing_arr
                                 }}>
                                     <span><strong>Airing</strong></span>
@@ -233,8 +231,8 @@ function HomePage(){
                                         name={(row.title.english==null)
                                             ? row.title.romaji :
                                             row.title.english}
-                                        image={row.coverImage.large}
-                                        genre={row.genres.join(', ')}
+                                        image={row.coverImage.extraLarge}
+                                        genre={row.genres}
                                         studio={row.studios.nodes[0].name}/>
                             )}
                         </Row>
@@ -274,7 +272,12 @@ function HomePage(){
                     <Col id="feed_col">
                         <Row id="subtitle">
                             <Col id="purple">
-                                <span><strong>Trending</strong></span>
+                                <Link class="trending_airing_link" id="trending" to={{
+                                    pathname:"/ShowMore",
+                                    state: trending_arr
+                                }}>
+                                    <span><strong>Trending</strong></span>
+                                </Link>
                             </Col>
                             <Col id="grey"><span></span></Col>
                         </Row>
@@ -284,8 +287,8 @@ function HomePage(){
                                             name={(row.title.english==null)
                                                 ? row.title.romaji :
                                                 row.title.english}
-                                            image={row.coverImage.large}
-                                            genre={row.genres.join(', ')}
+                                            image={row.coverImage.extraLarge}
+                                            genre={row.genres}
                                             studio={row.studios.nodes[0].name}/>
                             )}
                         </Row>

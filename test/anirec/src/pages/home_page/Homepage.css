@@ -34,11 +34,11 @@ span{
   font-size: 25px;
 }
 
-.airing_link{
+.trending_airing_link{
   color: #AA80FF;
 }
 
-.airing_link:hover{
+.trending_airing_link:hover{
   color: #8145f7;
 }
 
@@ -69,7 +69,7 @@ span{
 }
 
 #main_content{
-  height: auto;
+  height: 100%;
   color: black;
   padding: 20px 0px 0px 0px;
   margin: auto;
