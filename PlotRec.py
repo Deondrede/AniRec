@@ -1,6 +1,7 @@
 # Following tutorial at https://www.datacamp.com/community/tutorials/recommender-systems-python
 
 # Importing pandas due to data manip and analysis
+import json
 import pandas as pd
 import re
 from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
@@ -110,7 +111,10 @@ def get_recs(title):
 
     anime_indices = [i[0] for i in avg_sim_score[1:26]]
 
-    return metadata['Title: Romanji'].iloc[anime_indices]
+    result = metadata['Title: Romanji'].iloc[anime_indices]
+    result = result.to_json(orient="columns")
+    parsed = json.loads(result)
+    return json.dumps(parsed, indent=4)
 
 
 print(get_recs("One Piece"))
