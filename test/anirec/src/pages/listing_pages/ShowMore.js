@@ -5,11 +5,10 @@ import ListingPageShowCard from '../../components/ListingPageShowCard';
 import { Container } from "react-bootstrap";
 import { Col, Row, Grid } from 'react-flexbox-grid'
 import { chunk } from 'lodash'
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useLocation } from 'react-router-dom';
 import {useQuery, gql} from '@apollo/client'
 
 export default function ShowMore(props){
-
     const GENRE_QUERY = gql`
         query GenreQuery($genre: String) {
             Page(page: 1, perPage: 50){
@@ -65,7 +64,7 @@ export default function ShowMore(props){
                             <Row>
                                 {cols.map((col) => (
                                     <Col md={3}>
-                                        <ListingPageShowCard key={col.id} 
+                                        <ListingPageShowCard   
                                             image={col.coverImage.large} 
                                             name={(col.title.english==null)
                                                 ? col.title.romaji :
