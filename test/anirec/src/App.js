@@ -4,12 +4,13 @@ import LandingPage from "./pages/landing_page/LandingPage.js";
 import Homepage from "./pages/home_page/Homepage.js";
 import MySurvey from "./pages/landing_page/survey_page/surveyType.js";
 import "./App.css";
-import ShowMore from "./pages/listing_pages/ShowMore";
+import GeneralShowMore from "./pages/listing_pages/GeneralShowMore";
 
 import {ApolloClient, InMemoryCache, ApolloProvider, HttpLink, from, } from '@apollo/client'
 import {onError} from '@apollo/client/link/error'
 
 import Header from "./components/global_elements/Header.js";
+import GenresShowMore from "./pages/listing_pages/GenresShowMore";
 
 const errorLink = onError(({ graphqlErrors, networkError }) => {
   if (graphqlErrors){
@@ -39,7 +40,8 @@ function App() {
                 <Route path="/" exact component={() => <LandingPage />} />
                 <Route path="/Anime" exact component={() => <Homepage />} />
                 <Route path="/Survey" exact component={() => <MySurvey />} />
-                <Route path="/ShowMore/:expandTag" component={() => <ShowMore />}/>
+                <Route path="/GenresShowMore/:genreName" exact component={() => <GenresShowMore />}/>
+                <Route path="/ShowMore/:queryName" exact component={() => <GeneralShowMore />}/>
               </Switch>
             </Router>
           </Fragment>

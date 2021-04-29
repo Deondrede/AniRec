@@ -172,7 +172,9 @@ function HomePage(){
                             <Col id="purple">
                                 <Link className="trending_airing_link" id="airing_now" to={{
                                     pathname:`/ShowMore/airing_now`,
-                                    state: AIRING_NOW
+                                    state: {
+                                        query: AIRING_NOW
+                                    }
                                 }}>
                                     <span><strong>Airing</strong></span>
                                 </Link>

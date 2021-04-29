@@ -79,7 +79,7 @@ export const RECOMMENDED = gql`
 
 export const AIRING_NOW = gql`
 {
-  Page(page: 1, perPage: 50){
+  Page(page: 1, perPage: 100){
     pageInfo{
       lastPage
     }
@@ -185,7 +185,7 @@ export const TRY_THIS = gql`
 
 export const TRENDING = gql`
 {
-  Page(page: 1, perPage: 50) {
+  Page(page: 1, perPage: 100) {
     media(sort: TRENDING_DESC, isAdult: false, type: ANIME) {
       id
       title {

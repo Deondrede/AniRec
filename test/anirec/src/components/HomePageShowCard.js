@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 function HomePageShowCard(props){
     let genreCount = props.genre.length
 
-
     return(
         <Fragment>
                 <Container id="HomePage_cards">
@@ -24,20 +23,20 @@ function HomePageShowCard(props){
                                 <p id="HomePage_card_text">
                                     {props.genre.map((genres) =>
                                         {
-                                        if (genreCount < 2)
-                                            return <Link key={genres} id="tag_links" to={{
-                                                        pathname:`/ShowMore/${genres}`
-                                                    }}>{genres}</Link>
-                                        else 
-                                            genreCount--;
-                                            return  <Fragment>
-                                                        <Link key={genres} id="tag_links" to={{
-                                                            pathname:`/ShowMore/${genres}`
-                                                            }}>{genres}
-                                                        </Link>
-                                                        <a>, </a>
-                                                    </Fragment>
-                                        }
+                                            if (genreCount < 2)
+                                                return <Link key={genres} id="tag_links" to={{
+                                                            pathname:`/GenresShowMore/${genres}`
+                                                        }}>{genres}</Link>
+                                            else 
+                                                genreCount--;
+                                                return  <Fragment>
+                                                            <Link key={genres} id="tag_links" to={{
+                                                                pathname:`/GenresShowMore/${genres}`
+                                                                }}>{genres}
+                                                            </Link>
+                                                            <a>, </a>
+                                                        </Fragment>
+                                            }
                                     )}
                                 </p>
                             </Row>
