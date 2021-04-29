@@ -7,7 +7,7 @@ import { Row, Button } from "react-bootstrap";
 
 import "./login_register_tabs.component.css"
 
-export default class LR_Tabs extends Component {
+export default class LrTabs extends Component {
     render(){
         return(
             <Fragment>

@@ -28,8 +28,6 @@ const client = new ApolloClient({
   link: link,
 });
 
-const _ = require('lodash');
-
 function App() {
       return (
         <ApolloProvider client={client}>
@@ -41,7 +39,7 @@ function App() {
                 <Route path="/" exact component={() => <LandingPage />} />
                 <Route path="/Anime" exact component={() => <Homepage />} />
                 <Route path="/Survey" exact component={() => <MySurvey />} />
-                <Route path="/ShowMore" component={() => <ShowMore />}/>
+                <Route path="/ShowMore/:expandTag" component={() => <ShowMore />}/>
               </Switch>
             </Router>
           </Fragment>

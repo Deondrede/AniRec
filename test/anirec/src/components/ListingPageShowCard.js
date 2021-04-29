@@ -1,14 +1,15 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment} from "react";
 import "./ListingPageShowCard.css";
 //frame for the anime to show
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 
 
 function ListingPageShowCard(props){
     return(
-        <Fragment className="float-center" id="ListingPage_card">
+        <Fragment>
+            <Container className="float-center" id="ListingPage_card">
                 <Row>
-                    <img id="ListingPage_cards_image" src={props.image} class="center"/>    
+                    <img id="ListingPage_cards_image" src={props.image} className="center"/>    
                 </Row>
                 <Row id="ListingPage_cards_title">
                     <a id="ListingPage_card_text">{props.name}</a>
@@ -19,23 +20,9 @@ function ListingPageShowCard(props){
                 <Row id="ListingPage_cards_studios">
                     <a id="ListingPage_card_text">{props.studio}</a>
                 </Row>
+            </Container>
         </Fragment>
 
     );
 }
-
-/*
-<Col id="ListingPage_cardsdescription">
-    <Row id="ListingPage_cardstitle">
-        <p id="ListingPage_cardstext">{props.name}</p>
-    </Row>
-    <Row id="ListingPage_cardsgenres">
-        <p id="ListingPage_cardstext">{props.genre}</p>
-    </Row>
-    <Row id="ListingPage_cardsstudio">
-        <p id="ListingPage_cardstext">{props.studio}</p>
-    </Row>
-</Col>
-*/
-
 export default ListingPageShowCard;

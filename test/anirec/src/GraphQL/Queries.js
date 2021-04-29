@@ -186,7 +186,7 @@ export const TRY_THIS = gql`
 export const TRENDING = gql`
 {
   Page(page: 1, perPage: 50) {
-    media(sort: TRENDING_DESC) {
+    media(sort: TRENDING_DESC, isAdult: false, type: ANIME) {
       id
       title {
         romaji

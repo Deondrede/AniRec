@@ -1,4 +1,3 @@
-import { render } from "react-dom";
 import React from "react";
 import "./Header.css";  
 
@@ -13,8 +12,6 @@ function Header() {
                     <Nav className="mr-auto">
                     <Nav.Link href="/">Home</Nav.Link>
                     <Nav.Link href="/Anime">Anime</Nav.Link>
-                    <Nav.Link href="/ShowPage">Show Page</Nav.Link>
-                    <Nav.Link href="/LoginPage">Login Page</Nav.Link>
                     <Nav.Link href="/ShowMore">test Page</Nav.Link>
                     <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                         <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>

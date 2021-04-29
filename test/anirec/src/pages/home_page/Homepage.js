@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState  } from "react";
+import React, { Fragment, useEffect  } from "react";
 import HomePageShowCard from '../../components/HomePageShowCard';
 import TopSpace from "../../components/global_elements/TopSpacer"
 import {RECOMMENDED,AIRING_NOW, TRY_THIS, TRENDING} from '../../GraphQL/Queries'
@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import {useQuery} from '@apollo/client'
 import './Homepage.css';
 
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 //import ShowMore from "../listing_pages/ShowMore.js";
 
 //will be used as next Page to list
@@ -18,22 +18,18 @@ function HomePage(){
     const {error: errorC4, loading: loadingC4, data: dataC4} = useQuery(TRENDING);
 
     useEffect(()=>{
-      console.log(data)
      }, [data]
     );
       
     useEffect(()=>{
-        console.log(dataC2)
         }, [dataC2]
     );
 
     useEffect(()=>{
-        console.log(dataC3)
         }, [dataC3]
     );
 
     useEffect(()=>{
-        console.log(dataC4)
         }, [dataC4]
     );
 
@@ -61,48 +57,6 @@ function HomePage(){
 
     if (errorC3) return <p>Error3 :(</p>
 
-    //if (dataC2) return <p>Loading2...</p>
-    //if (dataC2) return <p>Error2 :(</p>
-
-    // this is to check and make sure names are displayed since some of them dont have english names
-    let name_array1 = [data.Page.media.length];
-    for (let i = 0; i < data.Page.media.length; i++) {
-        let temp_name = data.Page.media[i].title.english;
-        if (temp_name == null){
-            temp_name = data.Page.media[i].title.romaji;
-        }
-        name_array1[i] = temp_name;
-    }
-
-    let col2_1 = {
-        name: name_array1[0],
-        image: data.Page.media[0].coverImage.extraLarge,
-        genre: data.Page.media[0].genres,
-        studio: data.Page.media[0].studios.nodes[0].name
-    }
-
-
-    let col2_2 = {
-        name: name_array1[1],
-        image: data.Page.media[1].coverImage.extraLarge,
-        genre: data.Page.media[1].genres,
-        studio: data.Page.media[1].studios.nodes[0].name
-    }
-
-    let col2_3 = {
-        name:  name_array1[2],
-        image: data.Page.media[2].coverImage.extraLarge,
-        genre: data.Page.media[2].genres,
-        studio: data.Page.media[2].studios.nodes[0].name
-    }
-
-    let col2_4 = {
-        name:  name_array1[3],
-        image: data.Page.media[3].coverImage.extraLarge,
-        genre: data.Page.media[3].genres,
-        studio: data.Page.media[3].studios.nodes[0].name
-    }
-    
     let col1_1 = {
         name: (dataC2.series1.title.english==null)
             ? dataC2.series1.title.romaji :
@@ -216,9 +170,9 @@ function HomePage(){
                     <Col id="feed_col">
                         <Row id="subtitle">
                             <Col id="purple">
-                                <Link class="trending_airing_link" id="airing_now" to={{
-                                    pathname:"/ShowMore",
-                                    state: airing_arr
+                                <Link className="trending_airing_link" id="airing_now" to={{
+                                    pathname:`/ShowMore/airing_now`,
+                                    state: AIRING_NOW
                                 }}>
                                     <span><strong>Airing</strong></span>
                                 </Link>
@@ -272,9 +226,9 @@ function HomePage(){
                     <Col id="feed_col">
                         <Row id="subtitle">
                             <Col id="purple">
-                                <Link class="trending_airing_link" id="trending" to={{
-                                    pathname:"/ShowMore",
-                                    state: trending_arr
+                                <Link className="trending_airing_link" id="trending" to={{
+                                    pathname:"/ShowMore/trending",
+                                    state: TRENDING
                                 }}>
                                     <span><strong>Trending</strong></span>
                                 </Link>
@@ -283,13 +237,13 @@ function HomePage(){
                         </Row>
                         <Row id="main_content">
                             {home_trending_arr.map((row)=>
-                                        <HomePageShowCard
-                                            name={(row.title.english==null)
-                                                ? row.title.romaji :
-                                                row.title.english}
-                                            image={row.coverImage.extraLarge}
-                                            genre={row.genres}
-                                            studio={row.studios.nodes[0].name}/>
+                                <HomePageShowCard
+                                    name={(row.title.english==null)
+                                        ? row.title.romaji :
+                                        row.title.english}
+                                    image={row.coverImage.extraLarge}
+                                    genre={row.genres}
+                                    studio={(row.studios.nodes[0]==null) ? "" : row.studios.nodes[0].name}/>
                             )}
                         </Row>
                     </Col>

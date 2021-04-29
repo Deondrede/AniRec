@@ -3,8 +3,7 @@ import "./LandingPage.css";
 
 import { Container, Row, Col} from "react-bootstrap";
 
-import LR_Tabs from "./login_register_tabs.component";
-{/*import LR_Space from "./login_register_space.component";*/}
+import LrTabs from "./login_register_tabs.component.js";
 
 //function for landing page
 function LandingPage(){
@@ -13,16 +12,11 @@ function LandingPage(){
             <Container fluid>
             <Row id="landing_page_body">
                 <Col id="login_space">
-                    <LR_Tabs />
+                    <LrTabs />
                 </Col>
                 <Col id="wallpaper">
                 </Col>
-            </Row>
-            {/*<Row id="login">
-                <Col>
-                    <LR_Space />
-                </Col>  
-            </Row>*/}                  
+            </Row>                 
             </Container>
         </Fragment>
   
