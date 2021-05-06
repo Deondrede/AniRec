@@ -40,8 +40,8 @@ function App() {
                 <Route path="/" exact component={() => <LandingPage />} />
                 <Route path="/Anime" exact component={() => <Homepage />} />
                 <Route path="/Survey" exact component={() => <MySurvey />} />
-                <Route path="/GenresShowMore/:genreName" exact component={() => <GenresShowMore />}/>
-                <Route path="/ShowMore/:queryName" exact component={() => <GeneralShowMore />}/>
+                <Route path="/GenresShowMore/:genreName/:pageNum" exact component={() => <GenresShowMore />}/>
+                <Route path="/ShowMore/:queryName/:pageNum" exact component={() => <GeneralShowMore />}/>
               </Switch>
             </Router>
           </Fragment>

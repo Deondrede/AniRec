@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import "./GenresShowMore.css";
 import TopSpace from "../../components/global_elements/TopSpacer";
 import ListingPageShowCard from '../../components/ListingPageShowCard';
@@ -8,10 +8,10 @@ import { chunk } from 'lodash'
 import { Link, useParams, useHistory } from 'react-router-dom';
 import {useQuery, gql} from '@apollo/client'
 
-export default function GenresShowMore(){
+export default function GenresShowMore(){    
     const GENRE_QUERY = gql`
-    query GenreQuery($genre: String) {
-        Page(page: 1, perPage: 48){
+    query GenreQuery($genre: String, $page: Int) {
+        Page(page: $page, perPage: 48){
             media(type: ANIME, isAdult: false, genre: $genre, sort: [POPULARITY_DESC]){
               title{
                 english
@@ -39,13 +39,16 @@ export default function GenresShowMore(){
         {
             variables: 
                 {
-                    genre:params.genreName
+                    genre:params.genreName,
+                    page:params.pageNum
                 }
         }
     );
 
+    
+
+
     useEffect(()=>{
-        console.log(data)
         refetch()
        }, []
     );
@@ -81,6 +84,23 @@ export default function GenresShowMore(){
                             </Row>
                         )
                         )}
+                        {(params.pageNum > 1) ?
+                                ((params.pageNum > data.length -Number(1)) ?
+                                    <Link to={{pathname:`/GenresShowMore/${params.genreName}/${Number(params.pageNum) - 1}`}}>
+                                        Previous Page
+                                    </Link> :
+                                    <Fragment>
+                                            <Link to={{pathname:`/GenresShowMore/${params.genreName}/${Number(params.pageNum) - 1}`}}>
+                                                Previous Page
+                                            </Link>
+                                            <Link to={{pathname:`/GenresShowMore/${params.genreName}/${Number(params.pageNum) + 1}`}}>
+                                                Next Page
+                                            </Link> 
+                                    </Fragment> ): 
+                                <Link to={{pathname:`/GenresShowMore/${params.genreName}/${Number(params.pageNum) + 1}`}}>
+                                    Next Page
+                                </Link>
+                            }
                     </Grid>
                 </Container>
             </Fragment>

@@ -3,6 +3,7 @@
     max-width: 100%;
     border: solid 1px;
     height:100%;
+    object-fit: fill;
 }
 
 #HomePage_card_description{

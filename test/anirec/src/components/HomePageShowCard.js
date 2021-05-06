@@ -25,18 +25,18 @@ function HomePageShowCard(props){
                                         {
                                             if (genreCount < 2)
                                                 return <Link key={genres} id="tag_links" to={{
-                                                            pathname:`/GenresShowMore/${genres}`
+                                                            pathname:`/GenresShowMore/${genres}/1`
                                                         }}>{genres}</Link>
                                             else 
                                                 genreCount--;
                                                 return  <Fragment>
                                                             <Link key={genres} id="tag_links" to={{
-                                                                pathname:`/GenresShowMore/${genres}`
+                                                                pathname:`/GenresShowMore/${genres}/1`
                                                                 }}>{genres}
                                                             </Link>
                                                             <a>, </a>
                                                         </Fragment>
-                                            }
+                                        }
                                     )}
                                 </p>
                             </Row>
