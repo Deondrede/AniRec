@@ -1,21 +1,23 @@
+import React, {useState, useCallback} from 'react';
+import MySurvey from './surveyType';
+import axios from 'axios';
+
 {/*
     Created this following this YouTube tutorial: https://www.youtube.com/watch?v=NW0GwiHmNik
     This file holds the survey logic.
     what it currently does:
      - allows the users to take the survey
      - all needed answers are gathered
-
+     - sends the data to the backend (lines 70 - 97)
 */}
 
+
 //does the logic
-//call Mysurvey from surveyType.js
-// this file should be the one that gets called by App
+//call MySurvey from surveyType.js
+//gets called by App
 //survey heirarchy: questions --> surveyType --> surveyOne
 
 //to get the genre response = response.GENRE.ANSWER.Anime[index 0-2]
-
-import React, {useState, useCallback} from 'react';
-import MySurvey from './surveyType';
 
 const SurveyOne = () => {
 
@@ -28,7 +30,9 @@ const SurveyOne = () => {
         setShowPage(!showPage);
 
         let response = data; // to play around with the data
-        let titles = []; //store all the wanted titles from the survey answers
+        let titles = []; //store all the wanted titles from the survey 
+        let username = response.Username;
+        //console.log(username);
         //get list of all prefered genres
         let desired_genres = response.prefered_genres;
 
@@ -61,9 +65,36 @@ const SurveyOne = () => {
                 }
             }
         }
-        //console.log(titles);
+        //console.log(titles.length);
 
         //after all the data is gathered, send it to the backend.
+        //sending genres to the backend
+        for (var g = 0; g < desired_genres.legnth; g++) {
+            let user_genre = desired_genres[g];
+            let bodyFormData = new FormData();
+            bodyFormData.append("username", username);
+            bodyFormData.append("genre", user_genre);
+            axios({
+                method: "post",
+                url: "http:localhost:5000/genre",
+                data: bodyFormData,
+                headers: { "Content-Type": "multipart/form-data" },
+            })
+        }
+
+        //sending titles to the backend
+        for (var t = 0; t<titles.length; t++ ){
+            let user_anime = titles[t];
+            let bodyFormData = new FormData();
+            bodyFormData.append("username", username);
+            bodyFormData.append("anime", user_anime);
+            axios({
+                method: "post",
+                url: "http:localhost:5000/anime",
+                data: bodyFormData,
+                headers: { "Content-Type": "multipart/form-data" },
+            })
+        }
         
     }, [showPage])
 
