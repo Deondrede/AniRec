@@ -1,18 +1,17 @@
 import React from 'react';
 import 'survey-react/survey.css';
 import * as Survey from 'survey-react';
-import Json from './questions';
+import Json from './questions'; //gets the questions
+// survey heirarchy: questions --> surveyType --> surveyOne
 
-//this holds all the survey ideas
-//final execution so it's easier to see
-// file surveyOne currently holds the logic
-
+//calls questions
+//gets called by surveyOne.js
 const MySurvey = (props) => {
     return(
-        <Survey.Survey 
-        json={Json} //gets the questions
-        showCompletedPage={true} //shows the default complete page
-        onComplete={data=>console.log(data.valuesHash)} //shows the survey answer in console
+        <Survey.Survey
+        showCompletedPage={false} 
+        onComplete={data=>props.showCompletedPage(data.valuesHash)}
+        json={Json}
         />
     )
 }
