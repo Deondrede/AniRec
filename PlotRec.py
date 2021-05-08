@@ -95,7 +95,7 @@ indices = pd.Series(metadata.index, index=metadata['Title: Romanji']).drop_dupli
 # print(indices[:10])
 
 
-def get_recs(*titles: str):
+def get_recs(titles: list):
     recommender_list = []
     for title in titles:
         idx = indices[title]
@@ -116,13 +116,21 @@ def get_recs(*titles: str):
 
     if len(recommender_list) == 1:
         result = recommender_list[0]
-        result = result.to_json(orient="columns")
-        parsed = json.loads(result)
-        return json.dumps(parsed, indent=4)
+        return result.tolist()
+        # result = result.to_json(orient="columns")
+        # parsed = json.loads(result)
+        # return json.dumps(parsed, indent=4)
     
     result =  pd.concat(recommender_list)
-    result = result.to_json(orient="columns")
-    parsed = json.loads(result)
-    return json.dumps(parsed, indent=4)
+    return result.tolist()
+    # result = result.to_json(orient="columns")
+    # parsed = json.loads(result)
+    # return json.dumps(parsed, indent=4)
 
-print(get_recs("One Piece","Naruto"))
+        # result = metadata['Title: Romanji'].iloc[anime_indices]
+        # result = result.to_json(orient="columns")
+        # parsed = json.loads(result)
+        # return json.dumps(parsed, indent=4)
+
+
+#print(get_recs(["Naruto","Bleach","One Piece"]))

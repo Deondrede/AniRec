@@ -7,5 +7,5 @@ urlpatterns = [
     path('users', views.createUser, name="users"),
     path('genres', views.updateGenre, name="genre"),
     path('anime', views.updateAnime, name="anime"),
-    path('review', views.views.updateReview, name="review")
+    path('review', views.updateReview, name="review")
 ]

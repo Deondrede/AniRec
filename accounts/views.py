@@ -1,8 +1,20 @@
+from PlotRec import get_recs
 from accounts.models import Review, User
 from django.contrib.auth.forms import UserCreationForm
 from django.core import serializers
 from django.http import HttpResponse
 
+def remove_chars(genres:str):
+    genrearray = []
+    stringthing = ""
+    for char in genres:
+        if char != "~" and char != ";":
+            stringthing += char
+        else:
+            if stringthing != "":
+                genrearray.append(stringthing)
+                stringthing = ""
+    return genrearray
 
 def createUser(request):
     if request.method == "POST":
@@ -40,6 +52,7 @@ def updateAnime(request):
         anime = request.POST.get('anime')
         user = User.objects.get(username=username)
         user.watched_anime += "~" + anime + ";"
+        user.recommendations = get_recs(remove_chars(user.watched_anime))
         user.save()
 
     all_objects = list(User.objects.all())
