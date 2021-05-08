@@ -189,7 +189,8 @@ function HomePage(){
                                             row.title.english}
                                         image={row.coverImage.extraLarge}
                                         genre={row.genres}
-                                        studio={row.studios.nodes[0].name}/>
+                                        studio={row.studios.nodes[0].name}
+                                        description={row.description}/>
                             )}
                         </Row>
                     </Col>
@@ -245,7 +246,8 @@ function HomePage(){
                                         row.title.english}
                                     image={row.coverImage.extraLarge}
                                     genre={row.genres}
-                                    studio={(row.studios.nodes[0]==null) ? "" : row.studios.nodes[0].name}/>
+                                    studio={(row.studios.nodes[0]==null) ? "" : row.studios.nodes[0].name}
+                                    description={row.description}/>
                             )}
                         </Row>
                     </Col>

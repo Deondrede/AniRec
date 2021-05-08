@@ -185,14 +185,12 @@ export const TRY_THIS = gql`
 
 export const TRENDING = gql`
 {
-  Page(page: 1, perPage: 100) {
+  Page(page: 1, perPage: 48) {
     media(sort: TRENDING_DESC, isAdult: false, type: ANIME) {
       id
       title {
         romaji
         english
-        native
-        userPreferred
       }
       genres
       description

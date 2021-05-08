@@ -9,7 +9,7 @@ import LrTabs from "./login_register_tabs.component.js";
 function LandingPage(){
     return(
         <Fragment>
-            <Container fluid>
+            <Container fluid classname="landingpage-container">
             <Row id="landing_page_body">
                 <Col id="login_space">
                     <LrTabs />

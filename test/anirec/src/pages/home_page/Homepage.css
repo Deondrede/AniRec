@@ -39,7 +39,8 @@ span{
 }
 
 .trending_airing_link:hover{
-  color: #8145f7;
+  background-size: 4px 50px;
+  color: white;
 }
 
 #feed_body .col{
@@ -47,12 +48,12 @@ span{
 }
 
 #feed_col{
-  max-width: 22%;
+  max-width: 23.875%;
   height: 900px;
 }
 
 #spacing{
-  max-width: 4%;
+  max-width: 1.5%;
 }
 
 .container{
@@ -66,7 +67,21 @@ span{
 
 #purple{
   color: #AA80FF;
-  border-bottom: solid 3px;
+  background: 
+    linear-gradient(
+      to bottom,#AA80FF 0%,
+      #AA80FF 100% 
+    );
+  background-position: 0 100%;
+  background-repeat: repeat-x;
+  background-size: 4px 4px;
+  text-decoration: none;
+  transition: background-size .2s;
+}
+
+.purple:hover{
+  background-size: 4px 50px;
+  color: white;
 }
 
 #main_content{

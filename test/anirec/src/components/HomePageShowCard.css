@@ -1,61 +1,109 @@
-#HomePage_card_image{
-    font-size: 15px;
-    max-width: 100%;
-    border: solid 1px;
-    height:100%;
-    object-fit: fill;
+/* show img*/
+.homepage-card-img{
+    transition: all 0.3s ease-out;
+    display: inline-block;
+    position: relative;
+    overflow:hidden;
+    height: 100%;
+    float: left;
+    width: 50%;
+    display: inline-block;
 }
 
-#HomePage_card_description{
-    width: 55%;
-    border-right: solid 1px;
-    border-bottom: solid 1px;
+.homepage-card-img img{
+    width:100%;
+    height: 100%;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
 }
 
-#HomePage_card_title{
+.info{
+    background: rgba(27, 26, 26, 0.75);
+    transition: all 0.3s ease-out;
+    transform: translateX(150%);
+    position: absolute;
+    line-height: 1;
+    text-align: left;
+    cursor: no-drop;
+    color: white;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    font-size: 80%;
+    padding: 5px 8px 5px 8px;
+}
+
+.info p{
+    text-align: left;
+}
+
+.homepage-card-img:hover .info{
+    transform: translateX(0);
+}
+
+.info p{
+    transition: 0.3s ease;
+}
+
+.homepage-card-img:hover img{
+    transition: all 0.3s ease-out;
+}
+
+.homepage-card-img:hover img{
+    transform: scale(1.2, 1.2);
+}
+
+
+#homepage-card-description{
+    width: 50%;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+#homepage-card-title{
     font-size: 20px;
     margin-left: 0px;
     margin-right: 0px;
-    border-bottom: solid 1px;
-    border-top: solid 1px;
     max-height: 50%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    width: 100%;
 }
 
-#HomePage_card_text{
-    padding: 1px;
+#homepage-card-text{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 2px;
+    padding-right: 2px;
     margin-bottom: 0px;
     line-height: 1;
 }
 
-#HomePage_card_genres{
+#homepage-card-genres{
     font-size: 15px;
     margin-left: 0px;
     margin-right: 0px;
-    border-bottom: solid 1px;
 }
 
-#HomePage_card_studio{
+#homepage-card-studio{
     font-size: 15px;
     margin-left: 0px;
     margin-right: 0px;
     margin-bottom: auto;
 }
 
-#key_staff{
-    font-size: 15px;
-    margin-left: 0px;
-    margin-right: 0px;
-    border-bottom: solid 1px;
-}
-
-#HomePage_cards{
+.homepage-cards-outer{
     height: 25%;
+    padding: 0px;
 }
 
-#tag_links{
+#tag-links{
     color: black;
 }
 
-#tag_links:hover{
+#tag-links:hover{
     color: #5B84D7;
 }
