@@ -5,13 +5,20 @@ import ListingPageShowCard from '../../components/ListingPageShowCard';
 import { Container } from "react-bootstrap";
 import { Col, Row, Grid } from 'react-flexbox-grid'
 import { chunk } from 'lodash'
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import {useQuery, gql} from '@apollo/client'
+import {RECOMMENDED, AIRING_NOW, TRY_THIS, TRENDING} from '../../GraphQL/Queries'
+ 
 
 export default function GeneralShowMore(){
 
-    const location = useLocation();
-    const {error, loading, data} = useQuery(location.state.query);
+    const params = useParams();
+    const query;
+    if (params.queryName == "airing_now")
+        query = AIRING_NOW
+    if (params.queryName == "trending")
+        query = TRENDING
+    const {error, loading, data} = useQuery(query);
 
     useEffect(()=>{
        }, [data]
