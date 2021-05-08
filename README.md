@@ -8,3 +8,5 @@ In /test/anirec/ directory, in the terminal run npm start. This will start build
 
 ### How to stop the webapp
 Either ctrl + z or ctrl + c depending on OS.
+
+### Current Dependencies needed to be installed via npm 
