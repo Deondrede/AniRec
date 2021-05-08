@@ -220,8 +220,8 @@ const json = {
      "columnLayout": "vertical",
      "choices": [
       {
-       "value": "Demon Slayer",
-       "text": "Demon Slayer"
+       "value": "Demon Slayer: Kimetsu no Yaiba",
+       "text": "Demon Slayer: Kimetsu no Yaiba"
       },
       {
        "value": "Sword Art Online",
