@@ -8,7 +8,7 @@ export const RECOMMENDED = gql`
       romaji
     }
     genres
-    description
+    description(asHtml: false)
     coverImage {
       medium
       large
@@ -26,7 +26,7 @@ export const RECOMMENDED = gql`
       romaji
     }
     genres
-    description
+    description(asHtml: false)
     coverImage {
       medium
       large
@@ -44,7 +44,7 @@ export const RECOMMENDED = gql`
       romaji
     }
     genres
-    description
+    description(asHtml: false)
     coverImage {
       medium
       large
@@ -62,7 +62,7 @@ export const RECOMMENDED = gql`
       romaji
     }
     genres
-    description
+    description(asHtml: false)
     coverImage {
       medium
       large
@@ -89,7 +89,7 @@ export const AIRING_NOW = gql`
         romaji
       }
       genres
-      description
+      description(asHtml: false)
       coverImage{
         medium
         large
@@ -113,7 +113,7 @@ export const TRY_THIS = gql`
         romaji
       }
       genres
-      description
+      description(asHtml: false)
       coverImage {
         medium
         large
@@ -131,7 +131,7 @@ export const TRY_THIS = gql`
         romaji
       }
       genres
-      description
+      description(asHtml: false)
       coverImage {
         medium
         large
@@ -149,7 +149,7 @@ export const TRY_THIS = gql`
         romaji
       }
       genres
-      description
+      description(asHtml: false)
       coverImage {
         medium
         large
@@ -167,7 +167,7 @@ export const TRY_THIS = gql`
         romaji
       }
       genres
-      description
+      description(asHtml: false)
       coverImage {
         medium
         large
@@ -193,11 +193,11 @@ export const TRENDING = gql`
         english
       }
       genres
-      description
+      description(asHtml: false)
       coverImage {
         medium
         large
-      extraLarge
+        extraLarge
       }
       studios {
         nodes {
@@ -208,3 +208,5 @@ export const TRENDING = gql`
   }
 }
 `
+
+

@@ -12,11 +12,11 @@ function HomePageShowCard(props){
         <Fragment>
             {/* Start of HomePageCard*/}
                 <Container className="homepage-cards-outer">
-                    <Row id="homepage-card-inner">
+                    <Row id="homepage-cards-inner">
 
                         {/* Start of Show Image on Left-Side*/}
                         <Col className="homepage-card-img">
-                                <img src={props.image} className="center"/>
+                                <img src={props.image}/>
                                 <div className="info">
                                     <p>{props.description}</p>
                                 </div>
@@ -39,13 +39,13 @@ function HomePageShowCard(props){
                                     {props.genre.map((genres) =>
                                         {
                                             if (genreCount < 2)
-                                                return <Link key={genres} id="tag-links" to={{
+                                                return <Link key={genres} className="tag-links" to={{
                                                             pathname:`/GenresShowMore/${genres}/1`
                                                         }}>{genres}</Link>
                                             else 
                                                 genreCount--;
                                                 return  <Fragment>
-                                                            <Link key={genres} id="tag-links" to={{
+                                                            <Link key={genres} className="tag-links" to={{
                                                                 pathname:`/GenresShowMore/${genres}/1`
                                                                 }}>{genres}
                                                             </Link>

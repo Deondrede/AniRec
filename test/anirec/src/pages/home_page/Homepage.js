@@ -137,8 +137,8 @@ function HomePage(){
                 <Row id="feed_body">
                     <Col id="feed_col">
                         <Row id="subtitle">
-                            <Col id="pink">
-                                <strong id="recommended">Recommended</strong>
+                            <Col className="pink">
+                                <span><strong id="recommended">Recommended</strong></span>
                             </Col>
                             <Col id="grey"><span></span></Col>
                         </Row>
@@ -169,7 +169,7 @@ function HomePage(){
                     <Col id="spacing"></Col>
                     <Col id="feed_col">
                         <Row id="subtitle">
-                            <Col id="purple">
+                            <Col className="purple">
                                 <Link className="trending_airing_link" id="airing_now" to={{
                                     pathname:`/ShowMore/airing_now`,
                                     state: {
@@ -197,8 +197,8 @@ function HomePage(){
                     <Col id="spacing"></Col>
                     <Col id="feed_col">
                         <Row id="subtitle">
-                            <Col id="pink">
-                                <span><strong>Try This</strong></span>
+                            <Col className="pink">
+                                <span id="try-this"><strong>Try This</strong></span>
                             </Col>
                             <Col id="grey"><span></span></Col>
                         </Row>
@@ -228,10 +228,12 @@ function HomePage(){
                     <Col id="spacing"></Col>
                     <Col id="feed_col">
                         <Row id="subtitle">
-                            <Col id="purple">
+                            <Col className="purple">
                                 <Link className="trending_airing_link" id="trending" to={{
                                     pathname:"/ShowMore/trending",
-                                    state: TRENDING
+                                    state: {
+                                        query: TRENDING
+                                    }
                                 }}>
                                     <span><strong>Trending</strong></span>
                                 </Link>

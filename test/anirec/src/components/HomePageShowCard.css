@@ -1,4 +1,14 @@
-/* show img*/
+.homepage-cards-outer{
+    height: 22.5%;
+    padding: 0px;
+    box-shadow: 2px 2px 12px 0px rgba(0,0,0,0.75);
+}
+
+#homepage-cards-inner{
+    height: 100%;
+}
+
+/* left side of card */
 .homepage-card-img{
     transition: all 0.3s ease-out;
     display: inline-block;
@@ -17,10 +27,11 @@
     border-bottom-left-radius: 5px;
 }
 
+/* hover box */
 .info{
     background: rgba(27, 26, 26, 0.75);
     transition: all 0.3s ease-out;
-    transform: translateX(150%);
+    transform: translateX(100%);
     position: absolute;
     line-height: 1;
     text-align: left;
@@ -34,43 +45,29 @@
     padding: 5px 8px 5px 8px;
 }
 
-.info p{
-    text-align: left;
-}
-
 .homepage-card-img:hover .info{
     transform: translateX(0);
 }
 
 .info p{
     transition: 0.3s ease;
+    text-align: left;
 }
 
 .homepage-card-img:hover img{
     transition: all 0.3s ease-out;
-}
-
-.homepage-card-img:hover img{
     transform: scale(1.2, 1.2);
 }
 
-
+/* right side of card */
 #homepage-card-description{
     width: 50%;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
 }
 
-#homepage-card-title{
-    font-size: 20px;
-    margin-left: 0px;
-    margin-right: 0px;
-    max-height: 50%;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    display: inline-block;
-    width: 100%;
+#homepage-card-description p{
+    padding-left: 6px;
 }
 
 #homepage-card-text{
@@ -82,12 +79,29 @@
     line-height: 1;
 }
 
+/* title */
+#homepage-card-title{
+    font-size: 18px;
+    margin-left: 0px;
+    margin-right: 0px;
+    min-height: 50%;
+    max-height: 80%;
+/*    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+*/
+    width: 100%;
+}
+
+/* genres */ 
 #homepage-card-genres{
     font-size: 15px;
     margin-left: 0px;
     margin-right: 0px;
 }
 
+/* studios */
 #homepage-card-studio{
     font-size: 15px;
     margin-left: 0px;
@@ -95,15 +109,13 @@
     margin-bottom: auto;
 }
 
-.homepage-cards-outer{
-    height: 25%;
-    padding: 0px;
-}
-
-#tag-links{
+/* links (genre) */
+.tag-links{
     color: black;
+
 }
 
-#tag-links:hover{
+.tag-links:hover{
     color: #5B84D7;
+
 }
