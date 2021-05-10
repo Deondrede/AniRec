@@ -3,9 +3,9 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import LandingPage from "./pages/landing_page/LandingPage.js";
 import Homepage from "./pages/home_page/Homepage.js";
 import MySurvey from "./pages/landing_page/survey_page/surveyType.js";
-import ShowMorePage from "./pages/listing_pages/show_more_page.js";
-import AiringNowMore from "./pages/listing_pages/AiringNowMore.js";
-import AnimePage from "./pages/content_pages/anime-page.js";
+import GeneralShowMore from "./pages/listing_pages/GeneralShowMore";
+import GenresShowMore from "./pages/listing_pages/GenresShowMore";
+import AnimePage from "./pages/content_pages/show_page.js";
 import "./App.css";
 
 import {ApolloClient, InMemoryCache, ApolloProvider, HttpLink, from, } from '@apollo/client'
@@ -41,9 +41,9 @@ function App() {
                 <Route path="/" exact component={() => <LandingPage />} />
                 <Route path="/Anime" exact component={() => <Homepage />} />
                 <Route path="/Survey" exact component={() => <MySurvey />} />
-                <Route path="/ShowMore" exact component={() => <ShowMorePage />} />
-                <Route path="/AiringNowMore" component={()=> <AiringNowMore />} />
-                <Route path="/anime-page" exact component={() => <AnimePage />} />
+                <Route path="/GenresShowMore/:genreName/:pageNum" exact component={() => <GenresShowMore />}/>
+                <Route path="/ShowMore/:queryName/:pageNum" exact component={() => <GeneralShowMore />}/>
+                <Route path="/Anime/:animeId" exact component={() => <AnimePage />} />
               </Switch>
             </Router>
           </Fragment>

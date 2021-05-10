@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState  } from "react";
+import React, { Fragment, useEffect  } from "react";
 import HomePageShowCard from '../../components/HomePageShowCard';
 import TopSpace from "../../components/global_elements/TopSpacer"
 import {RECOMMENDED,AIRING_NOW, TRY_THIS, TRENDING} from '../../GraphQL/Queries'
@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import {useQuery} from '@apollo/client'
 import './Homepage.css';
 
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 //import ShowMore from "../listing_pages/ShowMore.js";
 
 //will be used as next Page to list
@@ -18,22 +18,18 @@ function HomePage(){
     const {error: errorC4, loading: loadingC4, data: dataC4} = useQuery(TRENDING);
 
     useEffect(()=>{
-      console.log(data)
      }, [data]
     );
       
     useEffect(()=>{
-        console.log(dataC2)
         }, [dataC2]
     );
 
     useEffect(()=>{
-        console.log(dataC3)
         }, [dataC3]
     );
 
     useEffect(()=>{
-        console.log(dataC4)
         }, [dataC4]
     );
 
@@ -46,11 +42,9 @@ function HomePage(){
         home_airing_arr.push(airing_arr[i]);    
     }
 
-
-
     //trending array
-    if (loadingC4) return <p>Loading4...</p>
-    if (errorC4) return <p>Error4 :(</p>
+    // if (loadingC4) return <p>Loading4...</p>
+    // if (errorC4) return <p>Error4 :(</p>
     // const trending_arr = dataC4.Page.media;
     // const home_trending_arr = [];
     // for (let i = 0; i < 4; i++){
@@ -63,55 +57,14 @@ function HomePage(){
 
     if (errorC3) return <p>Error3 :(</p>
 
-    //if (dataC2) return <p>Loading2...</p>
-    //if (dataC2) return <p>Error2 :(</p>
-
-    // this is to check and make sure names are displayed since some of them dont have english names
-    let name_array1 = [data.Page.media.length];
-    for (let i = 0; i < data.Page.media.length; i++) {
-        let temp_name = data.Page.media[i].title.english;
-        if (temp_name == null){
-            temp_name = data.Page.media[i].title.romaji;
-        }
-        name_array1[i] = temp_name;
-    }
-
-    let col2_1 = {
-        name: name_array1[0],
-        image: data.Page.media[0].coverImage.large,
-        genre: data.Page.media[0].genres.join(', '),
-        studio: data.Page.media[0].studios.nodes[0].name
-    }
-
-
-    let col2_2 = {
-        name: name_array1[1],
-        image: data.Page.media[1].coverImage.large,
-        genre: data.Page.media[1].genres.join(', '),
-        studio: data.Page.media[1].studios.nodes[0].name
-    }
-
-    let col2_3 = {
-        name:  name_array1[2],
-        image: data.Page.media[2].coverImage.large,
-        genre: data.Page.media[2].genres.join(', '),
-        studio: data.Page.media[2].studios.nodes[0].name
-    }
-
-    let col2_4 = {
-        name:  name_array1[3],
-        image: data.Page.media[3].coverImage.large,
-        genre: data.Page.media[3].genres.join(', '),
-        studio: data.Page.media[3].studios.nodes[0].name
-    }
-    
     let col1_1 = {
         name: (dataC2.series1.title.english==null)
             ? dataC2.series1.title.romaji :
             dataC2.series1.title.english,
-        image: dataC2.series1.coverImage.large,
-        genre: dataC2.series1.genres.join(', '),
-        studio: dataC2.series1.studios.nodes[0].name
+        image: dataC2.series1.coverImage.extraLarge,
+        genre: dataC2.series1.genres,
+        studio: dataC2.series1.studios.nodes[0].name,
+        id: dataC2.series1.id
     }
 
     
@@ -119,65 +72,72 @@ function HomePage(){
         name: (dataC2.series2.title.english==null)
             ? dataC2.series2.title.romaji :
             dataC2.series2.title.english,
-        image: dataC2.series2.coverImage.large,
-        genre: dataC2.series2.genres.join(', '),
-        studio: dataC2.series2.studios.nodes[0].name
+        image: dataC2.series2.coverImage.extraLarge,
+        genre: dataC2.series2.genres,
+        studio: dataC2.series2.studios.nodes[0].name,
+        id: dataC2.series2.id
     }
     
     let col1_3= {
         name: (dataC2.series3.title.english==null)
             ? dataC2.series3.title.romaji :
             dataC2.series3.title.english,
-        image: dataC2.series3.coverImage.large,
-        genre: dataC2.series3.genres.join(', '),
-        studio: dataC2.series3.studios.nodes[0].name
+        image: dataC2.series3.coverImage.extraLarge,
+        genre: dataC2.series3.genres,
+        studio: dataC2.series3.studios.nodes[0].name,
+        id: dataC2.series3.id
     }
 
     let col1_4 = {
         name: (dataC2.series4.title.english==null)
         ? dataC2.series4.title.romaji :
         dataC2.series4.title.english,
-        image: dataC2.series4.coverImage.large,
-        genre: dataC2.series4.genres.join(', '),
-        studio: dataC2.series4.studios.nodes[0].name
+        image: dataC2.series4.coverImage.extraLarge,
+        genre: dataC2.series4.genres,
+        studio: dataC2.series4.studios.nodes[0].name,
+        id: dataC2.series4.id
     }
 
     let col3_1 = {
         name: (dataC3.series1.title.english==null)
             ? dataC3.series1.title.romaji :
             dataC3.series1.title.english,
-        image: dataC3.series1.coverImage.large,
-        genre: dataC3.series1.genres.join(', '),
-        studio: dataC3.series1.studios.nodes[0].name
+        image: dataC3.series1.coverImage.extraLarge,
+        genre: dataC3.series1.genres,
+        studio: dataC3.series1.studios.nodes[0].name,
+        id: dataC3.series1.id
     }
 
     let col3_2 = {
         name: (dataC3.series2.title.english==null)
             ? dataC3.series2.title.romaji :
             dataC3.series2.title.english,
-        image: dataC3.series2.coverImage.large,
-        genre: dataC3.series2.genres.join(', '),
-        studio: dataC3.series2.studios.nodes[0].name
+        image: dataC3.series2.coverImage.extraLarge,
+        genre: dataC3.series2.genres,
+        studio: dataC3.series2.studios.nodes[0].name,
+        id: dataC3.series2.id
     }
     
     let col3_3= {
         name: (dataC3.series3.title.english==null)
             ? dataC3.series3.title.romaji :
             dataC3.series3.title.english,
-        image: dataC3.series3.coverImage.large,
-        genre: dataC3.series3.genres.join(', '),
-        studio: dataC3.series3.studios.nodes[0].name
+        image: dataC3.series3.coverImage.extraLarge,
+        genre: dataC3.series3.genres,
+        studio: dataC3.series3.studios.nodes[0].name,
+        id: dataC3.series3.id
     }
 
     let col3_4 = {
         name: (dataC3.series4.title.english==null)
         ? dataC3.series4.title.romaji :
         dataC3.series4.title.english,
-        image: dataC3.series4.coverImage.large,
-        genre: dataC3.series4.genres.join(', '),
-        studio: dataC3.series4.studios.nodes[0].name
+        image: dataC3.series4.coverImage.extraLarge,
+        genre: dataC3.series4.genres,
+        studio: dataC3.series4.studios.nodes[0].name,
+        id: dataC3.series4.id
     }
-    let counting = 0;
+  
     return(
         <Fragment>
             <Container>
@@ -191,46 +151,34 @@ function HomePage(){
                             <Col id="grey"><span></span></Col>
                         </Row>
                         <Row id="main_content">
-                        <Link to={{
-                                    pathname:"/anime-page",
-                                    state: col1_1
-                                }}>
                             <HomePageShowCard
                                 name={col1_1.name}
                                 image={col1_1.image}
                                 genre= {col1_1.genre}
-                                studio={col1_1.studio}/>
-                            </Link>
-                            <Link to={{
-                                    pathname:"/anime-page",
-                                    state: col1_2
-                                }}>
+                                studio={col1_1.studio}
+                                id={col1_1.id}
+                                />
                             <HomePageShowCard
                                 name={col1_2.name}
                                 image={col1_2.image}
                                 genre= {col1_2.genre}
-                                studio={col1_2.studio}/>
-                            </Link>
-                            <Link to={{
-                                    pathname:"/anime-page",
-                                    state: col1_3
-                                }}>
+                                studio={col1_2.studio}
+                                id={col1_2.id}
+                                />
                             <HomePageShowCard
                                 name={col1_3.name}
                                 image={col1_3.image}
                                 genre= {col1_3.genre}
-                                studio={col1_3.studio}/>
-                            </Link>
-                            <Link to={{
-                                    pathname:"/anime-page",
-                                    state: col1_4
-                                }}>
+                                studio={col1_3.studio}
+                                id={col1_3.id}
+                                />
                             <HomePageShowCard
                                 name={col1_4.name}
                                 image={col1_4.image}
                                 genre= {col1_4.genre}
-                                studio={col1_4.studio}/>
-                            </Link>
+                                studio={col1_4.studio}
+                                id={col1_4.id}
+                                />
 
                         </Row>
                     </Col>
@@ -238,9 +186,11 @@ function HomePage(){
                     <Col id="feed_col">
                         <Row id="subtitle">
                             <Col id="purple">
-                                <Link class="airing_link" id="airing_now" to={{
-                                    pathname:"/AiringNowMore",
-                                    state: airing_arr
+                                <Link className="trending_airing_link" id="airing_now" to={{
+                                    pathname:`/ShowMore/airing_now`,
+                                    state: {
+                                        query: AIRING_NOW
+                                    }
                                 }}>
                                     <span><strong>Airing</strong></span>
                                 </Link>
@@ -249,18 +199,15 @@ function HomePage(){
                         </Row>
                         <Row id="main_content">
                             {home_airing_arr.map((row)=>
-                                    <Link to={{
-                                        pathname:"/anime-page",
-                                        state: airing_arr[counting]
-                                    }}>
                                     <HomePageShowCard
                                         name={(row.title.english==null)
                                             ? row.title.romaji :
                                             row.title.english}
-                                        image={row.coverImage.large}
-                                        genre={row.genres.join(', ')}
-                                        studio={row.studios.nodes[0].name}/>
-                                    </Link>
+                                        image={row.coverImage.extraLarge}
+                                        genre={row.genres}
+                                        studio={row.studios.nodes[0].name}
+                                        id={row.id}
+                                        />
                             )}
                         </Row>
                     </Col>
@@ -273,67 +220,60 @@ function HomePage(){
                             <Col id="grey"><span></span></Col>
                         </Row>
                         <Row id="main_content">
-                            <Link to={{
-                                    pathname:"/anime-page",
-                                    state: col3_1
-                                }}>
                             <HomePageShowCard
                                     name={col3_1.name}
                                     image={col3_1.image}
                                     genre={col3_1.genre}
-                                    studio={col3_1.studio}/>
-                                </Link>
-                                <Link to={{
-                                    pathname:"/anime-page",
-                                    state: col3_2
-                                }}>
+                                    studio={col3_1.studio}
+                                    id={col3_1.id}
+                                    />
                                 <HomePageShowCard
                                     name={col3_2.name}
                                     image={col3_2.image}
                                     genre={col3_2.genre}
-                                    studio={col3_2.studio}/>
-                                </Link>
-                                <Link to={{
-                                    pathname:"/anime-page",
-                                    state: col3_3
-                                }}>
+                                    studio={col3_2.studio}
+                                    id={col3_2.id}
+                                    />
                                 <HomePageShowCard
                                     name={col3_3.name}
                                     image={col3_3.image}
                                     genre={col3_3.genre}
-                                    studio={col3_3.studio}/>
-                                </Link>
-                                <Link to={{
-                                    pathname:"/anime-page",
-                                    state: col3_4
-                                }}>
+                                    studio={col3_3.studio}
+                                    id={col3_3.id}
+                                    />
                                 <HomePageShowCard
                                     name={col3_4.name}
                                     image={col3_4.image}
                                     genre={col3_4.genre}
-                                    studio={col3_4.studio}/>
-                                </Link>
+                                    studio={col3_4.studio}
+                                    id={col3_4.id}
+                                    />
                         </Row>
                     </Col>
                     <Col id="spacing"></Col>
                     <Col id="feed_col">
                         <Row id="subtitle">
                             <Col id="purple">
-                                <span><strong>Trending</strong></span>
+                                <Link className="trending_airing_link" id="trending" to={{
+                                    pathname:"/ShowMore/trending",
+                                    state: TRENDING
+                                }}>
+                                    <span><strong>Trending</strong></span>
+                                </Link>
                             </Col>
                             <Col id="grey"><span></span></Col>
                         </Row>
-                        {/* <Row id="main_content">
-                            {home_trending_arr.map((row)=>
-                                        <HomePageShowCard
-                                            name={(row.title.english==null)
-                                                ? row.title.romaji :
-                                                row.title.english}
-                                            image={row.coverImage.large}
-                                            genre={row.genres.join(', ')}
-                                            studio={row.studios.nodes[0].name}/>
-                            )}
-                        </Row> */}
+                        <Row id="main_content">
+                            {/* {home_trending_arr.map((row)=>
+                                <HomePageShowCard
+                                    name={(row.title.english==null)
+                                        ? row.title.romaji :
+                                        row.title.english}
+                                    image={row.coverImage.extraLarge}
+                                    genre={row.genres}
+                                    studio={(row.studios.nodes[0]==null) ? "" : row.studios.nodes[0].name}/>
+                            )} */}
+                        </Row>
                     </Col>
                 </Row>
             </Container>

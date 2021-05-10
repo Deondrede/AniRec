@@ -6,7 +6,8 @@ export function AnimeInfo(props){
             <Fragment>
                 <Col>
                     <div>Title: {props.name}</div>
-                    <div>Summary</div>
+                    <div>Summary: </div>
+                    <div>{props.summary}</div>
                     <div>Genres: {props.genre}</div>
                 </Col>
             </Fragment>
@@ -19,7 +20,6 @@ export function KeyStaff(props) {
             <Fragment>
                 <Col>
                     <div>Studio: {props.studio}</div>
-                    <div>Staff one</div>
                 </Col>
             </Fragment>
             
