@@ -1,4 +1,4 @@
-import React, {useState, useCallback} from 'react';
+import React, {useState, useCallback, Fragment} from 'react';
 import MySurvey from './surveyType';
 import axios from 'axios';
 
@@ -74,6 +74,7 @@ const SurveyOne = () => {
             let bodyFormData = new FormData();
             bodyFormData.append("username", username);
             bodyFormData.append("genre", user_genre);
+            console.log(bodyFormData);
             axios({
                 method: "post",
                 url: "http:localhost:5000/genre",
@@ -88,6 +89,7 @@ const SurveyOne = () => {
             let bodyFormData = new FormData();
             bodyFormData.append("username", username);
             bodyFormData.append("anime", user_anime);
+            console.log(bodyFormData);
             axios({
                 method: "post",
                 url: "http:localhost:5000/anime",
@@ -108,13 +110,11 @@ const SurveyOne = () => {
     }
 
     return(
-        <div>
-            {
-                showPage?
-                <MySurvey showCompletedPage ={data=>onCompletePage(data)} />:
-                setFinalPage()
-            }
-        </div>
+        <Fragment>
+            <MySurvey showCompletedPage={data=>onCompletePage(data)} />
+            <button><a href="/Anime">Head to AniRec</a></button>
+        </Fragment>
+        
     )
 }
 
