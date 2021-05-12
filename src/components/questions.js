@@ -149,11 +149,11 @@ const json = {
         "columnLayout": "vertical",
         "choices": [
          {
-          "value": "Attack on Titan",
+          "value": "Shingeki no Kyojin",
           "text": "Attack on Titan"
          },
          {
-          "value": "My Hero Academia",
+          "value": "Boku no Hero Academia",
           "text": "My Hero Academia"
          },
          {
@@ -232,7 +232,7 @@ const json = {
         "columnLayout": "vertical",
         "choices": [
          {
-          "value": "Demon Slayer: Kimetsu no Yaiba",
+          "value": "Kimetsu no Yaiba",
           "text": "Demon Slayer: Kimetsu no Yaiba"
          },
          {
@@ -240,7 +240,7 @@ const json = {
           "text": "Sword Art Online"
          },
          {
-          "value": "Fullmetal Alchemist: Brotherhood",
+          "value": "Hagane no Renkinjutsushi: Fullmetal Alchemist",
           "text": "Fullmetal Alchemist: Brotherhood"
          }
         ],
@@ -314,7 +314,7 @@ const json = {
         "columnLayout": "vertical",
         "choices": [
          {
-          "value": "One-Punch Man",
+          "value": "One Punch Man",
           "text": "One-Punch Man"
          },
          {
@@ -322,7 +322,7 @@ const json = {
           "text": "Naruto"
          },
          {
-          "value": "Assassination Classroom",
+          "value": "Ansatsu Kyoushitsu",
           "text": "Assassination Classroom"
          }
         ],
@@ -401,11 +401,11 @@ const json = {
           "text": "Tokyo Ghoul"
          },
          {
-          "value": "The Promised Neverland",
+          "value": "Yakusoku no Neverland",
           "text": "The Promised Neverland"
          },
          {
-          "value": "JUJUTSU KAISEN",
+          "value": "Jujutsu Kaisen",
           "text": "JUJUTSU KAISEN"
          }
         ],
@@ -484,11 +484,11 @@ const json = {
           "text": "No Game No Life"
          },
          {
-          "value": "Re:ZERO -Starting Life in Another World-",
+          "value": "Re:Zero kara Hajimeru Isekai Seikatsu",
           "text": "Re:ZERO -Starting Life in Another World-"
          },
          {
-          "value": "The Seven Deadly Sins",
+          "value": "Nanatsu no Taizai",
           "text": "The Seven Deadly Sins"
          }
         ],
@@ -567,11 +567,11 @@ const json = {
           "text": "Akame ga Kill!"
          },
          {
-          "value": "Parasite -the maxim-",
+          "value": "Kiseijuu: Sei no Kakuritsu",
           "text": "Parasite -the maxim-"
          },
          {
-          "value": "The Future Diary",
+          "value": "Mirai Nikki",
           "text": "The Future Diary"
          }
         ],
@@ -609,7 +609,7 @@ const json = {
         "commentText": "hi there",
         "choices": [
          {
-          "value": "Puella Magi Madoka Magica",
+          "value": "Bishoujo Senshi Sailor Moon",
           "text": "Puella Magi Madoka Magica",
           "imageLink": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx9756-oqKE3E6DLtgm.jpg"
          },
@@ -619,7 +619,7 @@ const json = {
           "imageLink": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx232-ZqAR0y2xkowj.png"
          },
          {
-          "value": "Sailor Moon",
+          "value": "Bishoujo Senshi Sailor Moon",
           "text": "Sailor Moon",
           "imageLink": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/nx530-I0XN6WzeBtAg.jpg"
          }
@@ -646,7 +646,7 @@ const json = {
         "columnLayout": "vertical",
         "choices": [
          {
-          "value": "Pulla Magi Madoka Magica",
+          "value": "Mahou Shoujo Madoka☆Magica",
           "text": "Pulla Magi Madoka Magica"
          },
          {
@@ -654,7 +654,7 @@ const json = {
           "text": "Cardcaptor Sakura"
          },
          {
-          "value": "Sailor Moon",
+          "value": "Bishoujo Senshi Sailor Moon",
           "text": "Sailor Moon"
          }
         ],
@@ -729,15 +729,15 @@ const json = {
         "columnLayout": "vertical",
         "choices": [
          {
-          "value": "DARLING in the FRANXX",
+          "value": "Darling in the Franxx",
           "text": "DARLING in the FRANXX"
          },
          {
-          "value": "Code Glass: Lelouch of the Rebellion",
+          "value": "Code Geass: Hangyaku no Lelouch",
           "text": "Code Glass: Lelouch of the Rebellion"
          },
          {
-          "value": "Neon Genesis Evagelion",
+          "value": "Shin Seiki Evangelion",
           "text": "Neon Genesis Evagelion"
          }
         ],
@@ -812,7 +812,7 @@ const json = {
         "columnLayout": "vertical",
         "choices": [
          {
-          "value": "Your Lie in April",
+          "value": "Shigatsu wa Kimi no Uso",
           "text": "Your Lie in April"
          },
          {
@@ -820,7 +820,7 @@ const json = {
           "text": "K-ON!"
          },
          {
-          "value": "given",
+          "value": "Given",
           "text": "given"
          }
         ],
@@ -900,11 +900,11 @@ const json = {
           "text": "Death Note"
          },
          {
-          "value": "ERASED",
+          "value": "Boku dake ga Inai Machi",
           "text": "ERASED"
          },
          {
-          "value": "Rascal Does Not Dream of Bunny Girl Senpai",
+          "value": "Seishun Buta Yarou wa Bunny Girl Senpai no Yume wo Minai",
           "text": "Rascal Does Not Dream of Bunny Girl Senpai"
          }
         ],
@@ -987,7 +987,7 @@ const json = {
           "text": "Mob Psycho 100"
          },
          {
-          "value": "Kaguya-sama: Love is War",
+          "value": "Kaguya-sama wa Kokurasetai: Tensai-tachi no Renai Zunousen",
           "text": "Kaguya-sama: Love is War"
          }
         ],
