@@ -111,7 +111,7 @@ def get_recs(titles: list):
 
         avg_sim_score = sorted(avg_sim_score, key=lambda x: x[1], reverse=True)
 
-        anime_indices = [i[0] for i in avg_sim_score[1:26]]
+        anime_indices = [i[0] for i in avg_sim_score[1:11]]
         recommender_list.append(metadata['Title: Romanji'].iloc[anime_indices])
 
     if len(recommender_list) == 1:
