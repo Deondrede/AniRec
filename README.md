@@ -7,8 +7,10 @@ For specifics on how you can send requests to the backend, check the [login.comp
 4. You may see an error that states that your missing a module named 'corsheaders'. In a separate terminal, run the command `docker exec -it <TheNameOfTheContainer>_web_1 bash` (The name of your container should be visible in the Docker desktop application).
 5. Once that's done run `pip install django-cors-headers`, to double check that the module is installed
 6. While you're in there run the command `python manage.py makemigrations` just in case, it should say "no changes detected"
-7. Next, run the command `python manage.py migrate` 
-8. Go back to the original terminal you had open and use Ctrl-C to stop it and then run the `docker-compose up` command again and that error should be gone.
+7. Next, run the command `python manage.py migrate`
+8. You'll also need to install some of the libraries for the recommender, `pip install pandas`,`pip install nltk`,`pip install -U scikit-learn`,`pip install json`.
+9. The nltk library also has another step to be fully operational, run `python` then, `import nltk` and `nltk.download('words')`
+10. Go back to the original terminal you had open and use Ctrl-C to stop it and then run the `docker-compose up` command again and that error should be gone.
 # Why are we using Docker?
 Because setting up a backend system can be pretty annoying involving configuring settings, creating and setting environment variables and having each one of us do that individually will eventually lead to someone messing something up. So essentially once you install it you shouldn't need to install all the other stuff needed for Django to run.So it's just to save time and future frustration.
 # List of endpoints and how requests should be sent
