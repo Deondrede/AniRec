@@ -1030,12 +1030,12 @@ const json = {
           "imageLink": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx4224-3Bh0rm99N6Vl.jpg"
          },
          {
-          "value": "Anohana: The Flower We Saw That Day",
+          "value": "Ano Hi Mita Hana no Namae wo Bokutachi wa Mada Shiranai.",
           "text": "Anohana: The Flower We Saw That Day",
           "imageLink": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx9989-qCd2RgAL0P8I.png"
          },
          {
-          "value": "The Devil is a Part-Timer!",
+          "value": "Hataraku Maou-sama!",
           "text": "The Devil is a Part-Timer!",
           "imageLink": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/nx15809-4idxcBvQocbC.jpg"
          }
@@ -1066,11 +1066,11 @@ const json = {
           "text": "Toradora!"
          },
          {
-          "value": "Anohana: The Flower We Saw That Day",
+          "value": "Ano Hi Mita Hana no Namae wo Bokutachi wa Mada Shiranai.",
           "text": "Anohana: The Flower We Saw That Day"
          },
          {
-          "value": "The Devil is a Part-Timer!",
+          "value": "Hataraku Maou-sama!",
           "text": "The Devil is a Part-Timer!"
          }
         ],
@@ -1232,11 +1232,11 @@ const json = {
           "text": "Violet Evergarden"
          },
          {
-          "value": "My Teen Romantic Comedy SNAFU",
+          "value": "Yahari Ore no Seishun Love Come wa Machigatteiru.",
           "text": "My Teen Romantic Comedy SNAFU"
          },
          {
-          "value": "Love, Chunibyo & Other Delusions",
+          "value": "Chuunibyou demo Koi ga Shitai!",
           "text": "Love, Chunibyo & Other Delusions"
          }
         ],
@@ -1311,11 +1311,11 @@ const json = {
         "columnLayout": "vertical",
         "choices": [
          {
-          "value": "HAIKYU!!",
+          "value": "Haikyuu!!",
           "text": "HAIKYU!!"
          },
          {
-          "value": "Kuroko's Basketball",
+          "value": "Kuroko no Basket",
           "text": "Kuroko's Basketball"
          },
          {
@@ -1402,7 +1402,7 @@ const json = {
           "text": "Angel Beats!"
          },
          {
-          "value": "Blue Exorcist",
+          "value": "Ao no Exorcist",
           "text": "Blue Exorcist"
          }
         ],
