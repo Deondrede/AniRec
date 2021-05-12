@@ -6,3 +6,8 @@
 #back_btn_space{
     padding-bottom: 10px;
 }
+
+#grid-content{
+    margin: auto;
+    padding: 20px 0px 0px 0px;
+}

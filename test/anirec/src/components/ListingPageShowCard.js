@@ -10,36 +10,44 @@ function ListingPageShowCard(props){
 
     return(
         <Fragment>
-            <Container className="float-center" id="ListingPage_card">
-                <Row>
-                    <img id="ListingPage_cards_image" src={props.image} className="center"/>    
-                </Row>
-                <Row id="ListingPage_cards_title">
-                    <a id="ListingPage_card_text">{props.name}</a>
-                </Row>
-                <Row id="ListingPage_cards_genre">
-                    <a id="ListingPage_card_text">
-                    {props.genre.map((genres) =>
-                        {
-                            if (genreCount < 2)
-                                return <Link key={genres} id="tag_links" to={{
-                                            pathname:`/GenresShowMore/${genres}/1`
-                                        }}>{genres}</Link>
-                            else 
-                                genreCount--;
-                                return  <Fragment>
-                                            <Link key={genres} id="tag_links" to={{
-                                                pathname:`/GenresShowMore/${genres}/1`
-                                                }}>{genres}
-                                            </Link>
-                                            <a>, </a>
-                                        </Fragment>
-                            }
-                    )}
-                    </a>
-                </Row>
-                <Row id="ListingPage_cards_studios">
-                    <a id="ListingPage_card_text">{props.studio}</a>
+            <Container className="float-center" id="listingpage-card-outer">
+                <Row id="listingpage-card-image">
+                    <img src={props.image} className="center"/> 
+                        <div className="listingpage-card-hover-info-outer">
+                            <div id="listingpage-card-hover-info-inner">
+                                <Row id="listingpage-card-title">
+                                    <a id="listingpage-card-text">{props.name}</a>
+                                </Row>
+                                <Row id="listingpage-card-genre">
+                                    <a id="listingpage-card-text">
+                                    {props.genre.map((genres) =>
+                                        {
+                                            if (genreCount < 2)
+                                                return <Link key={genres} id="tag-links" to={{
+                                                            pathname:`/GenresShowMore/${genres}/1`
+                                                        }}>{genres}</Link>
+                                            else 
+                                                genreCount--;
+                                                return  <Fragment>
+                                                            <Link key={genres} id="tag-links" to={{
+                                                                pathname:`/GenresShowMore/${genres}/1`
+                                                                }}>{genres}
+                                                            </Link>
+                                                            <a>, </a>
+                                                        </Fragment>
+                                            }
+                                    )}
+                                    </a>
+                                </Row>
+                                <Row id="listingpage-card-studios">
+                                    <a id="listingpage-card-text">
+                                        {props.studio}                                    </a>
+                                </Row>
+                            </div>
+                        </div>
+                        <Row id="listingpage-card-studios">
+                            <a id="listingpage-card-text">{props.studio}</a>
+                        </Row>
                 </Row>
             </Container>
         </Fragment>

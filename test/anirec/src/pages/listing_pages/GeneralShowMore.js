@@ -7,7 +7,6 @@ import { Col, Row, Grid } from 'react-flexbox-grid'
 import { chunk } from 'lodash'
 import { Link, useParams, useLocation } from 'react-router-dom';
 import {useQuery, gql} from '@apollo/client'
-import {RECOMMENDED, AIRING_NOW, TRY_THIS, TRENDING} from '../../GraphQL/Queries'
  
 
 
@@ -21,6 +20,8 @@ export default function GeneralShowMore(){
        }, [data]
     );
 
+
+
     if (loading) return <p>Loading1...</p>
     else if (error) return <p>Error1 :(</p>
     else{
@@ -28,7 +29,7 @@ export default function GeneralShowMore(){
         return (
             <Fragment>
                 <TopSpace />
-                <Container className="float-md-3">
+                <Container className="">
                     <Row id="back_btn_space">
                         <Link className="back_btn" to={"/Anime"}><strong>Back</strong></Link>
                     </Row>
@@ -36,14 +37,16 @@ export default function GeneralShowMore(){
                         {rows.map((cols) => (
                             <Row>
                                 {cols.map((col) => (
-                                    <Col md={3}>
+                                    <Col md={3} id="grid-content">
                                         <ListingPageShowCard   
                                             image={col.coverImage.large} 
                                             name={(col.title.english==null)
                                                 ? col.title.romaji :
                                                 col.title.english}
                                             genre={col.genres}
-                                            studio={col.studios.nodes.map(studio_name => 
+                                            studio={(col.studios.nodes.length > 5) ? col.studios.nodes.slice(0,6).map(studio_name => 
+                                                studio_name.name).join(', ') :
+                                                col.studios.nodes.map(studio_name => 
                                                 studio_name.name).join(', ')}/>
                                     </Col>
                                 )

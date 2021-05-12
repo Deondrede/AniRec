@@ -11,13 +11,13 @@ function HomePageShowCard(props){
     return(
         <Fragment>
             {/* Start of HomePageCard*/}
-                <Container className="homepage-cards-outer">
-                    <Row id="homepage-cards-inner">
+                <Container className="homepage-card-outer">
+                    <Row id="homepage-card-inner">
 
                         {/* Start of Show Image on Left-Side*/}
                         <Col className="homepage-card-img">
                                 <img src={props.image}/>
-                                <div className="info">
+                                <div className="homepage-card-hover-info">
                                     <p>{props.description}</p>
                                 </div>
                         </Col>

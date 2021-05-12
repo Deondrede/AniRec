@@ -1,10 +1,10 @@
-.homepage-cards-outer{
+.homepage-card-outer{
     height: 22.5%;
-    padding: 0px;
     box-shadow: 2px 2px 12px 0px rgba(0,0,0,0.75);
+
 }
 
-#homepage-cards-inner{
+#homepage-card-inner{
     height: 100%;
 }
 
@@ -18,24 +18,25 @@
     float: left;
     width: 50%;
     display: inline-block;
+    box-shadow:
+        0px 1px 6px 1px rgba(0,0,0,0.75)
+
 }
 
 .homepage-card-img img{
     width:100%;
     height: 100%;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+
 }
 
 /* hover box */
-.info{
+.homepage-card-hover-info{
     background: rgba(27, 26, 26, 0.75);
     transition: all 0.3s ease-out;
     transform: translateX(100%);
     position: absolute;
     line-height: 1;
     text-align: left;
-    cursor: no-drop;
     color: white;
     height: 100%;
     width: 100%;
@@ -45,11 +46,11 @@
     padding: 5px 8px 5px 8px;
 }
 
-.homepage-card-img:hover .info{
+.homepage-card-img:hover .homepage-card-hover-info{
     transform: translateX(0);
 }
 
-.info p{
+.homepage-card-hover-info p{
     transition: 0.3s ease;
     text-align: left;
 }
@@ -57,13 +58,12 @@
 .homepage-card-img:hover img{
     transition: all 0.3s ease-out;
     transform: scale(1.2, 1.2);
+    
 }
 
 /* right side of card */
 #homepage-card-description{
     width: 50%;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
 }
 
 #homepage-card-description p{
@@ -76,7 +76,7 @@
     padding-left: 2px;
     padding-right: 2px;
     margin-bottom: 0px;
-    line-height: 1;
+    line-height: 1.05;
 }
 
 /* title */
@@ -86,12 +86,10 @@
     margin-right: 0px;
     min-height: 50%;
     max-height: 80%;
-/*    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    display: inline-block;
-*/
     width: 100%;
+    border-bottom: 2px solid;
+    border-image: linear-gradient(to right, #5b666b, #a5b9c2);
+    border-image-slice: 1;
 }
 
 /* genres */ 
@@ -99,7 +97,11 @@
     font-size: 15px;
     margin-left: 0px;
     margin-right: 0px;
+    border-bottom: 2px solid;
+    border-image: linear-gradient(to right, #5b666b, #a5b9c2);
+    border-image-slice: 1;
 }
+
 
 /* studios */
 #homepage-card-studio{
@@ -112,10 +114,17 @@
 /* links (genre) */
 .tag-links{
     color: black;
-
+    background-image: linear-gradient(to right, rgba(255,255,255,0) 50%, #ddd 50%);
+    background-position: -0% 0;
+    background-size: 200% auto;
+    color: #222;
+    text-decoration: none;
+    transition: background-position 0.3s ease-out;
+   
 }
 
 .tag-links:hover{
     color: #5B84D7;
-
+    text-decoration: none;
+    background-position: -99.99% 0;
 }

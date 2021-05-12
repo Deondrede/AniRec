@@ -31,6 +31,10 @@ span{
   padding-left: 5px;
 }
 
+.trending_airing_link:hover{
+  text-decoration: none;
+}
+
 #feed_body .col{
   padding: 0px 0px 0px 0px;
 }
@@ -108,5 +112,4 @@ span{
   color: black;
   padding: 20px 0px 0px 0px;
   margin: auto;
-  border-bottom: solid 1px;
 }
