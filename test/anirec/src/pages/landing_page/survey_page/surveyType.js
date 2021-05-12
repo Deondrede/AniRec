@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import 'survey-react/survey.css';
 import * as Survey from 'survey-react';
 import Json from './questions';
@@ -9,14 +9,11 @@ import Json from './questions';
 // gets called by surveyOne
 const MySurvey = (props) => {
     return(
-        <Fragment>
             <Survey.Survey 
             json={Json} //gets the questions
             showCompletedPage={true} //shows the default complete page
             onComplete={data=>props.showCompletedPage(data.valuesHash)} //shows the survey answer in console
             />
-            <button><a href="/Anime">Head to AniRec</a></button>
-        </Fragment>
     )
 }
 
