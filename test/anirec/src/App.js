@@ -5,6 +5,7 @@ import Homepage from "./pages/home_page/Homepage.js";
 import SurveyOne from "./pages/landing_page/survey_page/surveyOne.js"
 import "./App.css";
 import GeneralShowMore from "./pages/listing_pages/GeneralShowMore";
+import AnimePage from "./pages/content_pages/show_page.js";
 
 import {ApolloClient, InMemoryCache, ApolloProvider, HttpLink, from, } from '@apollo/client'
 import {onError} from '@apollo/client/link/error'
@@ -41,6 +42,7 @@ function App() {
                 <Route path="/Survey" exact component={() => <SurveyOne />} />
                 <Route path="/GenresShowMore/:genreName/:pageNum" exact component={() => <GenresShowMore />}/>
                 <Route path="/ShowMore/:queryName/" exact component={() => <GeneralShowMore />}/>
+                <Route path="/Anime/:animeId" exact component={() => <AnimePage />} />
               </Switch>
             </Router>
           </Fragment>
