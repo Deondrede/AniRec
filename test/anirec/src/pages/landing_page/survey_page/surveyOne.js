@@ -1,23 +1,58 @@
 import React, {useState, useCallback, Fragment} from 'react';
 import MySurvey from './surveyType';
-import axios from 'axios';
+const axios = require('axios').default;
 
 {/*
+    Author: Caitlin-Dawn Sangcap
+    Spring 2021. CSCI 499 - Capstone Project: AniRec
+
     Created this following this YouTube tutorial: https://www.youtube.com/watch?v=NW0GwiHmNik
+    Survey heirarchy: questions --> surveyType --> surveyOne
     This file holds the survey logic.
+
     what it currently does:
      - allows the users to take the survey
      - all needed answers are gathered
-     - sends the data to the backend (lines 70 - 97)
+     - send the survey responses to the backend
+     
+    Issues:
+        problem titles (DON'T CLICK ON):
+         - Action --> Hunter x Hunter
+         - Adventure --> Sword Art Online (gets error ValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all())
+         - Fantasy --> something wrong with the whole section
+         - Magical Girl --> something wrong with the whole section
+
+        Removed portions:
+         - commented out the setFinalPage() due to time constraints
+           - was originally meant to display custom Thank you page.
+        
+        Backend related:
+         - once the watched_anime field in the backend reaches or gets close to 50 charcters,
+           the backend will start sending 500 errors
+           EXAMPLE ERROR:
+                django.db.utils.DataError: value too long for type character varying(50)
+
 */}
 
-
-//does the logic
-//call MySurvey from surveyType.js
-//gets called by App
-//survey heirarchy: questions --> surveyType --> surveyOne
-
-//to get the genre response = response.GENRE.ANSWER.Anime[index 0-2]
+//function to send all the data to the backend
+// copied from Deondre's work
+function register(formData1){
+    axios({
+        method: "post",
+        url: "http://localhost:5000/anime",
+        data: formData1,
+        headers: { "Content-Type": "multipart/form-data" },
+      })
+        .then(function (response) {
+          //handle success
+          console.log(response);
+        })
+        .catch(function (response) {
+          //handle error
+          console.log(response);
+        });
+        //console.log("sent request");
+    }
 
 const SurveyOne = () => {
 
@@ -30,8 +65,12 @@ const SurveyOne = () => {
         setShowPage(!showPage);
 
         let response = data; // to play around with the data
+        console.log(data);
         let titles = []; //store all the wanted titles from the survey 
+        let send_data = []; //store all the FormData to be sent
+        let char_count = 0; //keep track of the amount of characters in titles to avoid errors
         let username = response.Username;
+
         //console.log(username);
         //get list of all prefered genres
         let desired_genres = response.prefered_genres;
@@ -49,7 +88,11 @@ const SurveyOne = () => {
                 for (var y = 0; y < yes_titles.length; y++){
                     //console.log("yes",yes_titles[y]);
                     //add the yes_titles to titles
-                    titles.push(yes_titles[y]);
+                    if (titles.includes(yes_titles[y]) === false){
+                        //console.log("yes",yes_titles[y]);
+                        titles.push(yes_titles[y]);
+                        
+                    }
                 }
             }
 
@@ -61,53 +104,43 @@ const SurveyOne = () => {
                 for( var m = 0; m < maybe_titles.length; m++){
                     //console.log("maybe",maybe_titles[m]);
                     //add the maybe_titles to titles
-                    titles.push(maybe_titles[m]);
+                    if (titles.includes(maybe_titles[m]) === false) {
+                        //console.log("maybe",maybe_titles[m]);
+                        titles.push(maybe_titles[m]);
+                    }
                 }
             }
         }
         //console.log(titles.length);
 
-        //after all the data is gathered, send it to the backend.
-        //sending genres to the backend
-        for (var g = 0; g < desired_genres.legnth; g++) {
-            let user_genre = desired_genres[g];
-            let bodyFormData = new FormData();
-            bodyFormData.append("username", username);
-            bodyFormData.append("genre", user_genre);
-            console.log(bodyFormData);
-            axios({
-                method: "post",
-                url: "http:localhost:5000/genre",
-                data: bodyFormData,
-                headers: { "Content-Type": "multipart/form-data" },
-            })
+        //making the different formData to be send to the backend
+        for( var a =0; a < titles.length; a++){
+            if( char_count <= 50){
+                char_count = char_count + titles[a].length + 2;
+                let bodyFormData = new FormData();
+                bodyFormData.append("username", username);
+                bodyFormData.append("anime", titles[a]);
+                send_data.push(bodyFormData);
+            }
         }
 
-        //sending titles to the backend
-        for (var t = 0; t<titles.length; t++ ){
-            let user_anime = titles[t];
-            let bodyFormData = new FormData();
-            bodyFormData.append("username", username);
-            bodyFormData.append("anime", user_anime);
-            console.log(bodyFormData);
-            axios({
-                method: "post",
-                url: "http:localhost:5000/anime",
-                data: bodyFormData,
-                headers: { "Content-Type": "multipart/form-data" },
-            })
-        }
+        console.log(send_data.length);
+        //sending the data to the backend
+        send_data.forEach(element => {
+            register(element)
+        });
         
     }, [showPage])
 
     //can customize the thank you page for what we want. not mandatory.
-    const setFinalPage = () => {
+    // removed from use due to time constraints
+    /*const setFinalPage = () => {
         return(
             <main>
                 <h1>Thank you for taking the survey. Please wait while we build your recommendations.</h1>
             </main>
         )
-    }
+    }*/
 
     return(
         <Fragment>
