@@ -12,11 +12,25 @@ function ListingPageShowCard(props){
         <Fragment>
             <Container className="float-center" id="listingpage-card-outer">
                 <Row id="listingpage-card-image">
+                    <Link to={{
+                                pathname:`/Anime/${props.id}`,
+                                state: {
+                                    id: props.id
+                                }
+                            }}>
                     <img src={props.image} className="center"/> 
+                    </Link>
                         <div className="listingpage-card-hover-info-outer">
                             <div id="listingpage-card-hover-info-inner">
                                 <Row id="listingpage-card-title">
+                                    <Link to={{
+                                        pathname:`/Anime/${props.id}`,
+                                        state: {
+                                            id: props.id
+                                        }
+                                    }}>
                                     <p className="listingpage-card-text-large">{props.name}</p>
+                                    </Link>
                                 </Row>
                                 <Row id="listingpage-card-genre">
                                     <p className="listingpage-card-text-small">
