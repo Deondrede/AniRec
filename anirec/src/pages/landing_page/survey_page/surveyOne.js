@@ -74,10 +74,9 @@ const SurveyOne = () => {
             let bodyFormData = new FormData();
             bodyFormData.append("username", username);
             bodyFormData.append("genre", user_genre);
-            console.log(bodyFormData);
             axios({
                 method: "post",
-                url: "http:localhost:5000/genre",
+                url: "http://localhost:5000/genre",
                 data: bodyFormData,
                 headers: { "Content-Type": "multipart/form-data" },
             })
@@ -89,10 +88,9 @@ const SurveyOne = () => {
             let bodyFormData = new FormData();
             bodyFormData.append("username", username);
             bodyFormData.append("anime", user_anime);
-            console.log(bodyFormData);
             axios({
                 method: "post",
-                url: "http:localhost:5000/anime",
+                url: "http://localhost:5000/anime",
                 data: bodyFormData,
                 headers: { "Content-Type": "multipart/form-data" },
             })

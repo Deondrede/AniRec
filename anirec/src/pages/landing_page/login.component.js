@@ -11,7 +11,7 @@ axios.get('http://localhost:5000').then((response) =>{
 // How the login is going to work
 // Note: This isn't the most secure way to do this but since the crux of this project isn't in the security then it should be fine
 // We're going to set check whether a user is logged by making use of local storage,
-// on login, a key value with their username is going to be set, we're going to use that value to load their prefernces,
+// on login, a key value with their username is going to be set, we're going to use that value to load their preferences,
 // and once they log out we can delete what's inside local storage and return them to the main page
 function onLogin(){
     axios.get('http://localhost:5000').then((response) =>{
