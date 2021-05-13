@@ -194,79 +194,24 @@ export const TRY_THIS = gql`
 
 export const TRENDING = gql`
 {
-  series1: Media(type: ANIME, id: 99147) {
-    id
-    title {
-      english
-      romaji
-    }
-    genres
-    description
-    coverImage {
-      medium
-      large
-      extraLarge
-    }
-    studios {
-      nodes {
-        name
+  Page(page: 1, perPage: 48) {
+    media(sort: TRENDING_DESC, isAdult: false, type: ANIME) {
+      id
+      title {
+        romaji
+        english
       }
-    }
-  }
-  series2: Media(type: ANIME, id: 124845) {
-    id
-    title {
-      english
-      romaji
-    }
-    genres
-    description
-    coverImage {
-      medium
-      large
-      extraLarge
-    }
-    studios {
-      nodes {
-        name
+      genres
+      description(asHtml: false)
+      coverImage {
+        medium
+        large
+        extraLarge
       }
-    }
-  }
-  series3: Media(type: ANIME, id: 136) {
-    id
-    title {
-      english
-      romaji
-    }
-    genres
-    description
-    coverImage {
-      medium
-      large
-      extraLarge
-    }
-    studios {
-      nodes {
-        name
-      }
-    }
-  }
-  series4: Media(type: ANIME, id: 108465) {
-    id
-    title {
-      english
-      romaji
-    }
-    genres
-    description
-    coverImage {
-      medium
-      large
-      extraLarge
-    }
-    studios {
-      nodes {
-        name
+      studios {
+        nodes {
+          name
+        }
       }
     }
   }
