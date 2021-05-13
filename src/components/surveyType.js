@@ -9,7 +9,7 @@ import Json from './questions'; //gets the questions
 const MySurvey = (props) => {
     return(
         <Survey.Survey
-        showCompletedPage={false} 
+        showCompletedPage={true} 
         onComplete={data=>props.showCompletedPage(data.valuesHash)}
         json={Json}
         />
