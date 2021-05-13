@@ -3,6 +3,7 @@ import {gql} from '@apollo/client'
 export const RECOMMENDED = gql`
 {
   series1: Media(type: ANIME, id: 21856) {
+    id
     title {
       english
       romaji
@@ -21,6 +22,7 @@ export const RECOMMENDED = gql`
     }
   }
   series2: Media(type: ANIME, id: 9941) {
+    id
     title {
       english
       romaji
@@ -39,6 +41,7 @@ export const RECOMMENDED = gql`
     }
   }
   series3: Media(type: ANIME, id: 121) {
+    id
     title {
       english
       romaji
@@ -57,6 +60,7 @@ export const RECOMMENDED = gql`
     }
   }
   series4: Media(type: ANIME, id: 21087) {
+    id
     title {
       english
       romaji
@@ -81,6 +85,7 @@ export const AIRING_NOW = gql`
   query ShowMore($page: Int){
     Page(page: $page, perPage: 48){
       media(type: ANIME, isAdult: false, season: SPRING, seasonYear: 2021){
+        id
         title{
           english
           romaji
@@ -105,6 +110,7 @@ export const AIRING_NOW = gql`
 export const TRY_THIS = gql`
   {
     series1: Media(type: ANIME, id: 98578) {
+      id
       title {
         english
         romaji
@@ -123,6 +129,7 @@ export const TRY_THIS = gql`
       }
     }
     series2: Media(type: ANIME, id: 120) {
+      id
       title {
         english
         romaji
@@ -141,6 +148,7 @@ export const TRY_THIS = gql`
       }
     }
     series3: Media(type: ANIME, id: 145) {
+      id
       title {
         english
         romaji
@@ -159,6 +167,7 @@ export const TRY_THIS = gql`
       }
     }
     series4: Media(type: ANIME, search: "Horimiya") {
+      id
       title {
         english
         romaji
