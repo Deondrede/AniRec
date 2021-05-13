@@ -46,6 +46,7 @@ export default function GeneralShowMore(){
                                 {cols.map((col) => (
                                     <Col md={3} id="grid-content">
                                         <ListingPageShowCard   
+                                            id={col.id}
                                             image={col.coverImage.large} 
                                             name={(col.title.english==null)
                                                 ? col.title.romaji :

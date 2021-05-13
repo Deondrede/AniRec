@@ -13,6 +13,7 @@ export default function GenresShowMore(){
     query GenreQuery($genre: String, $page: Int) {
         Page(page: $page, perPage: 48){
             media(type: ANIME, isAdult: false, genre: $genre, sort: [POPULARITY_DESC]){
+              id
               title{
                 english
                 romaji
@@ -73,6 +74,7 @@ export default function GenresShowMore(){
                                 {cols.map((col) => (
                                     <Col md={3} id="grid-content">
                                         <ListingPageShowCard   
+                                            id={col.id}
                                             image={col.coverImage.extraLarge} 
                                             name={(col.title.english==null)
                                                 ? col.title.romaji :
