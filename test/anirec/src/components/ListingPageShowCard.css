@@ -50,10 +50,21 @@
     transform: scale(1.2, 1.2);
 }
 
-#listingpage-card-text{
-    font-size: 20px;
+.listingpage-card-text-large{
+    font-size: 25px;
     margin-left: 0px;
     margin-right: 0px;
+    text-decoration: none;
+    color: white;
+}
+
+.listingpage-card-text-small{
+    font-size: 15px;
+    margin-left: 0px;
+    margin-right: 0px;
+    color: white;
+    padding-left: 15px;
+    padding-right: 10px;
 }
 
 #listingpage-card-title{
@@ -73,17 +84,19 @@
     padding: 0.5rem 1px 0.5rem 1px;
 }
 
-#tag-links{
+.listingpage-card-tag-links{
+    color:white;
     text-decoration: none;
 }
+
+.listingpage-card-tag-links:hover{
+    color: white;
+}
+
 
 #listingpage-card-studios{
     padding: 0.5rem 1px 0.5rem 1px;
     margin-bottom: 10px;
     max-width: 225px;
     line-height: 1;
-}
-
-#ListingPage_card{
-    height: 500px;
 }

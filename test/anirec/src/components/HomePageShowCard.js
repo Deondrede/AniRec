@@ -39,13 +39,13 @@ function HomePageShowCard(props){
                                     {props.genre.map((genres) =>
                                         {
                                             if (genreCount < 2)
-                                                return <Link key={genres} className="tag-links" to={{
+                                                return <Link key={genres} className="homepage-card-tag-links" to={{
                                                             pathname:`/GenresShowMore/${genres}/1`
                                                         }}>{genres}</Link>
                                             else 
                                                 genreCount--;
                                                 return  <Fragment>
-                                                            <Link key={genres} className="tag-links" to={{
+                                                            <Link key={genres} className="homepage-card-tag-links" to={{
                                                                 pathname:`/GenresShowMore/${genres}/1`
                                                                 }}>{genres}
                                                             </Link>

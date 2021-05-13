@@ -78,32 +78,29 @@ export const RECOMMENDED = gql`
 `
 
 export const AIRING_NOW = gql`
-{
-  Page(page: 1, perPage: 100){
-    pageInfo{
-      lastPage
-    }
-    media(type: ANIME, isAdult: false, season: SPRING, seasonYear: 2021){
-      title{
-        english
-        romaji
-      }
-      genres
-      description(asHtml: false)
-      coverImage{
-        medium
-        large
-        extraLarge
-      }
-      studios{
-        nodes{
-          name
+  query ShowMore($page: Int){
+    Page(page: $page, perPage: 48){
+      media(type: ANIME, isAdult: false, season: SPRING, seasonYear: 2021){
+        title{
+          english
+          romaji
+        }
+        genres
+        description(asHtml: false)
+        coverImage{
+          medium
+          large
+          extraLarge
+        }
+        studios{
+          nodes{
+            name
+          }
         }
       }
     }
   }
-}
-`
+`;
 
 export const TRY_THIS = gql`
   {
@@ -184,29 +181,29 @@ export const TRY_THIS = gql`
 
 
 export const TRENDING = gql`
-{
-  Page(page: 1, perPage: 48) {
-    media(sort: TRENDING_DESC, isAdult: false, type: ANIME) {
-      id
-      title {
-        romaji
-        english
-      }
-      genres
-      description(asHtml: false)
-      coverImage {
-        medium
-        large
-        extraLarge
-      }
-      studios {
-        nodes {
-          name
+  query AiringTrendingShowMore($page: Int){
+    Page(page: $page, perPage: 48) {
+      media(sort: TRENDING_DESC, isAdult: false, type: ANIME) {
+        id
+        title {
+          romaji
+          english
+        }
+        genres
+        description(asHtml: false)
+        coverImage {
+          medium
+          large
+          extraLarge
+        }
+        studios {
+          nodes {
+            name
+          }
         }
       }
     }
   }
-}
-`
+`;
 
 

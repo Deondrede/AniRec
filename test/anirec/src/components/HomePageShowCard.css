@@ -76,7 +76,7 @@
     padding-left: 2px;
     padding-right: 2px;
     margin-bottom: 0px;
-    line-height: 1.05;
+    line-height: 1.1;
 }
 
 /* title */
@@ -112,19 +112,18 @@
 }
 
 /* links (genre) */
-.tag-links{
+.homepage-card-tag-links{
     color: black;
-    background-image: linear-gradient(to right, rgba(255,255,255,0) 50%, #ddd 50%);
+    background-image: linear-gradient(to right, rgba(255,255,255,100) 50%, #ddd 50%);
     background-position: -0% 0;
     background-size: 200% auto;
-    color: #222;
     text-decoration: none;
     transition: background-position 0.3s ease-out;
    
 }
 
-.tag-links:hover{
-    color: #5B84D7;
+.homepage-card-tag-links:hover{
+    color: black;
     text-decoration: none;
     background-position: -99.99% 0;
 }

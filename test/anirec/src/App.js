@@ -34,7 +34,6 @@ function App() {
         <ApolloProvider client={client}>
         {" "}
           <Fragment>
-            <Header />
             <Router>
               <Switch>
                 <Route path="/" exact component={() => <LandingPage />} />

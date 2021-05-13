@@ -16,20 +16,20 @@ function ListingPageShowCard(props){
                         <div className="listingpage-card-hover-info-outer">
                             <div id="listingpage-card-hover-info-inner">
                                 <Row id="listingpage-card-title">
-                                    <a id="listingpage-card-text">{props.name}</a>
+                                    <p className="listingpage-card-text-large">{props.name}</p>
                                 </Row>
                                 <Row id="listingpage-card-genre">
-                                    <a id="listingpage-card-text">
+                                    <p className="listingpage-card-text-small">
                                     {props.genre.map((genres) =>
                                         {
                                             if (genreCount < 2)
-                                                return <Link key={genres} id="tag-links" to={{
+                                                return <Link key={genres} className="listingpage-card-tag-links" to={{
                                                             pathname:`/GenresShowMore/${genres}/1`
                                                         }}>{genres}</Link>
                                             else 
                                                 genreCount--;
                                                 return  <Fragment>
-                                                            <Link key={genres} id="tag-links" to={{
+                                                            <Link key={genres} className="listingpage-card-tag-links" to={{
                                                                 pathname:`/GenresShowMore/${genres}/1`
                                                                 }}>{genres}
                                                             </Link>
@@ -37,16 +37,17 @@ function ListingPageShowCard(props){
                                                         </Fragment>
                                             }
                                     )}
-                                    </a>
+                                    </p>
                                 </Row>
                                 <Row id="listingpage-card-studios">
-                                    <a id="listingpage-card-text">
-                                        {props.studio}                                    </a>
+                                    <p className="listingpage-card-text-small">
+                                        {props.studio}      
+                                    </p>
                                 </Row>
                             </div>
                         </div>
                         <Row id="listingpage-card-studios">
-                            <a id="listingpage-card-text">{props.studio}</a>
+                            <p id="listingpage-card-text">{props.studio}</p>
                         </Row>
                 </Row>
             </Container>

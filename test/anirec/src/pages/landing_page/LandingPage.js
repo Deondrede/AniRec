@@ -4,6 +4,7 @@ import "./LandingPage.css";
 import { Container, Row, Col} from "react-bootstrap";
 
 import LrTabs from "./login_register_tabs.component.js";
+import Wallpaper from "./Wallpaper.js";
 
 //function for landing page
 function LandingPage(){
@@ -15,6 +16,7 @@ function LandingPage(){
                     <LrTabs />
                 </Col>
                 <Col id="wallpaper">
+                    <Wallpaper />
                 </Col>
             </Row>                 
             </Container>

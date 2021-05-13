@@ -7,7 +7,17 @@
     padding-bottom: 10px;
 }
 
+
 #grid-content{
     margin: auto;
     padding: 20px 0px 0px 0px;
+}
+
+#grid{
+    padding-bottom: 2.5%;
+}
+
+.page-btn{
+    color: #AA80FF;
+    margin-right: 25px;
 }

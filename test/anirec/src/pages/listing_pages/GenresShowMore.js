@@ -60,16 +60,18 @@ export default function GenresShowMore(){
         return (
             <Fragment>
                 <TopSpace />
-                <Container className="float-md-3">
+                <Container className="">
                     <Row id="back_btn_space">
-                        <Button className="back_btn" onClick={() => history.goBack()}><strong>Back</strong></Button>
-                        <Link className="back_btn" to={"/Anime"}><strong>Home</strong></Link>
+                        <Button className="back_btn" id="btn-left" onClick={() => history.goBack()}><strong>Back</strong></Button>
+                        <Link to={"/Anime"}>
+                            <Button className="back_btn" id="btn-right"><strong>Home</strong></Button>
+                        </Link>
                     </Row>
-                    <Grid>
+                    <Grid id="grid">
                         {rows.map((cols) => (
                             <Row>
                                 {cols.map((col) => (
-                                    <Col md={3}>
+                                    <Col md={3} id="grid-content">
                                         <ListingPageShowCard   
                                             image={col.coverImage.extraLarge} 
                                             name={(col.title.english==null)
@@ -84,24 +86,32 @@ export default function GenresShowMore(){
                             </Row>
                         )
                         )}
-                        {(params.pageNum > 1) ?
+                    </Grid>
+                    {(params.pageNum > 1) ?
                                 ((params.pageNum > data.length -Number(1)) ?
                                     <Link to={{pathname:`/GenresShowMore/${params.genreName}/${Number(params.pageNum) - 1}`}}>
-                                        Previous Page
+                                        <Button className="page-btn">
+                                            Previous Page
+                                        </Button>
                                     </Link> :
                                     <Fragment>
                                             <Link to={{pathname:`/GenresShowMore/${params.genreName}/${Number(params.pageNum) - 1}`}}>
-                                                Previous Page
+                                                <Button  className="page-btn">
+                                                    Previous Page
+                                                </Button>
                                             </Link>
                                             <Link to={{pathname:`/GenresShowMore/${params.genreName}/${Number(params.pageNum) + 1}`}}>
-                                                Next Page
+                                                <Button  className="page-btn">
+                                                    Next Page
+                                                </Button>
                                             </Link> 
                                     </Fragment> ): 
                                 <Link to={{pathname:`/GenresShowMore/${params.genreName}/${Number(params.pageNum) + 1}`}}>
-                                    Next Page
+                                    <Button  className="page-btn">
+                                        Next Page
+                                    </Button>
                                 </Link>
                             }
-                    </Grid>
                 </Container>
             </Fragment>
         );
