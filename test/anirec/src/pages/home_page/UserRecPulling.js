@@ -2,6 +2,7 @@ import React from "react";
 import {useQuery, gql} from '@apollo/client';
 
 function GetUserRecs(){
+    const axios = require('axios').default;
     const promise = axios.get('http://localhost:5000');
     const dataPromise = promise.then((response) => response.data);
     return dataPromise;
