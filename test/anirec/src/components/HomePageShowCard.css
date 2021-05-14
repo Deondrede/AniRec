@@ -92,6 +92,16 @@
     border-image-slice: 1;
 }
 
+#homepage-card-title-text{
+    color: black;
+}
+
+#homepage-card-title-text:hover{
+    color: black;
+    text-decoration: none;
+}
+
+
 /* genres */ 
 #homepage-card-genres{
     font-size: 15px;

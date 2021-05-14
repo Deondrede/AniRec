@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 // I used axios for this but if you want to try using something else like ajax you're free to do so
 // Also axios is a separate module so don't forget to do 'npm install axios'
-/*const axios = require('axios').default;
+const axios = require('axios').default;
 
 // An example of a GET request
 axios.get('http://localhost:5000').then((response) =>{
@@ -42,40 +42,17 @@ axios.defaults.withCredentials = true;
 // Function registered to onCLick
 // Since this is the login page and not the register page, once the register page is done we can just copy this over
 // Implemented it here just for testing purposes
-function register(){
-    // All requests need to be sent in the FormData format
-    let bodyFormData = new FormData();
-    // Obtain the values from the textfields and append them to the FormData
-    let username = document.getElementById("username").value;
-    let password = document.getElementById("password").value;
-    bodyFormData.append("username", username);
-    bodyFormData.append("password", password);
-    // Sends the POST request to the backend, requests dealing with setting username and password are sent to localhost:5000/users
-    // Sending POST requests to the normal localhost:5000 will not fulfil any requests
-    axios({
-        method: "post",
-        url: "http://localhost:5000/users",
-        data: bodyFormData,
-        headers: { "Content-Type": "multipart/form-data" },
-      })
-        .then(function (response) {
-          //handle success
-          console.log(response);
-        })
-        .catch(function (response) {
-          //handle error
-          console.log(response);
-        });
-}*/
+
+
 export default class Login extends Component {
     render() {
         return (
             <form>
                 <div className="form-group">
-                    <input type="username" className="form-control" placeholder="Username" />
+                    <input id="username" className="form-control" placeholder="Username" />
                 </div>
                 <div className="form-group">
-                    <input type="password" className="form-control" placeholder="Password" />
+                    <input id="password" className="form-control" placeholder="Password" />
                 </div>
 
                 <div className="form-group">
@@ -85,9 +62,9 @@ export default class Login extends Component {
                     </div>
                 </div>
 
-                <button type="submit" className="btn btn-dark btn-lg btn-block" >
+                <button type="submit" className="btn btn-dark btn-lg btn-block" onClick={onLogin}>
                     <a id="reg_btn" href="/Anime"> Sign in </a>
-                    </button>
+                </button>
             </form>
         );
     }

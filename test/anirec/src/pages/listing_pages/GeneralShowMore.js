@@ -12,7 +12,7 @@ export default function GeneralShowMore(){
 
     const params = useParams();
     const location = useLocation();
-    const {error, loading, data} = useQuery(location.state.query,
+    const {error, loading, data, refetch} = useQuery(location.state.query,
         {
             variables:
             {
@@ -22,7 +22,8 @@ export default function GeneralShowMore(){
     );
 
     useEffect(()=>{
-       }, [data]
+        refetch()
+       }, []
     );
 
 
@@ -37,7 +38,7 @@ export default function GeneralShowMore(){
                 <Container className="">
                     <Row id="back_btn_space">
                         <Link className="back_btn" to={"/Anime"}>
-                        <Button className="back_btn" id="btn-right"><strong>Home</strong></Button>
+                            <Button className="back_btn" id="btn-right"><strong>Home</strong></Button>
                         </Link>
                     </Row>
                     <Grid id="grid">
@@ -62,7 +63,31 @@ export default function GeneralShowMore(){
                             </Row>
                         )
                         )}
-
+                        {(params.pageNum > 1) ?
+                                    ((params.pageNum > data.length -Number(1)) ?
+                                        <Link to={{pathname:`/ShowMore/${params.genreName}/${Number(params.pageNum) - 1}`}}>
+                                            <Button className="page-btn">
+                                                Previous Page
+                                            </Button>
+                                        </Link> :
+                                        <Fragment>
+                                                <Link to={{pathname:`/ShowMore/${params.genreName}/${Number(params.pageNum) - 1}`}}>
+                                                    <Button  className="page-btn">
+                                                        Previous Page
+                                                    </Button>
+                                                </Link>
+                                                <Link to={{pathname:`/ShowMore/${params.genreName}/${Number(params.pageNum) + 1}`}}>
+                                                    <Button  className="page-btn">
+                                                        Next Page
+                                                    </Button>
+                                                </Link> 
+                                        </Fragment> ): 
+                                    <Link to={{pathname:`/ShowMore/${params.genreName}/${Number(params.pageNum) + 1}`}}>
+                                        <Button  className="page-btn">
+                                            Next Page
+                                        </Button>
+                                    </Link>
+                                }
                     </Grid> 
                 </Container>
             </Fragment>

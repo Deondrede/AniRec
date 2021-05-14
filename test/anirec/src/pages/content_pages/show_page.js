@@ -6,10 +6,11 @@ import { AnimeInfo, KeyStaff, Rating, Recommendations, Reviews } from "../../com
 import Login from "../landing_page/login.component.js";
 import {gql, useQuery} from '@apollo/client';
 export default function AnimePage(props) {
-    const location = useLocation();
+    const params = useParams();
     const ANIMEQUERY = gql`
+    query AnimeQuery($id: Int)
     {
-        series: Media(type: ANIME, id: ${location.state.id}) {
+        series: Media(type: ANIME, id: $id) {
         id
         title {
           english
@@ -31,13 +32,19 @@ export default function AnimePage(props) {
         season
         seasonYear
       }
-    }`
+    }
+    `
 
-    const params = useParams();
-    const {error, loading, data} = useQuery(ANIMEQUERY);
+    const {error, loading, data, refetch} = useQuery(ANIMEQUERY,
+        {
+            variables:{
+                id: params.animeId
+            }
+        });
 
     useEffect(()=>{
-        }, [data]
+        refetch()
+    }, []
     );
 
     
@@ -70,19 +77,19 @@ export default function AnimePage(props) {
                         <img id="HomePage_card_image" src={animedata.image}/>
                         <Col>
                             <ButtonGroup vertical block>
-                                <Link id="tab_name" to={`/Anime/${location.state.id}/ratings`}><Button>
+                                <Link id="tab_name" to={`/Anime/${params.animeId}/ratings`}><Button>
                                     Overall Ratings
                                 </Button></Link>
-                                <Link id="tab_name" to={`/Anime/${location.state.id}/information`}><Button>
+                                <Link id="tab_name" to={`/Anime/${params.animeId}/information`}><Button>
                                     Information
                                 </Button></Link>
-                                <Link id="tab_name" to={`/Anime/${location.state.id}/key-staff`}><Button>
+                                <Link id="tab_name" to={`/Anime/${params.animeId}/key-staff`}><Button>
                                     Key Staff
                                 </Button></Link>
-                                <Link id="tab_name" to={`/Anime/${location.state.id}/reviews`}><Button>
+                                <Link id="tab_name" to={`/Anime/${params.animeId}/reviews`}><Button>
                                     Reviews
                                 </Button></Link>
-                                <Link id="tab_name" to={`/Anime/${location.state.id}/recommendations`}><Button>
+                                <Link id="tab_name" to={`/Anime/${params.animeId}/recommendations`}><Button>
                                     Recommendations
                                 </Button></Link>
                             </ButtonGroup>

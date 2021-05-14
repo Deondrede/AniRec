@@ -35,7 +35,6 @@ export default function GenresShowMore(){
     }`;
 
     const params = useParams();
-    const history = useHistory();
     const {error, loading, data, refetch} = useQuery(GENRE_QUERY, 
         {
             variables: 
@@ -63,7 +62,6 @@ export default function GenresShowMore(){
                 <TopSpace />
                 <Container className="">
                     <Row id="back_btn_space">
-                        <Button className="back_btn" id="btn-left" onClick={() => history.goBack()}><strong>Back</strong></Button>
                         <Link to={"/Anime"}>
                             <Button className="back_btn" id="btn-right"><strong>Home</strong></Button>
                         </Link>

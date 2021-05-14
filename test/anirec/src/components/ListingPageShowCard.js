@@ -14,22 +14,15 @@ function ListingPageShowCard(props){
                 <Row id="listingpage-card-image">
                     <Link to={{
                                 pathname:`/Anime/${props.id}`,
-                                state: {
-                                    id: props.id
-                                }
                             }}>
                     <img src={props.image} className="center"/> 
-                    </Link>
                         <div className="listingpage-card-hover-info-outer">
                             <div id="listingpage-card-hover-info-inner">
                                 <Row id="listingpage-card-title">
-                                    <Link to={{
+                                    <Link id="listingpage-card-title-text" to={{
                                         pathname:`/Anime/${props.id}`,
-                                        state: {
-                                            id: props.id
-                                        }
                                     }}>
-                                    <p className="listingpage-card-text-large">{props.name}</p>
+                                    <p className="listingpage-card-text-large"><strong>{props.name}</strong></p>
                                     </Link>
                                 </Row>
                                 <Row id="listingpage-card-genre">
@@ -63,6 +56,7 @@ function ListingPageShowCard(props){
                         <Row id="listingpage-card-studios">
                             <p id="listingpage-card-text">{props.studio}</p>
                         </Row>
+                    </Link>
                 </Row>
             </Container>
         </Fragment>
