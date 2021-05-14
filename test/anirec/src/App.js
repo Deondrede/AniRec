@@ -41,7 +41,7 @@ function App() {
                 <Route path="/Anime" exact component={() => <Homepage />} />
                 <Route path="/Survey" exact component={() => <SurveyOne />} />
                 <Route path="/GenresShowMore/:genreName/:pageNum" exact component={() => <GenresShowMore />}/>
-                <Route path="/ShowMore/:queryName/" exact component={() => <GeneralShowMore />}/>
+                <Route path="/ShowMore/:queryName/:pageNum" exact component={() => <GeneralShowMore />}/>
                 <Route path="/Anime/:animeId" exact component={() => <AnimePage />} />
               </Switch>
             </Router>

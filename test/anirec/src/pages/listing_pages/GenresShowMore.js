@@ -86,7 +86,6 @@ export default function GenresShowMore(){
                             </Row>
                         )
                         )}
-                    </Grid>
                     {(params.pageNum > 1) ?
                                 ((params.pageNum > data.length -Number(1)) ?
                                     <Link to={{pathname:`/GenresShowMore/${params.genreName}/${Number(params.pageNum) - 1}`}}>
@@ -112,6 +111,8 @@ export default function GenresShowMore(){
                                     </Button>
                                 </Link>
                             }
+                    </Grid>
+
                 </Container>
             </Fragment>
         );

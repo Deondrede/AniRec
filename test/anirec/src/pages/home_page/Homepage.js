@@ -3,6 +3,7 @@ import HomePageShowCard from '../../components/HomePageShowCard';
 import TopSpace from "../../components/global_elements/TopSpacer"
 import {RECOMMENDED,AIRING_NOW, TRY_THIS, TRENDING} from '../../GraphQL/Queries'
 import { Link } from "react-router-dom";
+import ReturnRecArray from "../home_page/UserRecPulling.js";
 
 import {useQuery} from '@apollo/client'
 import './Homepage.css';
@@ -12,14 +13,11 @@ import { Container, Row, Col } from "react-bootstrap";
 
 //will be used as next Page to list
 function HomePage(){
-    const {error, loading, data} = useQuery(AIRING_NOW);
-    const {error: errorC2, loading: loadingC2, data: dataC2} = useQuery(RECOMMENDED);
+    const recArray = <ReturnRecArray num={4} userId={username}/>
+
+    const {error: errorC2, loading: loadingC2, data: dataC2} = useQuery(AIRING_NOW);
     const {error: errorC3, loading: loadingC3, data: dataC3} = useQuery(TRY_THIS);
     const {error: errorC4, loading: loadingC4, data: dataC4} = useQuery(TRENDING);
-
-    useEffect(()=>{
-     }, [data]
-    );
       
     useEffect(()=>{
         }, [dataC2]
@@ -34,9 +32,7 @@ function HomePage(){
     );
 
     // airing_now array
-    if (loading) return <p>Loading1...</p>
-    if (error) return <p>Error1 :(</p>
-    const airing_arr = data.Page.media;
+    const airing_arr = dataC2.Page.media;
     const home_airing_arr = [];
     for (let i = 0; i < 4; i++){
         home_airing_arr.push(airing_arr[i]);    
@@ -57,46 +53,46 @@ function HomePage(){
 
     if (errorC3) return <p>Error3 :(</p>
 
-        let col1_1 = {
-            name: (dataC2.series1.title.english==null)
-                ? dataC2.series1.title.romaji :
-                dataC2.series1.title.english,
-            image: dataC2.series1.coverImage.extraLarge,
-            genre: dataC2.series1.genres,
-            studio: dataC2.series1.studios.nodes[0].name,
-            id: dataC2.series1.id
-        }
+        // let col1_1 = {
+        //     name: (dataC2.series1.title.english==null)
+        //         ? dataC2.series1.title.romaji :
+        //         dataC2.series1.title.english,
+        //     image: dataC2.series1.coverImage.extraLarge,
+        //     genre: dataC2.series1.genres,
+        //     studio: dataC2.series1.studios.nodes[0].name,
+        //     id: dataC2.series1.id
+        // }
     
         
-        let col1_2 = {
-            name: (dataC2.series2.title.english==null)
-                ? dataC2.series2.title.romaji :
-                dataC2.series2.title.english,
-            image: dataC2.series2.coverImage.extraLarge,
-            genre: dataC2.series2.genres,
-            studio: dataC2.series2.studios.nodes[0].name,
-            id: dataC2.series2.id
-        }
+        // let col1_2 = {
+        //     name: (dataC2.series2.title.english==null)
+        //         ? dataC2.series2.title.romaji :
+        //         dataC2.series2.title.english,
+        //     image: dataC2.series2.coverImage.extraLarge,
+        //     genre: dataC2.series2.genres,
+        //     studio: dataC2.series2.studios.nodes[0].name,
+        //     id: dataC2.series2.id
+        // }
         
-        let col1_3= {
-            name: (dataC2.series3.title.english==null)
-                ? dataC2.series3.title.romaji :
-                dataC2.series3.title.english,
-            image: dataC2.series3.coverImage.extraLarge,
-            genre: dataC2.series3.genres,
-            studio: dataC2.series3.studios.nodes[0].name,
-            id: dataC2.series3.id
-        }
+        // let col1_3= {
+        //     name: (dataC2.series3.title.english==null)
+        //         ? dataC2.series3.title.romaji :
+        //         dataC2.series3.title.english,
+        //     image: dataC2.series3.coverImage.extraLarge,
+        //     genre: dataC2.series3.genres,
+        //     studio: dataC2.series3.studios.nodes[0].name,
+        //     id: dataC2.series3.id
+        // }
     
-        let col1_4 = {
-            name: (dataC2.series4.title.english==null)
-            ? dataC2.series4.title.romaji :
-            dataC2.series4.title.english,
-            image: dataC2.series4.coverImage.extraLarge,
-            genre: dataC2.series4.genres,
-            studio: dataC2.series4.studios.nodes[0].name,
-            id: dataC2.series4.id
-        }
+        // let col1_4 = {
+        //     name: (dataC2.series4.title.english==null)
+        //     ? dataC2.series4.title.romaji :
+        //     dataC2.series4.title.english,
+        //     image: dataC2.series4.coverImage.extraLarge,
+        //     genre: dataC2.series4.genres,
+        //     studio: dataC2.series4.studios.nodes[0].name,
+        //     id: dataC2.series4.id
+        // }
     
         let col3_1 = {
             name: (dataC3.series1.title.english==null)
@@ -150,35 +146,15 @@ function HomePage(){
                             <Col id="grey"><span></span></Col>
                         </Row>
                         <Row id="main_content">
-                        <HomePageShowCard
-                                name={col1_1.name}
-                                image={col1_1.image}
-                                genre= {col1_1.genre}
-                                studio={col1_1.studio}
-                                id={col1_1.id}
+                            {recArray.map((recShow) => (
+                                <HomePageShowCard
+                                    name={recShow.Media.title}
+                                    image={recShow.Media.coverImage.extraLarge}
+                                    genre= {recShow.Media.genres}
+                                    studio={recShow.Media.studios.nodes[0].name}
+                                    id={recShow.Media.id}
                                 />
-                            <HomePageShowCard
-                                name={col1_2.name}
-                                image={col1_2.image}
-                                genre= {col1_2.genre}
-                                studio={col1_2.studio}
-                                id={col1_2.id}
-                                />
-                            <HomePageShowCard
-                                name={col1_3.name}
-                                image={col1_3.image}
-                                genre= {col1_3.genre}
-                                studio={col1_3.studio}
-                                id={col1_3.id}
-                                />
-                            <HomePageShowCard
-                                name={col1_4.name}
-                                image={col1_4.image}
-                                genre= {col1_4.genre}
-                                studio={col1_4.studio}
-                                id={col1_4.id}
-                                />
-
+                            ))}
                         </Row>
                     </Col>
                     <Col id="spacing"></Col>
@@ -186,7 +162,7 @@ function HomePage(){
                         <Row id="subtitle">
                             <Col className="purple">
                                 <Link className="trending_airing_link" id="airing_now" to={{
-                                    pathname:`/ShowMore/airing_now`,
+                                    pathname:`/ShowMore/airing_now/1`,
                                     state: {
                                         query: AIRING_NOW
                                     }
@@ -254,7 +230,7 @@ function HomePage(){
                         <Row id="subtitle">
                             <Col className="purple">
                                 <Link className="trending_airing_link" id="trending" to={{
-                                    pathname:"/ShowMore/trending",
+                                    pathname:"/ShowMore/trending/1",
                                     state: {
                                         query: TRENDING
                                     }

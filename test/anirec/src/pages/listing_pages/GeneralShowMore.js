@@ -63,32 +63,50 @@ export default function GeneralShowMore(){
                             </Row>
                         )
                         )}
-                        {(params.pageNum > 1) ?
+                    </Grid>
+                    {(params.pageNum > 1) ?
                                     ((params.pageNum > data.length -Number(1)) ?
-                                        <Link to={{pathname:`/ShowMore/${params.genreName}/${Number(params.pageNum) - 1}`}}>
+                                        <Link to={{
+                                            pathname:`/ShowMore/${params.queryName}/${Number(params.pageNum) - 1}`,
+                                            state: {
+                                                query: location.state.query
+                                            }
+                                        }}>
                                             <Button className="page-btn">
                                                 Previous Page
                                             </Button>
                                         </Link> :
                                         <Fragment>
-                                                <Link to={{pathname:`/ShowMore/${params.genreName}/${Number(params.pageNum) - 1}`}}>
+                                                <Link to={{
+                                                    pathname:`/ShowMore/${params.queryName}/${Number(params.pageNum) - 1}`,
+                                                    state: {
+                                                        query: location.state.query
+                                                    }}}>
                                                     <Button  className="page-btn">
                                                         Previous Page
                                                     </Button>
                                                 </Link>
-                                                <Link to={{pathname:`/ShowMore/${params.genreName}/${Number(params.pageNum) + 1}`}}>
+                                                <Link to={{
+                                                    pathname:`/ShowMore/${params.queryName}/${Number(params.pageNum) + 1}`,
+                                                    state: {
+                                                        query: location.state.query
+                                                    }
+                                                }}>
                                                     <Button  className="page-btn">
                                                         Next Page
                                                     </Button>
                                                 </Link> 
                                         </Fragment> ): 
-                                    <Link to={{pathname:`/ShowMore/${params.genreName}/${Number(params.pageNum) + 1}`}}>
+                                    <Link to={{
+                                        pathname:`/ShowMore/${params.queryName}/${Number(params.pageNum) + 1}`,
+                                            state: {
+                                                query: location.state.query
+                                        }}}>
                                         <Button  className="page-btn">
                                             Next Page
                                         </Button>
                                     </Link>
-                                }
-                    </Grid> 
+                                } 
                 </Container>
             </Fragment>
         );
