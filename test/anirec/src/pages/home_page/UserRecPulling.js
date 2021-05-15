@@ -1,26 +1,36 @@
-import React from "react";
+import React, {useEffect, setState} from "react";
 import {useQuery, gql} from '@apollo/client';
 
-function GetUserRecs(){
+export default function GetUserRecs(props){
+    const [recArr, setRecArr] = setState([]);
     const axios = require('axios').default;
     const promise = axios.get('http://localhost:5000');
-    const dataPromise = promise.then((response) => response.data);
-    return dataPromise;
+
+    useEffect(() => {
+        GetUserRecs().then((data) => {
+            for (var user in data){
+                if (data[user]["fields"]["username"] == props.username){
+                    var recArray = data[user]["fields"]["recommendations"].match(/\d+/g);
+                    for (var i = 0; i < recArray.length; i++){
+                        recArray[i] = parseInt(recArray[i], 10);
+                    } 
+                    setRecArr(recArray);
+                }
+            }
+        })
+        
+    }, []);
+    const returnRecArr = []
+
+    for (let i = 0; i < props.num; i++) {
+        returnRecArr.push(<RecQueryComponent arrayOfIDs={recArr} index={i}/>);
+    }
+    return returnRecArr;
 }
 
-GetUserRecs().then(data => {
-    for (var user in data){
-        if (data[user]["fields"]["username"] == "doggo"){
-            var recArray = data[user]["fields"]["recommendations"].match(/\d+/g);
-            for (var i = 0; i < recArray.length; i++){
-                recArray[i] = parseInt(recArray[i], 10);
-            } 
-            console.log(recArray);
-        }
-    }
-})
 
-const RecQueryComponent = ({username, index}) =>{
+const RecQueryComponent = ({arrayOfIDs, index}) =>{
+
     const REC_QUERY = gql`
     query RecQuery($id: id) {
         Media(type: ANIME, id: $id){
@@ -41,11 +51,10 @@ const RecQueryComponent = ({username, index}) =>{
                     name
                 }
             }
-        }        UserArray.push(data);
+        }
 
     }`;
-
-    const RecArray = GetUserRecs(username);
+    const RecArray = arrayOfIDs;
     const {error, loading, data} = useQuery(REC_QUERY,
         {
             variables:{
@@ -57,13 +66,3 @@ const RecQueryComponent = ({username, index}) =>{
     if (error) return <p>Error1 :(</p>
     return data
 }
-
-const ReturnRecArray = ({num, userId}) => {
-    const UserArray = [];
-    for (let i = 0; i < num; i++) {
-        UserArray.push(<RecQueryComponent username={userId} index={i}/>);
-    }
-    return UserArray;
-}
-
-export default ReturnRecArray;

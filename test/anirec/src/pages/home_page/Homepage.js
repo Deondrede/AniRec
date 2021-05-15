@@ -3,7 +3,7 @@ import HomePageShowCard from '../../components/HomePageShowCard';
 import TopSpace from "../../components/global_elements/TopSpacer"
 import {RECOMMENDED,AIRING_NOW, TRY_THIS, TRENDING} from '../../GraphQL/Queries'
 import { Link } from "react-router-dom";
-import ReturnRecArray from "../home_page/UserRecPulling.js";
+import GetUserRecs from "../home_page/UserRecPulling.js";
 
 import {useQuery} from '@apollo/client'
 import './Homepage.css';
@@ -13,8 +13,11 @@ import { Container, Row, Col } from "react-bootstrap";
 
 //will be used as next Page to list
 function HomePage(){
-    const recArray = <ReturnRecArray num={4} userId={username}/>
-
+    const userID = window.localStorage.getItem("username");
+    const RecShowArray = []
+    if (userID){
+        RecShowArray = <GetUserRecs username={userID} num={4}/>
+    }
     const {error: errorC2, loading: loadingC2, data: dataC2} = useQuery(AIRING_NOW);
     const {error: errorC3, loading: loadingC3, data: dataC3} = useQuery(TRY_THIS);
     const {error: errorC4, loading: loadingC4, data: dataC4} = useQuery(TRENDING);
@@ -146,15 +149,18 @@ function HomePage(){
                             <Col id="grey"><span></span></Col>
                         </Row>
                         <Row id="main_content">
-                            {recArray.map((recShow) => (
-                                <HomePageShowCard
-                                    name={recShow.Media.title}
-                                    image={recShow.Media.coverImage.extraLarge}
-                                    genre= {recShow.Media.genres}
-                                    studio={recShow.Media.studios.nodes[0].name}
-                                    id={recShow.Media.id}
+                            {RecShowArray.map((show) =>
+                                <HomePageShowCard 
+                                    name={(show.Media.title.english==null)
+                                        ? show.Media.title.romaji :
+                                        show.Media.title.english}
+                                    image={show.Media.coverImage.extraLarge}
+                                    genre={show.Media.genres}
+                                    studio={show.Media.studios.nodes[0].name}
+                                    description={show.Media.description}
+                                    id={show.Media.id}
                                 />
-                            ))}
+                            )}
                         </Row>
                     </Col>
                     <Col id="spacing"></Col>
