@@ -90,6 +90,7 @@
     border-bottom: 2px solid;
     border-image: linear-gradient(to right, #5b666b, #a5b9c2);
     border-image-slice: 1;
+    word-break: break-word;
 }
 
 #homepage-card-title-text{

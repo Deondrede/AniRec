@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect  } from "react";
 import HomePageShowCard from '../../components/HomePageShowCard';
 import TopSpace from "../../components/global_elements/TopSpacer"
-import {RECOMMENDED,AIRING_NOW, TRY_THIS, TRENDING} from '../../GraphQL/Queries'
+import {AIRING_NOW, TRY_THIS, TRENDING} from '../../GraphQL/Queries'
 import { Link } from "react-router-dom";
 import GetUserRecs from "../home_page/UserRecPulling.js";
 
@@ -23,18 +23,20 @@ function HomePage(){
     const {error: errorC4, loading: loadingC4, data: dataC4} = useQuery(TRENDING);
       
     useEffect(()=>{
-        }, [dataC2]
+        }, []
     );
 
     useEffect(()=>{
-        }, [dataC3]
+        }, []
     );
 
     useEffect(()=>{
-        }, [dataC4]
+        }, []
     );
 
     // airing_now array
+    if (loadingC2) return <p>Loading2...</p>
+    if (errorC2) return <p>Error2 :(</p>
     const airing_arr = dataC2.Page.media;
     const home_airing_arr = [];
     for (let i = 0; i < 4; i++){

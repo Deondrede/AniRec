@@ -63,7 +63,7 @@ export default function GenresShowMore(){
                 <Container className="">
                     <Row id="back_btn_space">
                         <Link to={"/Anime"}>
-                            <Button className="back_btn" id="btn-right"><strong>Home</strong></Button>
+                            <Button className="back_btn"><strong>Home</strong></Button>
                         </Link>
                     </Row>
                     <Grid id="grid">

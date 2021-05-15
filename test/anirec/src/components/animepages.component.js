@@ -1,16 +1,43 @@
 import React, { Component, Fragment } from "react";
-import {Col} from "react-bootstrap";
+import {Row, Col} from "react-bootstrap";
+import "./animepages.component.css"
+import { Link } from "react-router-dom";
+
 
 export function AnimeInfo(props){
+        let genreCount = props.genre.length
+
         return (
             <Fragment>
                 <Col>
-                    <div>Title: {props.name}</div>
-                    <div>Genres: {props.genre}</div>
-                    <div>Summary: </div>
-                    <div>{props.summary}</div>
-                    <div>Season: {props.season} {props.seasonYear}</div>
-                    <div>Episodes: {props.episodes}</div>
+                    <Row>
+                        <p>Genres: </p>
+                        {props.genre.map((genres) =>
+                                        {
+                                            if (genreCount < 2)
+                                                return <Link key={genres} className="anime-page-genre-links" to={{
+                                                            pathname:`/GenresShowMore/${genres}/1`
+                                                        }}>{genres}</Link>
+                                            else 
+                                                genreCount--;
+                                                return  <Fragment>
+                                                            <Link key={genres} className="anime-page-genre-links" to={{
+                                                                pathname:`/GenresShowMore/${genres}/1`
+                                                                }}>{genres}
+                                                            </Link>
+                                                            <a>, </a>
+                                                        </Fragment>
+                                            }
+                                    )}
+                    </Row>
+                    <Row>
+                        <div>Summary: </div>
+                        <div>{props.summary}</div>
+                    </Row>
+                    <Row>
+                        <div>Season: {props.season} {props.seasonYear}</div>
+                        <div>Episodes: {props.episodes}</div>
+                    </Row>
                 </Col>
             </Fragment>
             
