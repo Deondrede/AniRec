@@ -15,6 +15,7 @@ function register(){
     let password = document.getElementById("password").value;
     bodyFormData.append("username", username);
     bodyFormData.append("password", password);
+    window.localStorage.setItem("username",username);
     // Sends the POST request to the backend, requests dealing with setting username and password are sent to localhost:5000/users
     // Sending POST requests to the normal localhost:5000 will not fulfil any requests
     axios({
