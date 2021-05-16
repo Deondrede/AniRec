@@ -1,13 +1,11 @@
 /* attempted to make animations */
-/* 
 .wallpaper-img{
     height: 100vh;
     width: 100%;
     object-fit: cover;
     object-position: 60% 0%;
-    animation: blink 5s linear infinite;
 }
-
+/*
 .wallpaper-img:nth-child(n){
     animation-delay: 2.5s;
 } */

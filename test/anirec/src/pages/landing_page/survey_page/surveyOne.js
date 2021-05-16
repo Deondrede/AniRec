@@ -4,7 +4,7 @@ import {Link, useLocation} from "react-router-dom";
 const axios = require('axios').default;
 
 let nametotake = "";
-let user_recs= [];
+let recShowIDs= [];
 
 {/*
     Author: Caitlin-Dawn Sangcap
@@ -184,8 +184,8 @@ const SurveyOne = () => {
     })
 
     //console.log("recArray",recArray);
-    user_recs = recArray;
-    console.log(user_recs);
+    recShowIDs = recArray;
+    console.log(recShowIDs);
 
     
     return(
@@ -195,7 +195,7 @@ const SurveyOne = () => {
                 pathname:"/Anime",
                 state:{
                     user:nametotake,
-                    recs:user_recs
+                    recs:recShowIDs
                 }
             }}>
             <button>Head to AniRec</button>

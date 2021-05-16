@@ -16,11 +16,16 @@ import { Container, Row, Col } from "react-bootstrap";
 //will be used as next Page to list
 function HomePage(){
     const location = useLocation();
-    const recShowArray = location.state.recShowIDs;
-    const tryShowArray = location.state.tryShowIDs;
+    const recShowArray = location.state.recs;
+    // const tryShowArray = location.state.tryShowIDs;
+    
+    const recShowToDisplay = [];
+    for (let i = 0; i < recShowArray.length; i++) {
+        recShowToDisplay.push(<GetShow id={recShowArray[i]}/>)
+    }
 
-    const recShowToDisplay = ;
-    const tryShowToDisplay = ;
+
+    const tryShowToDisplay = [];
 
     // query for data
     const {error: errorC2, loading: loadingC2, data: dataC2} = useQuery(AIRING_NOW);
@@ -99,7 +104,7 @@ function HomePage(){
                     <Col id="feed-col">
                         <Row id="subtitle">
                             <Col className="pink">
-                                <Link className="general-showmore-link" id="recommended" to={{
+                                <Link className="user-showmore-link" id="recommended" to={{
                                         pathname:`/ShowMore/recommended/1`,
                                         state: {
                                             userRecShows: recShowArray
@@ -110,7 +115,7 @@ function HomePage(){
                             <Col id="grey"><span></span></Col>
                         </Row>
                         <Row id="main-content">
-                            {/* {recShowArray.map((show) =>
+                            {recShowToDisplay.map((show) =>
                                 <HomePageShowCard 
                                     name={(show.Media.title.english==null)
                                         ? show.Media.title.romaji :
@@ -121,7 +126,7 @@ function HomePage(){
                                     description={show.Media.description}
                                     id={show.Media.id}
                                 />
-                            )} */}
+                            )}
                         </Row>
                     </Col>
                     <Col id="spacing"></Col>
@@ -154,10 +159,10 @@ function HomePage(){
                         </Row>
                     </Col>
                     <Col id="spacing"></Col>
-                    <Col id="feed-col">
+                    {/* <Col id="feed-col">
                         <Row id="subtitle">
                             <Col className="pink">
-                                <Link className="general-showmore-link" id="try-this" to={{
+                                <Link className="user-showmore-link" id="try-this" to={{
                                             pathname:`/ShowMore/try-this/1`,
                                             state: {
                                                 userRecShows: tryShowArray
@@ -170,7 +175,7 @@ function HomePage(){
                         <Row id="main-content">
 
                         </Row>
-                    </Col>
+                    </Col> */}
                     <Col id="spacing"></Col>
                     <Col id="feed-col">
                         <Row id="subtitle">
