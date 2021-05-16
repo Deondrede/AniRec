@@ -1,6 +1,8 @@
 import React, {useState, useCallback, Fragment} from 'react';
+import { Link } from "react-router-dom"
 import MySurvey from './surveyType';
 const axios = require('axios').default;
+let nametotake = "";
 
 {/*
     Author: Caitlin-Dawn Sangcap
@@ -70,6 +72,7 @@ const SurveyOne = () => {
         let send_data = []; //store all the FormData to be sent
         let char_count = 0; //keep track of the amount of characters in titles to avoid errors
         let username = response.Username;
+        nametotake = username;
 
         //console.log(username);
         //get list of all prefered genres
@@ -146,6 +149,14 @@ const SurveyOne = () => {
         <Fragment>
             <MySurvey showCompletedPage={data=>onCompletePage(data)} />
             <button><a href="/Anime">Head to AniRec</a></button>
+            <Link to ={{
+                pathname:"/Anime",
+                state:{
+                    user:nametotake
+                }
+            }}>
+            <button>Head to AniRec</button>
+            </Link>
         </Fragment>
         
     )

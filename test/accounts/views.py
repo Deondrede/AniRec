@@ -1,4 +1,4 @@
-from PlotRec import get_recs
+from PlotRec import get_recs, try_this
 from accounts.models import Review, User
 from django.contrib.auth.forms import UserCreationForm
 from django.core import serializers
@@ -53,6 +53,7 @@ def updateAnime(request):
         user = User.objects.get(username=username)
         user.watched_anime += "~" + anime + ";"
         user.recommendations = get_recs(remove_chars(user.watched_anime))
+        user.try_this = try_this(remove_chars(user.watched_anime))
         user.save()
 
     all_objects = list(User.objects.all())
