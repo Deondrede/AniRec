@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-/*const axios = require('axios').default;
+const axios = require('axios').default;
 
 // An example of a GET request
 axios.get('http://localhost:5000').then((response) =>{
@@ -33,7 +33,6 @@ function register(){
           console.log(response);
         });
 }
-*/
 export default class SignUp extends Component {
     render() {
         return (
@@ -48,9 +47,10 @@ export default class SignUp extends Component {
                 </div>
 
                 {/* register btn */}
-                <button className="btn btn-dark btn-lg btn-block" /*onClick={register}*/>
-                        <a id="reg_btn" href="/Survey"> Register </a>
-                    </button>
+                <a id="reg_btn" href="/Survey"> 
+                <button className="btn btn-dark btn-lg btn-block" onClick={register}>
+                    Register
+                    </button></a>
             </form>
         );
     }

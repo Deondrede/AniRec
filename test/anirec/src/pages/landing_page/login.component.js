@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-/*
+
 // I used axios for this but if you want to try using something else like ajax you're free to do so
 // Also axios is a separate module so don't forget to do 'npm install axios'
 const axios = require('axios').default;
@@ -44,7 +44,6 @@ axios.defaults.withCredentials = true;
 // Since this is the login page and not the register page, once the register page is done we can just copy this over
 // Implemented it here just for testing purposes
 
-*/
 export default class Login extends Component {
     render() {
         return (
@@ -65,9 +64,10 @@ export default class Login extends Component {
                 </div>
 
                 {/* sign in btn */}
-                <button type="submit" className="btn btn-dark btn-lg btn-block" /*onClick={onLogin}*/>
-                    <a id="reg_btn" href="/Anime"> Sign in </a>
-                </button>
+                <a id="reg_btn" href="/Anime">
+                    <button type="submit" className="btn btn-dark btn-lg btn-block" onClick={onLogin}>
+                        Sign in</button>
+                </a>
             </form>
         );
     }
