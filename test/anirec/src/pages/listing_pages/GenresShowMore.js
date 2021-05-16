@@ -9,6 +9,7 @@ import { Link, useParams, useHistory } from 'react-router-dom';
 import {useQuery, gql} from '@apollo/client'
 
 export default function GenresShowMore(){    
+    // genre query 
     const GENRE_QUERY = gql`
     query GenreQuery($genre: String, $page: Int) {
         Page(page: $page, perPage: 48){
@@ -34,6 +35,7 @@ export default function GenresShowMore(){
         }
     }`;
 
+    // get data 
     const params = useParams();
     const {error, loading, data, refetch} = useQuery(GENRE_QUERY, 
         {
@@ -44,9 +46,6 @@ export default function GenresShowMore(){
                 }
         }
     );
-
-    
-
 
     useEffect(()=>{
         refetch()
@@ -61,11 +60,13 @@ export default function GenresShowMore(){
             <Fragment>
                 <TopSpace />
                 <Container className="">
+                    {/* back btn */}
                     <Row id="back_btn_space">
                         <Link to={"/Anime"}>
                             <Button className="back_btn"><strong>Home</strong></Button>
                         </Link>
                     </Row>
+                    {/* main content grid */}
                     <Grid id="grid">
                         {rows.map((cols) => (
                             <Row>
@@ -86,6 +87,8 @@ export default function GenresShowMore(){
                             </Row>
                         )
                         )}
+                        </Grid>
+                        {/* pagination */}
                     {(params.pageNum > 1) ?
                                 ((params.pageNum > data.length -Number(1)) ?
                                     <Link to={{pathname:`/GenresShowMore/${params.genreName}/${Number(params.pageNum) - 1}`}}>
@@ -111,8 +114,6 @@ export default function GenresShowMore(){
                                     </Button>
                                 </Link>
                             }
-                    </Grid>
-
                 </Container>
             </Fragment>
         );

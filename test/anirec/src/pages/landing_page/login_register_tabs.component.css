@@ -1,3 +1,16 @@
+/* colored tabs ontop */
+#landing_tabs{
+    width:100%;
+    margin: 0 0 0 0;
+}
+
+/* link */
+#tab_name{
+    width: 50%;
+    color:white;
+}
+
+/* tabs */
 #sign_in{
     background-color: #5B84D7;
     border-radius: 0px 0px 5px 0px;
@@ -12,24 +25,14 @@
     color: white;
 }
 
-#tab_name{
-    width: 50%;
-    color:white;
-}
-
-#landing_tabs{
-    width:100%;
-
+/* space under */
+#outer{
     margin: 0 0 0 0;
+    width: 100%;
 }
 
 #inner{
     height: 100vh;
-}
-
-#outer{
-    margin: 0 0 0 0;
-    width: 100%;
 }
 
 #logo{
@@ -45,8 +48,4 @@
     margin:auto;
     align-content: center;
     
-}
-
-#reg_btn{
-    color:white;
 }

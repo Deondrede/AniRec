@@ -1,13 +1,14 @@
+/* back btn */
+#back_btn_space{
+    padding-bottom: 10px;
+}
+
 .back_btn{
     color: #5B84D7;
     font-size: 20px;
 }
 
-#back_btn_space{
-    padding-bottom: 10px;
-}
-
-
+/* grid content */
 #grid-content{
     margin: auto;
     padding: 20px 0px 0px 0px;
@@ -17,6 +18,7 @@
     padding-bottom: 2.5%;
 }
 
+/* pagination */
 .page-btn{
     color: #AA80FF;
     margin-right: 25px;

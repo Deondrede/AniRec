@@ -49,6 +49,7 @@ export default class Login extends Component {
     render() {
         return (
             <form>
+                {/* forms */}
                 <div className="form-group">
                     <input id="username" className="form-control" placeholder="Username" />
                 </div>
@@ -63,6 +64,7 @@ export default class Login extends Component {
                     </div>
                 </div>
 
+                {/* sign in btn */}
                 <button type="submit" className="btn btn-dark btn-lg btn-block" /*onClick={onLogin}*/>
                     <a id="reg_btn" href="/Anime"> Sign in </a>
                 </button>

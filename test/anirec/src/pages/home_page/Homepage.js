@@ -2,7 +2,7 @@ import React, { Fragment, useEffect, setState  } from "react";
 import HomePageShowCard from '../../components/HomePageShowCard';
 import TopSpace from "../../components/global_elements/TopSpacer"
 import {AIRING_NOW, TRY_THIS, TRENDING} from '../../GraphQL/Queries'
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import GetUserRecs from "../home_page/UserRecPulling.js";
 
 import GetShow from "./GetRecShows.js";
@@ -15,23 +15,12 @@ import { Container, Row, Col } from "react-bootstrap";
 
 //will be used as next Page to list
 function HomePage(){
-    const userID = window.localStorage.getItem("username");
-    const recShowArray = [];
+    // const location = useLocation();
+    // const recShowArray = location.state.recShowIDs;
 
     const {error: errorC2, loading: loadingC2, data: dataC2} = useQuery(AIRING_NOW);
     const {error: errorC3, loading: loadingC3, data: dataC3} = useQuery(TRY_THIS);
     const {error: errorC4, loading: loadingC4, data: dataC4} = useQuery(TRENDING);
-      
-    useEffect(()=>{
-        }, []
-    );
-
-    for (let i = 0; i < 4; i++){
-        recShowArray.push(<GetShow showID={2} />);
-    }
-
-    console.log(recShowArray);
-
     // 
 
     // airing_now array
@@ -110,7 +99,7 @@ function HomePage(){
                             <Col id="grey"><span></span></Col>
                         </Row>
                         <Row id="main-content">
-                            {recShowArray.map((show) =>
+                            {/* {recShowArray.map((show) =>
                                 <HomePageShowCard 
                                     name={(show.Media.title.english==null)
                                         ? show.Media.title.romaji :
@@ -121,7 +110,7 @@ function HomePage(){
                                     description={show.Media.description}
                                     id={show.Media.id}
                                 />
-                            )}
+                            )} */}
                         </Row>
                     </Col>
                     <Col id="spacing"></Col>

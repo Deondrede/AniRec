@@ -1,3 +1,4 @@
+/* main image */
 #listingpage-card-image{
     font-size: 15px;
     max-height: 300px;
@@ -17,6 +18,7 @@
     width: 100%;
 }
 
+/* sliding info on hover */
 .listingpage-card-hover-info-outer{
     background: rgba(27, 26, 26, 0.75);
     transition: all 0.3s ease-out;
@@ -41,15 +43,12 @@
     transform: translateX(0);
 }
 
-.homepage-card-hover-info-outer .row{
-    transition: 0.3 ease;
-}
-
 #listingpage-card-image:hover img{
     transition: all 0.3s ease-out;
     transform: scale(1.2, 1.2);
 }
 
+/* styling for title and others */
 .listingpage-card-text-large{
     font-size: 25px;
     margin-left: 0px;
@@ -67,6 +66,7 @@
     padding-right: 10px;
 }
 
+/* title */
 #listingpage-card-title{
     margin-bottom: 0px;
     max-width: 225px;
@@ -80,6 +80,7 @@
     text-decoration: none;
 }
 
+/* genre */
 #listingpage-card-genre{
     margin-bottom: 0px;
     max-width: 225px;
@@ -97,7 +98,7 @@
     color: white;
 }
 
-
+/* studios */
 #listingpage-card-studios{
     padding: 0.5rem 1px 0.5rem 1px;
     margin-bottom: 10px;
