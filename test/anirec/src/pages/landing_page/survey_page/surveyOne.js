@@ -1,7 +1,9 @@
 import React, {useState, useCallback, Fragment} from 'react';
+import { Link } from "react-router-dom"
 import MySurvey from './surveyType';
 import {Link} from "react-router-dom";
 const axios = require('axios').default;
+let nametotake = "";
 
 let nametotake = "";
 
@@ -72,7 +74,8 @@ const SurveyOne = () => {
         let send_data = []; //store all the FormData to be sent
         let char_count = 0; //keep track of the amount of characters in titles to avoid errors
         let username = response.Username;
-        nametotake=username;
+
+        nametotake = username;
 
         //console.log(username);
         //get list of all prefered genres
