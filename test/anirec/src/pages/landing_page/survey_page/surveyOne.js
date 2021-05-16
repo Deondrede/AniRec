@@ -1,9 +1,7 @@
 import React, {useState, useCallback, Fragment} from 'react';
-import { Link } from "react-router-dom"
 import MySurvey from './surveyType';
 import {Link} from "react-router-dom";
 const axios = require('axios').default;
-let nametotake = "";
 
 let nametotake = "";
 
@@ -38,6 +36,8 @@ let nametotake = "";
 
 */}
 
+
+
 //function to send all the data to the backend
 // copied from Deondre's work
 function register(formData1){
@@ -58,7 +58,28 @@ function register(formData1){
         //console.log("sent request");
     }
 
+/*function gatherData(){
+    axios.get('http://localhost:5000/users').then((response) =>{
+        //console.log(response.data[0].fields.recommendations);
+        trial = response.data[0].fields.recommendations;
+        //console.log("made it here", trial);
+        });
+}*/
+
+function axiosTest() {
+    const promise = axios.get('http://localhost:5000/users');
+    const dataPromise = promise.then((response) => response.data);
+    console.log("dataPromise", dataPromise);
+    return dataPromise;
+}
+
+function axiosTest2(){
+    return axios.get('http://localhost:5000/users').then(response => response.data[0])
+}
+
 const SurveyOne = () => {
+
+    
 
     const [showPage, setShowPage] = useState(true);
 
@@ -74,8 +95,7 @@ const SurveyOne = () => {
         let send_data = []; //store all the FormData to be sent
         let char_count = 0; //keep track of the amount of characters in titles to avoid errors
         let username = response.Username;
-
-        nametotake = username;
+        nametotake=username;
 
         //console.log(username);
         //get list of all prefered genres
@@ -130,11 +150,42 @@ const SurveyOne = () => {
             }
         }
 
-        console.log(send_data.length);
+        //console.log(send_data.length);
         //sending the data to the backend
         send_data.forEach(element => {
             register(element)
         });
+
+        
+        //let user_data;
+        //gatherData(recs);
+        //console.log("recs",recs);
+
+
+        //gatherData(recs);
+        //console.log(recs);
+
+        /*axios.get('http://localhost:5000/users').then((response) =>{
+            //console.log(response.data[0].fields.recommendations);
+            let trial = response.data[0];
+            user_data=trial;
+            //console.log("made it here", trial);
+        });
+
+        console.log("user_data",user_data);*/
+        
+        let trial2 = axiosTest2();
+        console.log("trial2",trial2);
+
+        /*let trial = axiosTest()
+            .then(data=> {
+                trial2=({data})
+            })
+            .catch(err => console.log(err))
+
+        console.log(trial2);*/
+
+        
         
     }, [showPage])
 
