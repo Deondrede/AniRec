@@ -18,6 +18,24 @@ Docker
 AniList API
 
 #### Packages and how to install them
+
+## Dependencies
+
+npx create-react-app \
+react-bootstrap \
+React-router-dom \
+@apollo/client \
+apollo-boost \
+graphql \
+graphql-tag \
+react-apollo \
+survey-react \
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## `npm start`
+
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 # Docker
 # How to 'talk' to the backend
 For specifics on how you can send requests to the backend, check the [login.component.js file](https://github.com/Deondrede/AniRec/blob/Backend/anirec/src/components/landing_page/login.component.js). But the main idea is that I've set up an endpoint for retrieving and sending user data. Once a POST request is received it runs a function that creates the entry in the database and the database is displayed in JSON format on the endpoint. Likewise, if you make a GET request then it will also be in JSON format. So let's say you want to signup, then you would send a POST request from React to Django and it will handle the creation of that user entry, you would do the same thing if let's say you wanted to save a user's preferred genres and anime they've already watched. If you want to update user's username and password make a POST request to [localhost:5000/users](http://localhost:5000/users), both username and password should be sent simultaneously. If you want to update a user's preferred genres make a POST request to [localhost:5000/genres](http://localhost:5000/genres), you must send the user's username along with what genre you want to add. If you want to update a user's watched anime make a POST request to [localhost:5000/anime](http://localhost:5000/anime), once again you must send their username and what anime you want to add.
