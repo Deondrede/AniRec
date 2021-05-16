@@ -19,10 +19,11 @@ AniList API
 
 #### Packages and how to install them
 
-## Dependencies
+##### Dependencies
 
 npx create-react-app \
 react-bootstrap \
+react-flexbox-grid \
 React-router-dom \
 @apollo/client \
 apollo-boost \
@@ -32,14 +33,14 @@ react-apollo \
 survey-react 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-## `npm start`
+###### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-# Docker
-# How to 'talk' to the backend
+#### Docker
+##### How to 'talk' to the backend
 For specifics on how you can send requests to the backend, check the [login.component.js file](https://github.com/Deondrede/AniRec/blob/Backend/anirec/src/components/landing_page/login.component.js). But the main idea is that I've set up an endpoint for retrieving and sending user data. Once a POST request is received it runs a function that creates the entry in the database and the database is displayed in JSON format on the endpoint. Likewise, if you make a GET request then it will also be in JSON format. So let's say you want to signup, then you would send a POST request from React to Django and it will handle the creation of that user entry, you would do the same thing if let's say you wanted to save a user's preferred genres and anime they've already watched. If you want to update user's username and password make a POST request to [localhost:5000/users](http://localhost:5000/users), both username and password should be sent simultaneously. If you want to update a user's preferred genres make a POST request to [localhost:5000/genres](http://localhost:5000/genres), you must send the user's username along with what genre you want to add. If you want to update a user's watched anime make a POST request to [localhost:5000/anime](http://localhost:5000/anime), once again you must send their username and what anime you want to add.
-# Setup
+###### Setup
 1. Clone the repository and download [Docker](https://www.docker.com/get-started) (You will also need to enable virtualization on your CPU, how to do this is specific to what kind of motherboard your PC uses and if it's even possible depends on what CPU you have)
 2. Once Docker is installed open your terminal and change directories to where you cloned the repository
 3. Once there, run the command `docker-compose up`, this will run the local web server along with the database and it should now appear in the desktop program. Now you should be able to access the local host by inputting [localhost:5000](http://localhost:5000) into your browser
@@ -50,12 +51,12 @@ For specifics on how you can send requests to the backend, check the [login.comp
 8. You'll also need to install some of the libraries for the recommender, `pip install pandas`,`pip install nltk`,`pip install -U scikit-learn`,`pip install json`.
 9. The nltk library also has another step to be fully operational, run `python` then, `import nltk` and `nltk.download('words')`
 10. Go back to the original terminal you had open and use Ctrl-C to stop it and then run the `docker-compose up` command again and that error should be gone.
-# Why are we using Docker?
+###### Why are we using Docker?
 Because setting up a backend system can be pretty annoying involving configuring settings, creating and setting environment variables and having each one of us do that individually will eventually lead to someone messing something up. So essentially once you install it you shouldn't need to install all the other stuff needed for Django to run.So it's just to save time and future frustration.
-# List of endpoints and how requests should be sent
+###### List of endpoints and how requests should be sent
 All requests must also be sent with a username. This applies to both POST requests and GET requests. Sending a GET request without a specified username will return the entire list of registered users. GET requests can be sent to any endpoint.
-## POST
-### /users
+##### POST
+###### /users
 ```javascript
     let bodyFormData = new FormData();
     bodyFormData.append("username", username); //usernames must be sent as "username"
@@ -67,7 +68,7 @@ All requests must also be sent with a username. This applies to both POST reques
         headers: { "Content-Type": "multipart/form-data" },
       })
 ```
-### /anime
+###### /anime
 ```javascript
     let bodyFormData = new FormData();
     bodyFormData.append("username", username);
@@ -79,7 +80,7 @@ All requests must also be sent with a username. This applies to both POST reques
         headers: { "Content-Type": "multipart/form-data" },
       })
 ```
-### /genre
+###### /genre
 ```javascript
     let bodyFormData = new FormData();
     bodyFormData.append("username", username);
@@ -91,14 +92,14 @@ All requests must also be sent with a username. This applies to both POST reques
         headers: { "Content-Type": "multipart/form-data" },
       })
 ```
-## GET
+##### GET
 For all your generic GET needs:
 ```javascript
     axios.get('http://localhost:5000/review').then((response) =>{
         console.log(response.data);
 });
 ```
-### /review
+###### /review
 To load a specific set of reviews:
 ```javascript
     axios.get('http://localhost:5000/review',{params:{anime_id:123547}}).then((response) =>{
