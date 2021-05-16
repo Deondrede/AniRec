@@ -9,6 +9,7 @@ class User(models.Model):
     preferred_genres = CharField(max_length=20,null=True)
     watched_anime = CharField(max_length=200,null=True)
     recommendations = JSONField(max_length=200,null=True)
+    try_this = JSONField(max_length=200,null=True)
 
 class Review(models.Model):
     anime_id = IntegerField()
