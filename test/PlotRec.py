@@ -133,8 +133,6 @@ def get_recs(titles: list):
         # return json.dumps(parsed, indent=4)
 
 
-#print(get_recs(["Naruto","Bleach","One Piece"]))
-
 def try_this(titles: list):
     recommender_list = []
     for title in titles:
