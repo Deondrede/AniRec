@@ -15,13 +15,17 @@ import { Container, Row, Col } from "react-bootstrap";
 
 //will be used as next Page to list
 function HomePage(){
-    // const location = useLocation();
-    // const recShowArray = location.state.recShowIDs;
+    const location = useLocation();
+    const recShowArray = location.state.recShowIDs;
+    const tryShowArray = location.state.tryShowIDs;
 
+    const recShowToDisplay = ;
+    const tryShowToDisplay = ;
+
+    // query for data
     const {error: errorC2, loading: loadingC2, data: dataC2} = useQuery(AIRING_NOW);
-    const {error: errorC3, loading: loadingC3, data: dataC3} = useQuery(TRY_THIS);
+    //const {error: errorC3, loading: loadingC3, data: dataC3} = useQuery(TRY_THIS);
     const {error: errorC4, loading: loadingC4, data: dataC4} = useQuery(TRENDING);
-    // 
 
     // airing_now array
     if (loadingC2) return <p>Loading2...</p>
@@ -43,7 +47,7 @@ function HomePage(){
 
     if (loadingC2) return <p>Loading2...</p>
     if (errorC2) return <p>Error2 :(</p>
-        if (loadingC3) return <p>Loading3...</p>
+    /*    if (loadingC3) return <p>Loading3...</p>
 
     if (errorC3) return <p>Error3 :(</p>
 
@@ -85,7 +89,8 @@ function HomePage(){
             genre: dataC3.series4.genres,
             studio: dataC3.series4.studios.nodes[0].name,
             id: dataC3.series4.id
-        }
+        }*/
+
     return(
         <Fragment>
             <Container>
@@ -94,7 +99,13 @@ function HomePage(){
                     <Col id="feed-col">
                         <Row id="subtitle">
                             <Col className="pink">
-                                <span><strong id="recommended">Recommended</strong></span>
+                                <Link className="general-showmore-link" id="recommended" to={{
+                                        pathname:`/ShowMore/recommended/1`,
+                                        state: {
+                                            userRecShows: recShowArray
+                                        }
+                                    }}><span><strong>Recommended</strong></span>
+                                    </Link>
                             </Col>
                             <Col id="grey"><span></span></Col>
                         </Row>
@@ -146,39 +157,18 @@ function HomePage(){
                     <Col id="feed-col">
                         <Row id="subtitle">
                             <Col className="pink">
-                                <span id="try-this"><strong>Try This</strong></span>
+                                <Link className="general-showmore-link" id="try-this" to={{
+                                            pathname:`/ShowMore/try-this/1`,
+                                            state: {
+                                                userRecShows: tryShowArray
+                                            }
+                                        }}><span><strong>Try This</strong></span>
+                                </Link>
                             </Col>
                             <Col id="grey"><span></span></Col>
                         </Row>
                         <Row id="main-content">
-                        <HomePageShowCard
-                                    name={col3_1.name}
-                                    image={col3_1.image}
-                                    genre={col3_1.genre}
-                                    studio={col3_1.studio}
-                                    id={col3_1.id}
-                                    />
-                                <HomePageShowCard
-                                    name={col3_2.name}
-                                    image={col3_2.image}
-                                    genre={col3_2.genre}
-                                    studio={col3_2.studio}
-                                    id={col3_2.id}
-                                    />
-                                <HomePageShowCard
-                                    name={col3_3.name}
-                                    image={col3_3.image}
-                                    genre={col3_3.genre}
-                                    studio={col3_3.studio}
-                                    id={col3_3.id}
-                                    />
-                                <HomePageShowCard
-                                    name={col3_4.name}
-                                    image={col3_4.image}
-                                    genre={col3_4.genre}
-                                    studio={col3_4.studio}
-                                    id={col3_4.id}
-                                    />
+
                         </Row>
                     </Col>
                     <Col id="spacing"></Col>
