@@ -14,6 +14,7 @@ export default class LrTabs extends Component {
                 <Router>
                     <Row className="App">
                         <Row id="landing_tabs">
+                            {/* colored tabs ontop */}
                                 <Link id="tab_name" to={"/log-in"}>
                                     <Button id="sign_in" >
                                         <p>Log In</p>                                        
@@ -25,12 +26,14 @@ export default class LrTabs extends Component {
                                     </Button>
                                 </Link>
                         </Row>
+                        {/* space under */}
                         <Row id="outer">
                             <Row id="logo">
                                 <h1>AniRec</h1>
                             </Row>
                             <Row id="lr_comp">
                                 <div id="inner">
+                                    {/* switch for tab routing */}
                                     <Switch>
                                         <Route exact path='/' component={Login} />
                                         <Route path="/log-in" component={Login} />
