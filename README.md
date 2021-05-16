@@ -53,7 +53,7 @@ For specifics on how you can send requests to the backend, check the [login.comp
 # Why are we using Docker?
 Because setting up a backend system can be pretty annoying involving configuring settings, creating and setting environment variables and having each one of us do that individually will eventually lead to someone messing something up. So essentially once you install it you shouldn't need to install all the other stuff needed for Django to run.So it's just to save time and future frustration.
 # List of endpoints and how requests should be sent
-All requests must also be sent with a username. On login, the user's username is stored in local storage you can find this out by using `window.localStorage.getItem("username")`. This applies to both POST requests and GET requests. Sending a GET request without a specified username will return the entire list of registered users. GET requests can be sent to any endpoint.
+All requests must also be sent with a username. This applies to both POST requests and GET requests. Sending a GET request without a specified username will return the entire list of registered users. GET requests can be sent to any endpoint.
 ## POST
 ### /users
 ```javascript
