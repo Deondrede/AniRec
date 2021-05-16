@@ -14,6 +14,7 @@
 
 .show-page-title{
     font-size: 30px;
+    margin-bottom: 0px;
 }
 
 #side-btns{
@@ -42,4 +43,43 @@
 
 #show-page-button-group{
     width:100%;
+}
+
+#show-page-right-side-inner{
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.show-page-genres{
+    padding-left: 20px;
+    padding-bottom: 20px;
+}
+
+
+.show-page-genre-links{
+    background-image: linear-gradient(to right, rgba(255,255,255,100) 50%, #ddd 50%);
+    background-position: -0% 0;
+    background-size: 200% auto;
+    text-decoration: none;
+    transition: background-position 0.3s ease-out;
+    color: black;
+}
+.show-page-genre-links:hover{
+    color: black;
+    text-decoration: none;
+    background-position: -99.99% 0;
+}
+
+.show-page-img{
+    box-shadow:
+    0px 1px 6px 1px rgba(0,0,0,0.75)
+}
+
+.rating{
+    padding-top: 25px;
+    width: 100%;
+    text-align: center;
+    line-height: 0.15;
+    font-weight: 350;
+    
 }
