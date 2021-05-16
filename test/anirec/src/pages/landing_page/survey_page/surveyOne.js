@@ -1,7 +1,10 @@
 import React, {useState, useCallback, Fragment} from 'react';
 import { Link } from "react-router-dom"
 import MySurvey from './surveyType';
+import {Link} from "react-router-dom";
 const axios = require('axios').default;
+let nametotake = "";
+
 let nametotake = "";
 
 {/*
@@ -16,15 +19,14 @@ let nametotake = "";
      - allows the users to take the survey
      - all needed answers are gathered
      - send the survey responses to the backend
+     - send the username to the Homepage
      
     Issues:
         problem titles (DON'T CLICK ON):
          - Action --> Hunter x Hunter
          - Adventure --> Sword Art Online (gets error ValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all())
-         - Fantasy --> something wrong with the whole section
-         - Magical Girl --> something wrong with the whole section
 
-        Removed portions:
+        Commented out portions:
          - commented out the setFinalPage() due to time constraints
            - was originally meant to display custom Thank you page.
         
@@ -72,6 +74,7 @@ const SurveyOne = () => {
         let send_data = []; //store all the FormData to be sent
         let char_count = 0; //keep track of the amount of characters in titles to avoid errors
         let username = response.Username;
+
         nametotake = username;
 
         //console.log(username);
@@ -148,7 +151,6 @@ const SurveyOne = () => {
     return(
         <Fragment>
             <MySurvey showCompletedPage={data=>onCompletePage(data)} />
-            <button><a href="/Anime">Head to AniRec</a></button>
             <Link to ={{
                 pathname:"/Anime",
                 state:{
