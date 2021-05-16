@@ -1,11 +1,10 @@
-import React, {useState, useCallback, Fragment} from 'react';
-import { Link } from "react-router-dom"
+import React, {useState, useCallback, Fragment, useEffect} from 'react';
 import MySurvey from './surveyType';
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 const axios = require('axios').default;
-let nametotake = "";
 
 let nametotake = "";
+let user_recs= [];
 
 {/*
     Author: Caitlin-Dawn Sangcap
@@ -38,6 +37,8 @@ let nametotake = "";
 
 */}
 
+
+
 //function to send all the data to the backend
 // copied from Deondre's work
 function register(formData1){
@@ -58,7 +59,11 @@ function register(formData1){
         //console.log("sent request");
     }
 
+
+
 const SurveyOne = () => {
+
+    
 
     const [showPage, setShowPage] = useState(true);
 
@@ -74,8 +79,7 @@ const SurveyOne = () => {
         let send_data = []; //store all the FormData to be sent
         let char_count = 0; //keep track of the amount of characters in titles to avoid errors
         let username = response.Username;
-
-        nametotake = username;
+        nametotake=username;
 
         //console.log(username);
         //get list of all prefered genres
@@ -130,7 +134,7 @@ const SurveyOne = () => {
             }
         }
 
-        console.log(send_data.length);
+        //console.log(send_data.length);
         //sending the data to the backend
         send_data.forEach(element => {
             register(element)
@@ -148,13 +152,50 @@ const SurveyOne = () => {
         )
     }*/
 
+    const location = useLocation();
+    let recArray = [];
+    const [error, setError] = useState(null);
+    const [isLoaded, setIsLoaded] = useState(false);
+    const [users, setItems] = useState([]);
+
+    useEffect(() => {
+        fetch("http://localhost:5000")
+          .then(res => res.json())
+          .then(
+            (result) => {
+              setIsLoaded(true);
+              setItems(result);
+            },
+            (error) => {
+              setIsLoaded(true);
+              setError(error);
+            }
+          )
+    }, [])
+
+    users.forEach(element => {
+        if (element.fields.username == nametotake){
+            console.log(element.fields.username);
+            recArray = element.fields.recommendations.match(/\d+/g);
+            for (var i = 0; i < recArray.length; i++){
+                recArray[i] = parseInt(recArray[i], 10);
+            }
+        }
+    })
+
+    //console.log("recArray",recArray);
+    user_recs = recArray;
+    console.log(user_recs);
+
+    
     return(
         <Fragment>
             <MySurvey showCompletedPage={data=>onCompletePage(data)} />
             <Link to ={{
                 pathname:"/Anime",
                 state:{
-                    user:nametotake
+                    user:nametotake,
+                    recs:user_recs
                 }
             }}>
             <button>Head to AniRec</button>
