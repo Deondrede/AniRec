@@ -173,9 +173,7 @@ export default function AnimePage(props) {
                                 </Col>
                             </Row>  
                         </Router>
-              
                     </Container>
             </Fragment>
         );
-    
 }

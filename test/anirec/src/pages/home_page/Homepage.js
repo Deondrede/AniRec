@@ -34,6 +34,8 @@ function HomePage(){
         }, []
     );
 
+    // 
+
     // airing_now array
     if (loadingC2) return <p>Loading2...</p>
     if (errorC2) return <p>Error2 :(</p>
