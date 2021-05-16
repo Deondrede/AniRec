@@ -134,3 +134,32 @@ def get_recs(titles: list):
 
 
 #print(get_recs(["Naruto","Bleach","One Piece"]))
+
+def try_this(titles: list):
+    recommender_list = []
+    for title in titles:
+        idx = indices[title]
+
+        sim_scores_plot = list(enumerate(cosine_sim_plot[idx]))
+        sim_scores_gen = list(enumerate(cosine_sim_gen[idx]))
+
+        sim_scores_plot = sorted(sim_scores_plot, key=lambda x: x[1], reverse=True)
+        sim_scores_gen = sorted(sim_scores_gen, key=lambda x: x[1], reverse=True)
+
+        avg_sim_score = [(idx, (sc_plot + sc_gen)/2) for (idx, sc_plot), (_, sc_gen)
+                            in zip(sim_scores_plot, sim_scores_gen)]
+
+        avg_sim_score = sorted(avg_sim_score, key=lambda x: x[1], reverse=False)
+
+        anime_indices = [i[0] for i in avg_sim_score[1:11]]
+        recommender_list.append(metadata['ID'].iloc[anime_indices])
+
+    if len(recommender_list) == 1:
+        result = recommender_list[0]
+        return result.tolist()
+        # result = result.to_json(orient="columns")
+        # parsed = json.loads(result)
+        # return json.dumps(parsed, indent=4)
+    
+    result =  pd.concat(recommender_list)
+    return result.tolist()
