@@ -1,0 +1,115 @@
+.anime {
+    height: 200px;
+    width: 250px;
+    border: 2px solid black;
+    display: inside;
+    flex-direction: column;
+  }
+
+/* subtitles above show feed*/
+#subtitle{
+    width:100%;
+    margin: auto;
+}
+
+/* grey bar next to subtitles*/
+#grey{
+    border-bottom: solid 4px;
+    color: #D8D8D8;
+}
+
+span{
+  font-size: 25px;
+}
+
+#recommended{
+  font-size: 25px;
+}
+
+.trending_airing_link{
+  color: #AA80FF;
+  padding-left: 5px;
+}
+
+.trending_airing_link:hover{
+  text-decoration: none;
+}
+
+#feed_body .col{
+  padding: 0px 0px 0px 0px;
+}
+
+#feed_col{
+  max-width: 23.875%;
+  height: 900px;
+}
+
+#spacing{
+  max-width: 1.5%;
+}
+
+.container{
+  background-color: white;
+}
+
+/* pink subtitle w/ animations */
+.pink{
+  color: #FF66CC;
+  background: 
+    linear-gradient(
+      to bottom,
+      #FF66CC 0%,
+      #FF66CC 100% 
+    );
+  background-position: 0 100%;
+  background-repeat: repeat-x;
+  background-size: 4px 4px;
+  text-decoration: none;
+  transition: background-size .4s;
+}
+
+.pink:hover{
+  background-size: 4px 50px;
+}
+
+.pink:hover span, .pink.hover span{
+  color: white;
+  transition-delay: .15s;
+}
+
+/* try-this subtitle*/
+#try-this{
+  padding-left: 8px;
+}
+
+/* purple subtitle w/ animations */
+.purple{
+  color: #AA80FF;
+  background: 
+    linear-gradient(
+      to bottom,
+      #AA80FF 0%,
+      #AA80FF 100% 
+    );
+  background-position: 0 100%;
+  background-repeat: repeat-x;
+  background-size: 4px 4px;
+  text-decoration: none;
+  transition: background-size .4s;
+}
+
+.purple:hover{
+  background-size: 4px 50px;
+}
+
+.purple:hover .trending_airing_link, .purple.hover .trending_airing_link{
+  color: white;
+  transition-delay: .15s;
+}
+
+#main_content{
+  height: 100%;
+  color: black;
+  padding: 20px 0px 0px 0px;
+  margin: auto;
+}
