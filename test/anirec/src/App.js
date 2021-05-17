@@ -12,6 +12,9 @@ import {onError} from '@apollo/client/link/error'
 
 import Header from "./components/global_elements/Header.js";
 import GenresShowMore from "./pages/listing_pages/GenresShowMore";
+import UserShowMore from "./pages/listing_pages/UserSpecificShowMore";
+
+//const UserContext = React.createContext('user');
 
 const errorLink = onError(({ graphqlErrors, networkError }) => {
   if (graphqlErrors){
@@ -34,6 +37,7 @@ function App() {
       return (
         <ApolloProvider client={client}>
         {" "}
+        {/*<UserContext.Provide value="user">*/}
           <Fragment>
             <Router>
               <Switch>
@@ -42,10 +46,12 @@ function App() {
                 <Route path="/Survey" exact component={() => <SurveyOne />} />
                 <Route path="/GenresShowMore/:genreName/:pageNum" exact component={() => <GenresShowMore />}/>
                 <Route path="/ShowMore/:queryName/:pageNum" exact component={() => <GeneralShowMore />}/>
+                <Route path="/UserShowMore/:dataName/:pageNum" exact component={() => <UserShowMore />}/>
                 <Route path="/AnimePage/:animeId/:partDisplay?" exact component={() => <AnimePage />} />
               </Switch>
             </Router>
           </Fragment>
+        {/*</UserContext.Provide>*/}
         </ApolloProvider>
       );
 }
