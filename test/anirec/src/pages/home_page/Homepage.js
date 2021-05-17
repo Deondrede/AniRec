@@ -3,7 +3,7 @@ import HomePageShowCard from '../../components/HomePageShowCard';
 import TopSpace from "../../components/global_elements/TopSpacer"
 import {AIRING_NOW, TRY_THIS, TRENDING} from '../../GraphQL/Queries'
 import { Link, useLocation } from "react-router-dom";
-//import GetUserRecs from "../home_page/UserRecPulling.js";
+import GetUserRecs from "../home_page/UserRecPulling.js";
 
 import GetShow from "./GetRecShows.js";
 
@@ -56,6 +56,9 @@ function GetShow2(id_num) {
     if (error) return <p>Error2 :(</p>
 
     //console.log("GetRecShows2 data",data);
+    setTimeout(() => {
+        console.log("wait 1 second");
+    }, 5000);
     return data;
 }
 
@@ -110,6 +113,10 @@ function HomePage(props){
     const {error: errorC2, loading: loadingC2, data: dataC2} = useQuery(AIRING_NOW);
     //const {error: errorC3, loading: loadingC3, data: dataC3} = useQuery(TRY_THIS);
     const {error: errorC4, loading: loadingC4, data: dataC4} = useQuery(TRENDING);
+    
+    useEffect(()=>{
+        }, []
+    );
        
 
     // airing_now array
@@ -185,7 +192,13 @@ function HomePage(props){
                     <Col id="feed-col">
                         <Row id="subtitle">
                             <Col className="pink">
-                                <span><strong id="recommended">Recommended</strong></span>
+                                <Link className="user-showmore-link" id="recommended" to={{
+                                        pathname:`/UserShowMore/recommended/1`,
+                                        state: {
+                                            userRecShows: recShowToDisplay
+                                        }
+                                    }}><span><strong>Recommended</strong></span>
+                                    </Link>
                             </Col>
                             <Col id="grey"><span></span></Col>
                         </Row>
