@@ -9,7 +9,7 @@ import { Link, useParams, useLocation } from 'react-router-dom';
 import {useQuery, gql} from '@apollo/client'
  
 export default function GeneralShowMore(){
-
+    // query for data
     const params = useParams();
     const location = useLocation();
     const {error, loading, data, refetch} = useQuery(location.state.query,
@@ -36,12 +36,14 @@ export default function GeneralShowMore(){
             <Fragment>
                 <TopSpace />
                 <Container className="">
+                    {/* back btn */}
                     <Row id="back_btn_space">
                         <Link className="back_btn" to={"/Anime"}>
                             <Button className="back_btn" id="btn-right"><strong>Home</strong></Button>
                         </Link>
                     </Row>
                     <Grid id="grid">
+                        {/* main grid content  */}
                         {rows.map((cols) => (
                             <Row>
                                 {cols.map((col) => (
@@ -64,6 +66,7 @@ export default function GeneralShowMore(){
                         )
                         )}
                     </Grid>
+                    {/* pagination */}
                     {(params.pageNum > 1) ?
                                     ((params.pageNum > data.length -Number(1)) ?
                                         <Link to={{

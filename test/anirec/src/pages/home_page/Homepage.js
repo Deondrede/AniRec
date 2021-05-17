@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect  } from "react";
+import React, { Fragment, useEffect, setState  } from "react";
 import HomePageShowCard from '../../components/HomePageShowCard';
 import TopSpace from "../../components/global_elements/TopSpacer"
 import {AIRING_NOW, TRY_THIS, TRENDING} from '../../GraphQL/Queries'
@@ -66,9 +66,7 @@ function GetShow2(id_num) {
 function HomePage(props){
     const location= useLocation(); //get username using {location.state.user}
     const user = location.state.user;
-    console.log("user",user);
     const recShowArray = location.state.recs;
-    console.log("recShowArray",recShowArray);
 
     const recShowToDisplay = [];
     var count = 0;
@@ -102,7 +100,6 @@ function HomePage(props){
         //console.log("typeof got_data",typeof got_data);
         
     }
-    console.log("recShowToDisplay",recShowToDisplay);
     
     const tryShowToDisplay = [];
     for( let x = 0; x < 4; x++) // to gather the 4 that will show on Homepage
@@ -122,8 +119,7 @@ function HomePage(props){
     // airing_now array
     if (loadingC2) return <p>Loading2...</p>
     if (errorC2) return <p>Error2 :(</p>
-    console.log("dataC2", dataC2);
-    console.log("dataC4", dataC4);
+
     const airingArr = dataC2.Page.media;
     const homeAiringArr = [];
     for (let i = 0; i < 4; i++){
@@ -141,49 +137,8 @@ function HomePage(props){
 
     if (loadingC2) return <p>Loading2...</p>
     if (errorC2) return <p>Error2 :(</p>
-    /*if (loadingC3) return <p>Loading3...</p>
 
     if (errorC3) return <p>Error3 :(</p>
-
-        let col3_1 = {
-            name: (dataC3.series1.title.english==null)
-                ? dataC3.series1.title.romaji :
-                dataC3.series1.title.english,
-            image: dataC3.series1.coverImage.extraLarge,
-            genre: dataC3.series1.genres,
-            studio: dataC3.series1.studios.nodes[0].name,
-            id: dataC3.series1.id
-        }
-    
-        let col3_2 = {
-            name: (dataC3.series2.title.english==null)
-                ? dataC3.series2.title.romaji :
-                dataC3.series2.title.english,
-            image: dataC3.series2.coverImage.extraLarge,
-            genre: dataC3.series2.genres,
-            studio: dataC3.series2.studios.nodes[0].name,
-            id: dataC3.series2.id
-        }
-        
-        let col3_3= {
-            name: (dataC3.series3.title.english==null)
-                ? dataC3.series3.title.romaji :
-                dataC3.series3.title.english,
-            image: dataC3.series3.coverImage.extraLarge,
-            genre: dataC3.series3.genres,
-            studio: dataC3.series3.studios.nodes[0].name,
-            id: dataC3.series3.id
-        }
-    
-        let col3_4 = {
-            name: (dataC3.series4.title.english==null)
-            ? dataC3.series4.title.romaji :
-            dataC3.series4.title.english,
-            image: dataC3.series4.coverImage.extraLarge,
-            genre: dataC3.series4.genres,
-            studio: dataC3.series4.studios.nodes[0].name,
-            id: dataC3.series4.id
-        }*/
     return(
         <Fragment>
             <Container>
@@ -250,7 +205,13 @@ function HomePage(props){
                     {/*<Col id="feed-col">
                         <Row id="subtitle">
                             <Col className="pink">
-                                <span id="try-this"><strong>Try This</strong></span>
+                                <Link className="user-showmore-link" id="try-this" to={{
+                                            pathname:`/ShowMore/try-this/1`,
+                                            state: {
+                                                userRecShows: tryShowArray
+                                            }
+                                        }}><span><strong>Try This</strong></span>
+                                </Link>
                             </Col>
                             <Col id="grey"><span></span></Col>
                         </Row>
@@ -284,7 +245,7 @@ function HomePage(props){
                                     id={col3_4.id}
                                     />
                         </Row>
-                                        </Col>*/}
+                    </Col>*/}
                     <Col id="spacing"></Col>
                     <Col id="feed-col">
                         <Row id="subtitle">

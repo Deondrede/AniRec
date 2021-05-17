@@ -13,6 +13,7 @@ function LandingPage(){
             <Container fluid classname="landingpage-container">
             <Row id="landing_page_body">
                 <Col id="login_space">
+                    {/* left side of landing page */}
                     <LrTabs />
                 </Col>
                 <Col id="wallpaper">

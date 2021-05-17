@@ -14,8 +14,6 @@ import Header from "./components/global_elements/Header.js";
 import GenresShowMore from "./pages/listing_pages/GenresShowMore";
 import UserShowMore from "./pages/listing_pages/UserSpecificShowMore";
 
-//const UserContext = React.createContext('user');
-
 const errorLink = onError(({ graphqlErrors, networkError }) => {
   if (graphqlErrors){
     graphqlErrors.map(({ message, location, path }) => {

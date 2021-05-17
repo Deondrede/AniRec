@@ -2,12 +2,13 @@ import React, { Component, Fragment, useEffect } from "react";
 import { Container, Row, Col, Button, ButtonGroup } from "react-bootstrap";
 import TopSpace from "../../components/global_elements/TopSpacer.js";
 import { BrowserRouter as Router, Switch, Route, Link, useHistory, useParams  } from "react-router-dom";
-import { AnimeInfo, Rating, Recommendations} from "../../components/animepages.component.js";
+import { AnimeInfo} from "../../components/animepages.component.js";
 
 import {gql, useQuery} from '@apollo/client';
 import "./show_page.css"
 
 export default function AnimePage(props) {
+    // query for data 
     const params = useParams();
     const ANIME_QUERY = gql`
     query AnimeQuery($id: Int)
@@ -55,7 +56,7 @@ export default function AnimePage(props) {
     if (loading) return <p>Loading1...</p>
     if (error) return <p>Error1 :(</p>
 
-    
+    // storing data 
     let animeData = {
         name: (data.series.title.english==null)
             ? data.series.title.romaji :
@@ -77,16 +78,19 @@ export default function AnimePage(props) {
             <Fragment>
                 <TopSpace/>
                     <Container>
+                        {/* back btn */}
                         <Row id="back-btn-space">
                             <Link to={`/Anime`}>
                                 <Button className="back_btn"><strong>Home</strong></Button>
                             </Link>
                         </Row>
                         <Row>
-                            <Col>                            
+                            <Col>                    
+                            {/* title         */}
                             <Row>
                                 <p className="show-page-title"><strong>{animeData.name}</strong></p>
                             </Row>
+                            {/* genres */}
                             <Row>
                                 <div className="show-page-genres">
                                     {animeData.genre.map((genres) =>
@@ -113,6 +117,7 @@ export default function AnimePage(props) {
                         </Row>
                         <Router>
                             <Row>
+                                {/* left side sections */}
                                 <Col id="show-page-left-side">
                                     <Row>
                                         <div className="show-page-img">
@@ -132,30 +137,13 @@ export default function AnimePage(props) {
                                                     Information
                                                 </Button>
                                             </Link>
-
-
-                                            {/* <Link id="tab-name" to={`/AnimePage/${params.animeId}/key-staff`}>
-                                                <Button id="side-btns">
-                                                    Key Staff
-                                                </Button>
-                                            </Link> */}
-                                            {/* <Link id="tab-name" to={`/Anime/${params.animeId}/reviews`}>
-                                                <Button id="side-btns">
-                                                    Reviews
-                                                </Button>
-                                            </Link> */}
-                                            <Link id="tab-name" to={`/AnimePage/${params.animeId}/recommendations`}>
-                                                <Button id="side-btns">
-                                                    Recommendations
-                                                </Button>
-                                            </Link>
                                         </ButtonGroup>
                                     </Row>
                                 </Col>
                                 <Col id="show-page-right-side-outer">
                                     <Row id="show-page-right-side-inner">
                                         <Switch>
-                                            <Route path="/AnimePage/:animeid/ratings" component={Rating} />
+                                            {/* component routes for right side */}
                                             <Route path="/AnimePage/:animeid/information" component={() =>
                                                 <AnimeInfo 
                                                     name = {animeData.name} 
@@ -165,9 +153,6 @@ export default function AnimePage(props) {
                                                     episodes = {animeData.episodes} 
                                                     studio = {animeData.studio}  
                                                     format={animeData.format}/>}/>
-                                            {/* <Route path="/AnimePage/:animeid/key-staff" component={() =><KeyStaff siteurl = {animeData.siteUrl} />} /> */}
-                                            {/* <Route path="/AnimePage/:animeid/reviews" component={Reviews} /> */}
-                                            <Route path="/AnimePage/:animeid/recommendations" component={() => <Recommendations />} />
                                         </Switch>
                                     </Row>
                                 </Col>

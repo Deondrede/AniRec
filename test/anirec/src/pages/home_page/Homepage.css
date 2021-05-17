@@ -26,20 +26,29 @@ span{
   font-size: 25px;
 }
 
-.trending_airing_link{
+.general-showmore-link{
   color: #AA80FF;
   padding-left: 5px;
 }
 
-.trending_airing_link:hover{
+.general-showmore-link:hover{
   text-decoration: none;
 }
 
-#feed_body .col{
+.user-showmore-link{
+  color: #FF66CC;
+  padding-left: 5px;
+}
+
+.user-showmore-link:hover{
+  text-decoration: none;
+}
+
+#feed-body .col{
   padding: 0px 0px 0px 0px;
 }
 
-#feed_col{
+#feed-col{
   max-width: 23.875%;
   height: 900px;
 }
@@ -102,12 +111,12 @@ span{
   background-size: 4px 50px;
 }
 
-.purple:hover .trending_airing_link, .purple.hover .trending_airing_link{
+.purple:hover .general-showmore-link, .purple.hover .general-showmore-link{
   color: white;
   transition-delay: .15s;
 }
 
-#main_content{
+#main-content{
   height: 100%;
   color: black;
   padding: 20px 0px 0px 0px;

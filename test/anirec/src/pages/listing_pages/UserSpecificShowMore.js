@@ -51,7 +51,6 @@ export default function UserShowMore(){
                                             //col.Page.media.studios.nodes.map(studio_name => 
                                             //studio_name.name).join(', ')}
                                     />
-                                        
                                 </Col>
                             )
                             )}
