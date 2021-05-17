@@ -40,16 +40,17 @@ export default function UserShowMore(){
                             {cols.map((col) => (
                                 <Col md={3} id="grid-content">
                                     <ListingPageShowCard   
-                                        id={col.Page.media.id}
-                                        image={col.Page.media.coverImage.large} 
-                                        name={(col.Page.media.title.english==null)
-                                            ? col.Page.media.title.romaji :
-                                            col.Page.media.title.english}
-                                        genre={col.Page.media.genres}
-                                        studio={(col.Page.media.studios.nodes.length > 5) ? col.Page.media.studios.nodes.slice(0,6).map(studio_name => 
-                                            studio_name.name).join(', ') :
-                                            col.Page.media.studios.nodes.map(studio_name => 
-                                            studio_name.name).join(', ')}/>
+                                        id={col.Media.id}
+                                        image={col.Media.coverImage.large} 
+                                        name={(col.Media.title.english==null)
+                                            ? col.Media.title.romaji :
+                                            col.Media.title.english}
+                                        genre={col.Media.genres}
+                                        //studio={(col.Page.media.studios.nodes.length > 5) ? col.Page.media.studios.nodes.slice(0,6).map(studio_name => 
+                                            //studio_name.name).join(', ') :
+                                            //col.Page.media.studios.nodes.map(studio_name => 
+                                            //studio_name.name).join(', ')}
+                                    />
                                 </Col>
                             )
                             )}
