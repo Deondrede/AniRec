@@ -24,7 +24,6 @@ function HomePage(){
         recShowToDisplay.push(<GetShow id={recShowArray[i]}/>)
     }
 
-
     const tryShowToDisplay = [];
 
     // query for data
@@ -52,49 +51,6 @@ function HomePage(){
 
     if (loadingC2) return <p>Loading2...</p>
     if (errorC2) return <p>Error2 :(</p>
-    /*    if (loadingC3) return <p>Loading3...</p>
-
-    if (errorC3) return <p>Error3 :(</p>
-
-        let col3_1 = {
-            name: (dataC3.series1.title.english==null)
-                ? dataC3.series1.title.romaji :
-                dataC3.series1.title.english,
-            image: dataC3.series1.coverImage.extraLarge,
-            genre: dataC3.series1.genres,
-            studio: dataC3.series1.studios.nodes[0].name,
-            id: dataC3.series1.id
-        }
-    
-        let col3_2 = {
-            name: (dataC3.series2.title.english==null)
-                ? dataC3.series2.title.romaji :
-                dataC3.series2.title.english,
-            image: dataC3.series2.coverImage.extraLarge,
-            genre: dataC3.series2.genres,
-            studio: dataC3.series2.studios.nodes[0].name,
-            id: dataC3.series2.id
-        }
-        
-        let col3_3= {
-            name: (dataC3.series3.title.english==null)
-                ? dataC3.series3.title.romaji :
-                dataC3.series3.title.english,
-            image: dataC3.series3.coverImage.extraLarge,
-            genre: dataC3.series3.genres,
-            studio: dataC3.series3.studios.nodes[0].name,
-            id: dataC3.series3.id
-        }
-    
-        let col3_4 = {
-            name: (dataC3.series4.title.english==null)
-            ? dataC3.series4.title.romaji :
-            dataC3.series4.title.english,
-            image: dataC3.series4.coverImage.extraLarge,
-            genre: dataC3.series4.genres,
-            studio: dataC3.series4.studios.nodes[0].name,
-            id: dataC3.series4.id
-        }*/
 
     return(
         <Fragment>
