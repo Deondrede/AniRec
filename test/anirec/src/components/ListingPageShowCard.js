@@ -13,10 +13,13 @@ function ListingPageShowCard(props){
             <Container className="float-center" id="listingpage-card-outer">
                 <Row id="listingpage-card-image">
                     <img src={props.image} className="center"/> 
+                        <Link id="listingpage-card-title-text" to={{
+                                pathname:`/AnimePage/${props.id}`,
+                            }}>
                         <div className="listingpage-card-hover-info-outer">
                             <div id="listingpage-card-hover-info-inner">
-                                <Row id="listingpage-card-title">
-                                    <p className="listingpage-card-text-large">{props.name}</p>
+                               <Row id="listingpage-card-title">
+                                    <p className="listingpage-card-text-large"><strong>{props.name}</strong></p>
                                 </Row>
                                 <Row id="listingpage-card-genre">
                                     <p className="listingpage-card-text-small">
@@ -49,6 +52,7 @@ function ListingPageShowCard(props){
                         <Row id="listingpage-card-studios">
                             <p id="listingpage-card-text">{props.studio}</p>
                         </Row>
+                        </Link>
                 </Row>
             </Container>
         </Fragment>

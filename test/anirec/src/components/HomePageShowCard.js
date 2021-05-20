@@ -16,10 +16,14 @@ function HomePageShowCard(props){
 
                         {/* Start of Show Image on Left-Side*/}
                         <Col className="homepage-card-img">
+                            <Link id="homepage-card-title-text"to={{
+                                    pathname:`/AnimePage/${props.id}`,
+                                }}>
                                 <img src={props.image}/>
                                 <div className="homepage-card-hover-info">
                                     <p>{props.description}</p>
                                 </div>
+                            </Link>
                         </Col>
                         {/* End of Show Image on Left-Side*/}
 
@@ -28,7 +32,11 @@ function HomePageShowCard(props){
 
                             {/* Start of Show Title*/}
                             <Row id="homepage-card-title">
+                                <Link id="homepage-card-title-text"to={{
+                                        pathname:`/AnimePage/${props.id}`,
+                                    }}>
                                 <p id="homepage-card-text">{props.name}</p>
+                                </Link>
                             </Row>
                             {/* End of Show Title*/}
                             

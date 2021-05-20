@@ -54,7 +54,8 @@ export default function GeneralShowMore(){
                                             studio={(col.studios.nodes.length > 5) ? col.studios.nodes.slice(0,6).map(studio_name => 
                                                 studio_name.name).join(', ') :
                                                 col.studios.nodes.map(studio_name => 
-                                                studio_name.name).join(', ')}/>
+                                                studio_name.name).join(', ')}
+                                            id={col.id}/>
                                     </Col>
                                 )
                                 )}
@@ -62,7 +63,51 @@ export default function GeneralShowMore(){
                         )
                         )}
 
-                    </Grid> 
+</Grid>
+                    {/* pagination */}
+                    {(params.pageNum > 1) ?
+                                    ((params.pageNum > data.length -Number(1)) ?
+                                        <Link to={{
+                                            pathname:`/ShowMore/${params.queryName}/${Number(params.pageNum) - 1}`,
+                                            state: {
+                                                query: location.state.query
+                                            }
+                                        }}>
+                                            <Button className="page-btn">
+                                                Previous Page
+                                            </Button>
+                                        </Link> :
+                                        <Fragment>
+                                                <Link to={{
+                                                    pathname:`/ShowMore/${params.queryName}/${Number(params.pageNum) - 1}`,
+                                                    state: {
+                                                        query: location.state.query
+                                                    }}}>
+                                                    <Button  className="page-btn">
+                                                        Previous Page
+                                                    </Button>
+                                                </Link>
+                                                <Link to={{
+                                                    pathname:`/ShowMore/${params.queryName}/${Number(params.pageNum) + 1}`,
+                                                    state: {
+                                                        query: location.state.query
+                                                    }
+                                                }}>
+                                                    <Button  className="page-btn">
+                                                        Next Page
+                                                    </Button>
+                                                </Link> 
+                                        </Fragment> ): 
+                                    <Link to={{
+                                        pathname:`/ShowMore/${params.queryName}/${Number(params.pageNum) + 1}`,
+                                            state: {
+                                                query: location.state.query
+                                        }}}>
+                                        <Button  className="page-btn">
+                                            Next Page
+                                        </Button>
+                                    </Link>
+                                }                     
                 </Container>
             </Fragment>
         );

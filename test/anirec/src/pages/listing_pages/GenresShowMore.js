@@ -13,22 +13,23 @@ export default function GenresShowMore(){
     query GenreQuery($genre: String, $page: Int) {
         Page(page: $page, perPage: 48){
             media(type: ANIME, isAdult: false, genre: $genre, sort: [POPULARITY_DESC]){
-              title{
-                english
-                romaji
-              }
-              genres
-              description
-              coverImage{
-                medium
-                large
-                extraLarge
-              }
-              studios{
-                nodes{
-                  name
+                id
+                title{
+                    english
+                    romaji
                 }
-              }
+                genres
+                description
+                coverImage{
+                    medium
+                    large
+                    extraLarge
+                }
+                studios{
+                    nodes{
+                        name
+                    }
+                }
             }
         }
     }`;
@@ -62,7 +63,6 @@ export default function GenresShowMore(){
                 <TopSpace />
                 <Container className="">
                     <Row id="back_btn_space">
-                        <Button className="back_btn" id="btn-left" onClick={() => history.goBack()}><strong>Back</strong></Button>
                         <Link to={"/Anime"}>
                             <Button className="back_btn" id="btn-right"><strong>Home</strong></Button>
                         </Link>
@@ -79,7 +79,8 @@ export default function GenresShowMore(){
                                                 col.title.english}
                                             genre={col.genres}
                                             studio={col.studios.nodes.map(studio_name => 
-                                                studio_name.name).join(', ')}/>
+                                                studio_name.name).join(', ')}
+                                            id={col.id}/>
                                     </Col>
                                 )
                                 )}

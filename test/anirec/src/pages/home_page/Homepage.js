@@ -12,7 +12,14 @@ import { Container, Row, Col } from "react-bootstrap";
 
 //will be used as next Page to list
 function HomePage(){
-    const {error, loading, data} = useQuery(AIRING_NOW);
+    const {error, loading, data} = useQuery(AIRING_NOW,
+        {
+            variables:{
+                page: 1,
+                seasonYear: 2021,
+                season: "SPRING"
+            }
+        });
     const {error: errorC2, loading: loadingC2, data: dataC2} = useQuery(RECOMMENDED);
     const {error: errorC3, loading: loadingC3, data: dataC3} = useQuery(TRY_THIS);
     const {error: errorC4, loading: loadingC4, data: dataC4} = useQuery(TRENDING);
@@ -63,7 +70,8 @@ function HomePage(){
             dataC2.series1.title.english,
         image: dataC2.series1.coverImage.extraLarge,
         genre: dataC2.series1.genres,
-        studio: dataC2.series1.studios.nodes[0].name
+        studio: dataC2.series1.studios.nodes[0].name,
+        id: dataC2.series1.id
     }
 
     
@@ -73,7 +81,8 @@ function HomePage(){
             dataC2.series2.title.english,
         image: dataC2.series2.coverImage.extraLarge,
         genre: dataC2.series2.genres,
-        studio: dataC2.series2.studios.nodes[0].name
+        studio: dataC2.series2.studios.nodes[0].name,
+        id: dataC2.series2.id
     }
     
     let col1_3= {
@@ -82,7 +91,8 @@ function HomePage(){
             dataC2.series3.title.english,
         image: dataC2.series3.coverImage.extraLarge,
         genre: dataC2.series3.genres,
-        studio: dataC2.series3.studios.nodes[0].name
+        studio: dataC2.series3.studios.nodes[0].name,
+        id: dataC2.series3.id
     }
 
     let col1_4 = {
@@ -91,7 +101,8 @@ function HomePage(){
         dataC2.series4.title.english,
         image: dataC2.series4.coverImage.extraLarge,
         genre: dataC2.series4.genres,
-        studio: dataC2.series4.studios.nodes[0].name
+        studio: dataC2.series4.studios.nodes[0].name,
+        id: dataC2.series4.id
     }
 
     let col3_1 = {
@@ -100,7 +111,8 @@ function HomePage(){
             dataC3.series1.title.english,
         image: dataC3.series1.coverImage.extraLarge,
         genre: dataC3.series1.genres,
-        studio: dataC3.series1.studios.nodes[0].name
+        studio: dataC3.series1.studios.nodes[0].name,
+        id: dataC3.series1.id
     }
 
     let col3_2 = {
@@ -109,7 +121,8 @@ function HomePage(){
             dataC3.series2.title.english,
         image: dataC3.series2.coverImage.extraLarge,
         genre: dataC3.series2.genres,
-        studio: dataC3.series2.studios.nodes[0].name
+        studio: dataC3.series2.studios.nodes[0].name,
+        id: dataC3.series2.id
     }
     
     let col3_3= {
@@ -118,7 +131,8 @@ function HomePage(){
             dataC3.series3.title.english,
         image: dataC3.series3.coverImage.extraLarge,
         genre: dataC3.series3.genres,
-        studio: dataC3.series3.studios.nodes[0].name
+        studio: dataC3.series3.studios.nodes[0].name,
+        id: dataC3.series3.id
     }
 
     let col3_4 = {
@@ -127,7 +141,8 @@ function HomePage(){
         dataC3.series4.title.english,
         image: dataC3.series4.coverImage.extraLarge,
         genre: dataC3.series4.genres,
-        studio: dataC3.series4.studios.nodes[0].name
+        studio: dataC3.series4.studios.nodes[0].name,
+        id: dataC3.series4.id
     }
   
     return(
@@ -147,22 +162,26 @@ function HomePage(){
                                 name={col1_1.name}
                                 image={col1_1.image}
                                 genre= {col1_1.genre}
-                                studio={col1_1.studio}/>
+                                studio={col1_1.studio}
+                                id={col1_1.id}/>
                             <HomePageShowCard
                                 name={col1_2.name}
                                 image={col1_2.image}
                                 genre= {col1_2.genre}
-                                studio={col1_2.studio}/>
+                                studio={col1_2.studio}
+                                id={col1_1.id}/>
                             <HomePageShowCard
                                 name={col1_3.name}
                                 image={col1_3.image}
                                 genre= {col1_3.genre}
-                                studio={col1_3.studio}/>
+                                studio={col1_3.studio}
+                                id={col1_1.id}/>
                             <HomePageShowCard
                                 name={col1_4.name}
                                 image={col1_4.image}
                                 genre= {col1_4.genre}
-                                studio={col1_4.studio}/>
+                                studio={col1_4.studio}
+                                id={col1_1.id}/>
 
                         </Row>
                     </Col>
@@ -171,7 +190,7 @@ function HomePage(){
                         <Row id="subtitle">
                             <Col className="purple">
                                 <Link className="trending_airing_link" id="airing_now" to={{
-                                    pathname:`/ShowMore/airing_now`,
+                                    pathname:`/ShowMore/airing_now/1`,
                                     state: {
                                         query: AIRING_NOW
                                     }
@@ -190,7 +209,8 @@ function HomePage(){
                                         image={row.coverImage.extraLarge}
                                         genre={row.genres}
                                         studio={row.studios.nodes[0].name}
-                                        description={row.description}/>
+                                        description={row.description}
+                                        id={row.id}/>
                             )}
                         </Row>
                     </Col>
@@ -207,22 +227,26 @@ function HomePage(){
                                     name={col3_1.name}
                                     image={col3_1.image}
                                     genre={col3_1.genre}
-                                    studio={col3_1.studio}/>
+                                    studio={col3_1.studio}
+                                    id={col3_1.id}/>
                                 <HomePageShowCard
                                     name={col3_2.name}
                                     image={col3_2.image}
                                     genre={col3_2.genre}
-                                    studio={col3_2.studio}/>
+                                    studio={col3_2.studio}
+                                    id={col3_1.id}/>
                                 <HomePageShowCard
                                     name={col3_3.name}
                                     image={col3_3.image}
                                     genre={col3_3.genre}
-                                    studio={col3_3.studio}/>
+                                    studio={col3_3.studio}
+                                    id={col3_1.id}/>
                                 <HomePageShowCard
                                     name={col3_4.name}
                                     image={col3_4.image}
                                     genre={col3_4.genre}
-                                    studio={col3_4.studio}/>
+                                    studio={col3_4.studio}
+                                    id={col3_1.id}/>
                         </Row>
                     </Col>
                     <Col id="spacing"></Col>
@@ -230,7 +254,7 @@ function HomePage(){
                         <Row id="subtitle">
                             <Col className="purple">
                                 <Link className="trending_airing_link" id="trending" to={{
-                                    pathname:"/ShowMore/trending",
+                                    pathname:"/ShowMore/trending/1",
                                     state: {
                                         query: TRENDING
                                     }
@@ -249,7 +273,8 @@ function HomePage(){
                                     image={row.coverImage.extraLarge}
                                     genre={row.genres}
                                     studio={(row.studios.nodes[0]==null) ? "" : row.studios.nodes[0].name}
-                                    description={row.description}/>
+                                    description={row.description}
+                                    id={row.id}/>
                             )}
                         </Row>
                     </Col>
