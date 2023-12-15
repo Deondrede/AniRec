@@ -20,7 +20,7 @@ def createUser(request):
     ao_json = serializers.serialize('json', all_objects)
     return HttpResponse(ao_json, content_type='application/json')
 
-def index(request):
+def index():
     all_objects = list(User.objects.all())
     ao_json = serializers.serialize('json', all_objects)
     return HttpResponse(ao_json, content_type='application/json')
@@ -47,9 +47,7 @@ def updateAnime(request):
         user.try_this = try_this(remove_chars(user.watched_anime))
         user.save()
 
-    all_objects = list(User.objects.all())
-    ao_json = serializers.serialize('json', all_objects)
-    return HttpResponse(ao_json, content_type='application/json')
+    return index()
 
 def updateReview(request):
     if request.method == "POST":
@@ -64,6 +62,4 @@ def updateReview(request):
         reviews_json = serializers.serialize('json',reviews)
         return HttpResponse(reviews_json,content_type='application/json')
 
-    all_objects = list(Review.objects.all())
-    ao_json = serializers.serialize('json', all_objects)
-    return HttpResponse(ao_json, content_type='application/json')
+    return index()
