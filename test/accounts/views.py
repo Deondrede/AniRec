@@ -5,16 +5,7 @@ from django.core import serializers
 from django.http import HttpResponse
 
 def remove_chars(genres:str):
-    genrearray = []
-    stringthing = ""
-    for char in genres:
-        if char != "~" and char != ";":
-            stringthing += char
-        else:
-            if stringthing != "":
-                genrearray.append(stringthing)
-                stringthing = ""
-    return genrearray
+    return genres.split(';')
 
 def createUser(request):
     if request.method == "POST":
@@ -39,7 +30,7 @@ def updateGenre(request):
         username = request.POST.get('username')
         genre = request.POST.get('genre')
         user = User.objects.get(username=username)
-        user.preferred_genres += "~" + genre + ";"
+        user.preferred_genres += f"{genre};"
         user.save()
 
     all_objects = list(User.objects.all())
@@ -51,7 +42,7 @@ def updateAnime(request):
         username = request.POST.get('username')
         anime = request.POST.get('anime')
         user = User.objects.get(username=username)
-        user.watched_anime += "~" + anime + ";"
+        user.watched_anime += f"{anime};"
         user.recommendations = get_recs(remove_chars(user.watched_anime))
         user.try_this = try_this(remove_chars(user.watched_anime))
         user.save()
